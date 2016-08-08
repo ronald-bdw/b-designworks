@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   namespace :v1, defaults: { format: "json" } do
     devise_scope :user do
-      post "users/sign_in", to: 'sessions#create'
+      post "users/sign_in", to: "sessions#create"
     end
+
+    resources :auth_phone_codes, only: %i(create)
   end
 end
