@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
     :recoverable, :trackable, :validatable
 
   has_one :auth_phone_code, dependent: :destroy
+
+  validates :phone_number, presence: true
 end
