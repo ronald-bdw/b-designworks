@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130319140714) do
+ActiveRecord::Schema.define(version: 20160808150046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: true do |t|
+  create_table "auth_phone_codes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "phone_code"
+    t.datetime "expire_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "auth_phone_codes", ["user_id"], name: "index_auth_phone_codes_on_user_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -30,10 +40,12 @@ ActiveRecord::Schema.define(version: 20130319140714) do
     t.string   "authentication_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "phone_number",                        null: false
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["phone_number"], name: "index_users_on_phone_number", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
