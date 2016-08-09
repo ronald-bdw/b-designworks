@@ -1,0 +1,38 @@
+{
+  "resource": "Authentication phone codes",
+  "http_method": "POST",
+  "route": "v1/auth_phone_codes",
+  "description": "Send auth code to phone number",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "phone_number",
+      "description": "Phone number"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "v1/auth_phone_codes",
+      "request_body": "phone_number=%28573%29755-2849",
+      "request_headers": {
+        "Accept": "application/json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"auth_phone_code\":{\"id\":4,\"phone_code\":\"1234\",\"expire_at\":\"2016-08-09T08:22:46.462Z\",\"phone_registered\":true}}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:5000v1/auth_phone_codes\" -d 'phone_number=%28573%29755-2849' -X POST \\\n\t-H \"Accept: application/json\""
+    }
+  ]
+}

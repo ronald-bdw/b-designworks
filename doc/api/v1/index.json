@@ -1,16 +1,6 @@
 {
   "resources": [
     {
-      "name": "Errors",
-      "examples": [
-        {
-          "description": "Request to unexisting page",
-          "link": "errors/request_to_unexisting_page.json",
-          "groups": "all"
-        }
-      ]
-    },
-    {
       "name": "Sessions",
       "examples": [
         {
@@ -21,6 +11,31 @@
         {
           "description": "Sign in with invalid password",
           "link": "sessions/sign_in_with_invalid_password.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
+      "name": "Authentication phone codes",
+      "examples": [
+        {
+          "description": "Send auth code to phone number",
+          "link": "authentication_phone_codes/send_auth_code_to_phone_number.json",
+          "groups": "all"
+        },
+        {
+          "description": "Send auth code to phone number",
+          "link": "authentication_phone_codes/send_auth_code_to_phone_number.json",
+          "groups": "all"
+        }
+      ]
+    },
+    {
+      "name": "Errors",
+      "examples": [
+        {
+          "description": "Request to unexisting page",
+          "link": "errors/request_to_unexisting_page.json",
           "groups": "all"
         }
       ]
