@@ -23,12 +23,12 @@ describe CreateUser do
     end
 
     context "with invalid params" do
-      let(:sms_code) { 'adff' }
-      let(:error_messages) {{ phone_code: ["Invalid sms code"] }}
+      let(:sms_code) { "adff" }
+      let(:error_messages) { { sms_code: ["is invalid"] } }
 
-      it "should contain error messages" do
+      it "adds errors to user" do
         error_messages.each do |field, value|
-          expect(interactor.errors[field]).to eq value
+          expect(interactor.user.errors.messages[field]).to eq value
         end
       end
     end
