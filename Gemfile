@@ -21,6 +21,9 @@ gem "seedbank"
 gem "simple_token_authentication"
 gem "thin"
 gem "zendesk_api"
+gem "carrierwave"
+gem "fog-aws"
+gem "mini_magick"
 
 group :development do
   gem "letter_opener"

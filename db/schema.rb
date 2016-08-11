@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160818144122) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "zendesk_id"
+    t.string   "avatar"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

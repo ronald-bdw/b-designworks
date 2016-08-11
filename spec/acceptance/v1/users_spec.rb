@@ -1,7 +1,7 @@
 require "rails_helper"
 require "rspec_api_documentation/dsl"
 
-resource "Registrations" do
+resource "Users" do
   header "Accept", "application/json"
 
   before do
@@ -93,6 +93,45 @@ resource "Registrations" do
       example_request "create user with invalid sms code" do
         expect(response_status).to eq 422
         expect(response).to be_an_validation_error_representation(:unprocessable_entity, error_message)
+      end
+    end
+  end
+
+  put "/v1/users/:id" do
+    parameter :first_name, "First name", required: true
+    parameter :last_name, "Last name", required: true
+    parameter :email, "Email", required: true
+    parameter :avatar, "Avatar"
+
+    let(:user) { create :user }
+    let(:id) { user.id }
+
+    it_behaves_like(
+      "a method that requires an authentication",
+      "user",
+      "updating"
+    )
+
+    context "with authentication token" do
+      before { setup_authentication_header(user) }
+
+      let(:avatar) { fixture_file_upload "spec/fixtures/files/avatar.jpg", "image/jpg" }
+      let(:user_json) { response["user"] }
+
+      let(:user_params) do
+        attributes_for(:user).slice(
+          :first_name,
+          :last_name,
+          :email
+        ).merge(avatar: avatar)
+      end
+
+      let(:params) { { user: user_params.merge(avatar: avatar) } }
+
+      example_request "upload user avatar" do
+        expect(user_json["avatar"]["original"]).to include(avatar.original_filename)
+        expect(user_json["avatar"]["thumb"]).to include(avatar.original_filename)
+        expect(user_json).to be_a_user_representation(User.last)
       end
     end
   end
