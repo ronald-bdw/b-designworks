@@ -30,4 +30,5 @@ en:
       us_time: "%I:%M %p"
 
   sms_code:
-    invalid: "Invalid sms code"
+    invalid: "is invalid"
+    expired: "is expired"

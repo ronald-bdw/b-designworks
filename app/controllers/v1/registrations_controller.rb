@@ -23,7 +23,7 @@ module V1
     end
 
     def auth_phone_code
-      @auth_phone_code ||= AuthPhoneCode.unexpired.find_by(id: params[:auth_phone_code_id])
+      @auth_phone_code ||= AuthPhoneCode.find_by(id: params[:auth_phone_code_id])
     end
   end
 end

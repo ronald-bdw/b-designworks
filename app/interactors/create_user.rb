@@ -4,9 +4,12 @@ class CreateUser
   delegate :user_params, :auth_phone_code, :sms_auth_code, to: :context
 
   def call
-    user.errors.add(:base, sms_code.errors.full_messages) if sms_code.invalid?
+    if sms_code.valid?
+      user.save
+    else
+      user.errors.messages.merge!(sms_code.errors.messages)
+    end
 
-    user.save
     context.user = user
   end
 
@@ -17,6 +20,6 @@ class CreateUser
   end
 
   def sms_code
-    @sms_code ||= SmsCode.new(auth_phone_code.try(:phone_code), sms_auth_code)
+    @sms_code ||= SmsCode.new(auth_phone_code, sms_auth_code)
   end
 end
