@@ -3,17 +3,13 @@ module V1
     wrap_parameters :user
 
     def create
-      result = CreateUser.call(
+      user = CreateUser.call(
         user_params: user_params,
         auth_phone_code: auth_phone_code,
         sms_auth_code: params[:sms_code]
-      )
+      ).user
 
-      if result.success?
-        respond_with result.user, status: :created
-      else
-        respond_with result.errors, status: :unprocessable_entity
-      end
+      respond_with user
     end
 
     private
