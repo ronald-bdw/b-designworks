@@ -16,7 +16,8 @@ module V1
 
     def user_params
       params.require(:user).permit(
-        :full_name,
+        :first_name,
+        :last_name,
         :email,
         :phone_number
       )

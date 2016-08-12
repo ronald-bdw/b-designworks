@@ -11,7 +11,7 @@ describe CreateUser do
     end
 
     let(:user) { build_stubbed :user }
-    let(:user_params) { user.slice(:full_name, :email, :phone_number) }
+    let(:user_params) { user.slice(:first_name, :last_name, :email, :phone_number) }
     let(:auth_phone_code) { build_stubbed :auth_phone_code }
 
     context "with valid params" do

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_one :auth_phone_code, dependent: :destroy
 
-  validates :email, :full_name, :phone_number, presence: true
+  validates :email, :first_name, :last_name, :phone_number, presence: true
 
   accepts_nested_attributes_for :auth_phone_code
 end

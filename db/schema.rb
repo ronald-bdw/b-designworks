@@ -38,7 +38,8 @@ ActiveRecord::Schema.define(version: 20160810063111) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "phone_number",                      null: false
-    t.string   "full_name"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

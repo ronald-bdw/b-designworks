@@ -8,7 +8,8 @@ resource "Registrations" do
   let(:auth_phone_code) { create :auth_phone_code, user: user, expire_at: 2.days.from_now }
   let(:user_params) do
     attributes_for(:user).slice(
-      :full_name,
+      :first_name,
+      :last_name,
       :email,
       :phone_number
     )
@@ -17,7 +18,8 @@ resource "Registrations" do
   subject(:response) { json_response_body }
 
   post "/v1/users" do
-    parameter :full_name, "Full name", required: true
+    parameter :first_name, "First name", required: true
+    parameter :last_name, "Last name", required: true
     parameter :email, "Email", required: true
     parameter :phone_number, "Phone number", required: true
 
