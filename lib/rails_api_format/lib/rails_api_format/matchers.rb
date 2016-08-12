@@ -16,9 +16,10 @@ module RailsApiFormat
 
     def validation_error_present?(json, error)
       validations = json["error"]["validations"]
-      validations.keys.find do |key|
+      errors = validations.keys.find do |key|
         validations[key] == error.validations[key]
-      end.present?
+      end
+      errors.present?
     end
 
     matcher :be_an_error_representation do |status, error|

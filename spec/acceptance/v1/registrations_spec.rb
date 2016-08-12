@@ -36,6 +36,7 @@ resource "Registrations" do
     end
 
     context "with invalid phone number" do
+      let(:error_message) { { "phone_number" => ["can't be blank"] } }
       let(:params) do
         {
           user: user_params.except(:phone_number),
@@ -46,11 +47,12 @@ resource "Registrations" do
 
       example_request "create user without phone number" do
         expect(response_status).to eq 422
-        expect(response).to be_an_validation_error_representation(:unprocessable_entity, "phone_number" => ["can't be blank"])
+        expect(response).to be_an_validation_error_representation(:unprocessable_entity, error_message)
       end
     end
 
     context "with invalid sms code" do
+      let(:error_message) { { "sms_code" => ["is invalid"] } }
       let(:params) do
         {
           user: user_params,
@@ -61,11 +63,12 @@ resource "Registrations" do
 
       example_request "create user with invalid sms code" do
         expect(response_status).to eq 422
-        expect(response).to be_an_validation_error_representation(:unprocessable_entity, { "sms_code" => ["is invalid"] })
+        expect(response).to be_an_validation_error_representation(:unprocessable_entity, error_message)
       end
     end
 
     context "with expired sms code" do
+      let(:error_message) { { "sms_code" => ["is expired"] } }
       let(:params) do
         {
           user: user_params,
@@ -78,7 +81,7 @@ resource "Registrations" do
 
       example_request "create user with invalid sms code" do
         expect(response_status).to eq 422
-        expect(response).to be_an_validation_error_representation(:unprocessable_entity, { "sms_code" => ["is expired"] })
+        expect(response).to be_an_validation_error_representation(:unprocessable_entity, error_message)
       end
     end
   end

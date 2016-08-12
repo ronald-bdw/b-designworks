@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe SmsCode do
-  describe 'validations' do
+  describe "validations" do
     let(:phone_code) { auth_phone_code.phone_code }
 
     subject do
@@ -22,7 +22,7 @@ describe SmsCode do
 
     context "with invalid sms code" do
       let(:sms_code) { "fqwef" }
-      let(:error_messages) {{ phone_code: ["invalid sms code"] }}
+      let(:error_messages) { { phone_code: ["invalid sms code"] } }
 
       it "should contains error messages" do
         subject.valid?
