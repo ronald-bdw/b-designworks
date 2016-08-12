@@ -11,7 +11,7 @@ module RailsApiFormat
     end
 
     def json_resource_errors
-      Error.new(status: :unprocessable_entity, validations: resource.errors)
+      Error.new(status: :unprocessable_entity, validations: resource.errors).to_json
     end
   end
 end
