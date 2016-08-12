@@ -14,6 +14,7 @@ resource "Authentication phone codes" do
       let(:phone_number) { user.phone_number }
 
       example_request "Send auth code to phone number" do
+        byebug
         expect(response["phone_registered"]).to be_truthy
       end
     end
