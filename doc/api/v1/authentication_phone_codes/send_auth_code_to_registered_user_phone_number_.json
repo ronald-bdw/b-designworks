@@ -2,7 +2,7 @@
   "resource": "Authentication phone codes",
   "http_method": "POST",
   "route": "v1/auth_phone_codes",
-  "description": "Send auth code to phone number",
+  "description": "Send auth code to registered user phone number ",
   "explanation": null,
   "parameters": [
     {
@@ -18,7 +18,7 @@
     {
       "request_method": "POST",
       "request_path": "v1/auth_phone_codes",
-      "request_body": "phone_number=%28573%29755-2849",
+      "request_body": "phone_number=1-321-342-3087+x1634",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -27,12 +27,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\"auth_phone_code\":{\"id\":4,\"phone_code\":\"1234\",\"expire_at\":\"2016-08-09T08:22:46.462Z\",\"phone_registered\":true}}",
+      "response_body": "{\n  \"auth_phone_code\": {\n    \"id\": 7,\n    \"phone_registered\": true\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000v1/auth_phone_codes\" -d 'phone_number=%28573%29755-2849' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000v1/auth_phone_codes\" -d 'phone_number=1-321-342-3087+x1634' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

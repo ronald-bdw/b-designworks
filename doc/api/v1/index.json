@@ -1,17 +1,40 @@
 {
   "resources": [
     {
+      "name": "Errors",
+      "examples": [
+        {
+          "description": "Request to unexisting page",
+          "link": "errors/request_to_unexisting_page.json",
+          "groups": "all",
+          "route": "/not-found",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "name": "Sessions",
       "examples": [
         {
-          "description": "Sign in with valid password",
-          "link": "sessions/sign_in_with_valid_password.json",
-          "groups": "all"
+          "description": "Sign in with invalid sms code",
+          "link": "sessions/sign_in_with_invalid_sms_code.json",
+          "groups": "all",
+          "route": "/v1/users/sign_in",
+          "method": "post"
         },
         {
-          "description": "Sign in with invalid password",
-          "link": "sessions/sign_in_with_invalid_password.json",
-          "groups": "all"
+          "description": "Sign in with phone number",
+          "link": "sessions/sign_in_with_phone_number.json",
+          "groups": "all",
+          "route": "/v1/users/sign_in",
+          "method": "post"
+        },
+        {
+          "description": "Sign in without phone number",
+          "link": "sessions/sign_in_without_phone_number.json",
+          "groups": "all",
+          "route": "/v1/users/sign_in",
+          "method": "post"
         }
       ]
     },
@@ -19,24 +42,51 @@
       "name": "Authentication phone codes",
       "examples": [
         {
-          "description": "Send auth code to phone number",
-          "link": "authentication_phone_codes/send_auth_code_to_phone_number.json",
-          "groups": "all"
+          "description": "Send auth code to registered user phone number ",
+          "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
+          "groups": "all",
+          "route": "v1/auth_phone_codes",
+          "method": "post"
         },
         {
-          "description": "Send auth code to phone number",
-          "link": "authentication_phone_codes/send_auth_code_to_phone_number.json",
-          "groups": "all"
+          "description": "Send auth code to not registered user phone number",
+          "link": "authentication_phone_codes/send_auth_code_to_not_registered_user_phone_number.json",
+          "groups": "all",
+          "route": "v1/auth_phone_codes",
+          "method": "post"
         }
       ]
     },
     {
-      "name": "Errors",
+      "name": "Registrations",
       "examples": [
         {
-          "description": "Request to unexisting page",
-          "link": "errors/request_to_unexisting_page.json",
-          "groups": "all"
+          "description": "create user with invalid sms code",
+          "link": "registrations/create_user_with_invalid_sms_code.json",
+          "groups": "all",
+          "route": "/v1/users",
+          "method": "post"
+        },
+        {
+          "description": "create user with phone number",
+          "link": "registrations/create_user_with_phone_number.json",
+          "groups": "all",
+          "route": "/v1/users",
+          "method": "post"
+        },
+        {
+          "description": "create user without phone number",
+          "link": "registrations/create_user_without_phone_number.json",
+          "groups": "all",
+          "route": "/v1/users",
+          "method": "post"
+        },
+        {
+          "description": "create user with invalid sms code",
+          "link": "registrations/create_user_with_invalid_sms_code.json",
+          "groups": "all",
+          "route": "/v1/users",
+          "method": "post"
         }
       ]
     }
