@@ -4,6 +4,7 @@ RSpec::Matchers.define :be_a_user_representation do |user|
       id
       authentication_token
       email
+      phone_number
     )
 
     expect(json).to be

@@ -14,10 +14,10 @@ class SmsCode
   private
 
   def check_sms_code
-    errors.add :sms_code, I18n.t("sms_code.invalid") if phone_code != sms_code
+    errors.add :sms_code, I18n.t("sms_code.errors.invalid") if phone_code != sms_code
   end
 
   def check_expire_at
-    errors.add :sms_code, I18n.t("sms_code.expired") if expire_at < Time.current
+    errors.add :sms_code, I18n.t("sms_code.errors.expired") if expire_at < Time.current
   end
 end

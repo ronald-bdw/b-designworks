@@ -28,7 +28,12 @@ en:
       us: "%m/%d/%Y %I:%M %p"
       us_date: "%m/%d/%Y"
       us_time: "%I:%M %p"
-
   sms_code:
-    invalid: "is invalid"
-    expired: "is expired"
+    errors:
+      invalid: "is invalid"
+      expired: "is expired"
+  user:
+    errors:
+      phone_number: "Phone number is invalid"
+
+
