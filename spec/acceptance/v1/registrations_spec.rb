@@ -4,8 +4,7 @@ require "rspec_api_documentation/dsl"
 resource "Registrations" do
   header "Accept", "application/json"
 
-  let(:user) { create :user }
-  let(:auth_phone_code) { create :auth_phone_code, user: user, expire_at: 2.days.from_now }
+  let(:auth_phone_code) { create :auth_phone_code, expire_at: 2.days.from_now }
   let(:user_params) do
     attributes_for(:user).slice(
       :first_name,
@@ -22,6 +21,8 @@ resource "Registrations" do
     parameter :last_name, "Last name", required: true
     parameter :email, "Email", required: true
     parameter :phone_number, "Phone number", required: true
+    parameter :auth_phone_code_id, "Auth phone code id", required: true
+    parameter :sms_code, "Sms code", required: true
 
     context "with valid params" do
       let(:params) do
@@ -33,6 +34,9 @@ resource "Registrations" do
       end
 
       example_request "create user with phone number" do
+        user = User.last
+
+        expect(user.auth_phone_code).to eq(auth_phone_code)
         expect(response["user"]).to be_a_user_representation(User.last)
       end
     end
@@ -79,7 +83,7 @@ resource "Registrations" do
         }
       end
 
-      let(:auth_phone_code) { create :auth_phone_code, user: user, expire_at: 5.minutes.ago }
+      let(:auth_phone_code) { create :auth_phone_code, expire_at: 5.minutes.ago }
 
       example_request "create user with invalid sms code" do
         expect(response_status).to eq 422

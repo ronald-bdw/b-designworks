@@ -5,6 +5,7 @@ class CreateUser
 
   def call
     if sms_code.valid?
+      user.auth_phone_code = auth_phone_code
       user.save
     else
       user.errors.messages.merge!(sms_code.errors.messages)
