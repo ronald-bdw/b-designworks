@@ -1,12 +1,8 @@
 module Devise
   module Strategies
     class SmsCode < Base
-      def valid?
-        params[:phone_number] && params[:sms_code]
-      end
-
       def authenticate!
-        fail!("Phone number is not valid") && return if user.nil?
+        fail!(I18n.t("user.errors.phone_number")) && return if phone_number_invalid?
 
         if sms_code.valid?
           success!(user)
@@ -21,6 +17,10 @@ module Devise
 
       def user
         @user ||= User.find_by(phone_number: params[:phone_number])
+      end
+
+      def phone_number_invalid?
+        params[:phone_number].nil? || user.nil?
       end
     end
   end

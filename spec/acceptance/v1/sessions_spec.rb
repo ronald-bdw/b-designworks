@@ -30,7 +30,7 @@ resource "Sessions" do
     end
 
     context "with invalid phone number" do
-      let(:error_message) { { "phone_number" => ["can't be blank"] } }
+      let(:error_message) { "Phone number is invalid" }
 
       let(:params) do
         {
@@ -40,6 +40,23 @@ resource "Sessions" do
       end
 
       example_request "Sign in without phone number" do
+        expect(response_status).to eq 401
+        expect(response).to be_an_error_representation(:unauthorized, error_message)
+      end
+    end
+
+    context "with invalid sms code" do
+      let(:error_message) { "Sms code is invalid" }
+
+      let(:params) do
+        {
+          phone_number: user.phone_number,
+          auth_phone_code_id: auth_phone_code.id,
+          sms_code: "invalid"
+        }
+      end
+
+      example_request "Sign in with invalid sms code" do
         expect(response_status).to eq 401
         expect(response).to be_an_error_representation(:unauthorized, error_message)
       end

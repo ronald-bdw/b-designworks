@@ -1,4 +1,4 @@
-require_relative '../../lib/devise/strategies/sms_code_strategy'
+require_relative "../../lib/devise/strategies/sms_code_strategy"
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
