@@ -3,7 +3,6 @@ module V1
     wrap_parameters :user
 
     def create
-      byebug
       user = AuthenticateUser.call(warden: warden).user
       respond_with(user)
     end

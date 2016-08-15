@@ -13,8 +13,7 @@ resource "Authentication phone codes" do
       let(:user) { create :user }
       let(:phone_number) { user.phone_number }
 
-      example_request "Send auth code to phone number" do
-        byebug
+      example_request "Send auth code to registered user phone number " do
         expect(response["phone_registered"]).to be_truthy
       end
     end
@@ -22,7 +21,7 @@ resource "Authentication phone codes" do
     context "when user is not registered" do
       let(:phone_number) { Faker::PhoneNumber.cell_phone }
 
-      example_request "Send auth code to phone number" do
+      example_request "Send auth code to not registered user phone number" do
         expect(response["phone_registered"]).to be_falsey
       end
     end
