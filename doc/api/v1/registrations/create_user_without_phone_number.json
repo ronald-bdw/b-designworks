@@ -1,0 +1,53 @@
+{
+  "resource": "Registrations",
+  "http_method": "POST",
+  "route": "/v1/users",
+  "description": "create user without phone number",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "required": true,
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "required": true,
+      "name": "email",
+      "description": "Email"
+    },
+    {
+      "required": true,
+      "name": "phone_number",
+      "description": "Phone number"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/v1/users",
+      "request_body": "user[first_name]=Arianna&user[last_name]=Corwin&user[email]=user9%40example.com&auth_phone_code_id=14&sms_code=8125",
+      "request_headers": {
+        "Accept": "application/json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 422,
+      "response_status_text": "Unprocessable Entity",
+      "response_body": "{\n  \"error\": {\n    \"id\": \"74e65c8a-e497-4f5f-b32d-4640e48e09ec\",\n    \"status\": 422,\n    \"error\": null,\n    \"validations\": {\n      \"phone_number\": [\n        \"can't be blank\"\n      ]\n    }\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Arianna&user[last_name]=Corwin&user[email]=user9%40example.com&auth_phone_code_id=14&sms_code=8125' -X POST \\\n\t-H \"Accept: application/json\""
+    }
+  ]
+}

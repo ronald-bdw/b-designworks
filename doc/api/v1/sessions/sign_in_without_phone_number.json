@@ -2,18 +2,23 @@
   "resource": "Sessions",
   "http_method": "POST",
   "route": "/v1/users/sign_in",
-  "description": "Sign in with invalid password",
+  "description": "Sign in without phone number",
   "explanation": null,
   "parameters": [
     {
       "required": true,
-      "name": "email",
-      "description": "Email"
+      "name": "phone_number",
+      "description": "Phone Number"
     },
     {
       "required": true,
-      "name": "password",
-      "description": "Password"
+      "name": "auth_phone_code",
+      "description": "Auth phone code"
+    },
+    {
+      "required": true,
+      "name": "sms_code",
+      "description": "Sms Code"
     }
   ],
   "response_fields": [
@@ -23,7 +28,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users/sign_in",
-      "request_body": "email=user2%40example.com&password=",
+      "request_body": "auth_phone_code_id=6&sms_code=7022",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -32,12 +37,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 401,
       "response_status_text": "Unauthorized",
-      "response_body": "{\"error\":{\"id\":\"77e2723c-3f4a-40c6-bc47-b9be36041769\",\"status\":401,\"error\":\"Invalid email or password.\",\"validations\":null}}",
+      "response_body": "{\n  \"error\": {\n    \"id\": \"b3e01169-24d3-476f-b877-65a26af08194\",\n    \"status\": 401,\n    \"error\": \"Phone number is invalid\",\n    \"validations\": null\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'email=user2%40example.com&password=' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'auth_phone_code_id=6&sms_code=7022' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }
