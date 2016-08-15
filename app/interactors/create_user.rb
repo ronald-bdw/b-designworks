@@ -4,17 +4,21 @@ class CreateUser
   delegate :user_params, :auth_phone_code, :sms_auth_code, to: :context
 
   def call
+    create_user
+
+    context.user = user
+  end
+
+  private
+
+  def create_user
     if sms_code.valid?
       user.auth_phone_code = auth_phone_code
       user.save
     else
       user.errors.messages.merge!(sms_code.errors.messages)
     end
-
-    context.user = user
   end
-
-  private
 
   def user
     @user ||= User.new(user_params)

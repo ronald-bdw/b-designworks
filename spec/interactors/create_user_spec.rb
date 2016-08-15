@@ -10,11 +10,14 @@ describe CreateUser do
       )
     end
 
-    let(:user) { build_stubbed :user }
-    let(:user_params) { user.slice(:first_name, :last_name, :email, :phone_number) }
+    let(:user_params) { attributes_for(:user).slice(:first_name, :last_name, :email, :phone_number) }
     let(:auth_phone_code) { build_stubbed :auth_phone_code }
 
     context "with valid params" do
+      before do
+        allow(auth_phone_code).to receive(:save)
+      end
+
       let(:sms_code) { auth_phone_code.phone_code }
 
       it "generates phone code and expire at" do
