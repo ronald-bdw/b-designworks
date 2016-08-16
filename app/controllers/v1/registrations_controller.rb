@@ -3,7 +3,7 @@ module V1
     wrap_parameters :user
 
     def create
-      user = CreateUser.call(
+      user = Users::Create.call(
         user_params: user_params,
         auth_phone_code: auth_phone_code,
         sms_auth_code: params[:sms_code]

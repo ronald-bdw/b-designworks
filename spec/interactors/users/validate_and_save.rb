@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe CreateUser do
+describe Users::ValidateAndSave do
   describe ".call" do
     subject(:interactor) do
       described_class.call(
