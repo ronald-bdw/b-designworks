@@ -1,5 +1,5 @@
 module Users
-  class CreateZendeskAccount
+  class SaveAndCreateZendeskAccount
     include Interactor
 
     delegate :user, to: :context
