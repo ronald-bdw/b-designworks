@@ -5,5 +5,6 @@ FactoryGirl.define do
     auth_phone_code
     email
     phone_number { Faker::PhoneNumber.cell_phone }
+    zendesk_id 1
   end
 end

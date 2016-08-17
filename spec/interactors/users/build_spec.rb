@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe CreateUser do
+describe Users::Build do
   describe ".call" do
     subject(:interactor) do
       described_class.call(
@@ -14,14 +14,10 @@ describe CreateUser do
     let(:auth_phone_code) { build_stubbed :auth_phone_code }
 
     context "with valid params" do
-      before do
-        allow(auth_phone_code).to receive(:save)
-      end
-
       let(:sms_code) { auth_phone_code.phone_code }
 
-      it "generates phone code and expire at" do
-        expect(interactor.user).to eq(User.last)
+      it "assigns auth phone code" do
+        expect(interactor.user.auth_phone_code).to eq(auth_phone_code)
       end
     end
 
@@ -29,7 +25,7 @@ describe CreateUser do
       let(:sms_code) { "adff" }
       let(:error_messages) { { sms_code: ["is invalid"] } }
 
-      it "adds errors to user" do
+      it "adds sms errors to user" do
         error_messages.each do |field, value|
           expect(interactor.user.errors.messages[field]).to eq value
         end
