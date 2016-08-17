@@ -6,6 +6,7 @@ resource "Users" do
 
   before do
     allow(ZendeskAPI::User).to receive(:create).and_return(zendesk_user)
+    allow(ZendeskAPI::User).to receive(:update!).and_return(zendesk_user)
   end
 
   let(:zendesk_user) { double :zendesk_user, id: 1 }
