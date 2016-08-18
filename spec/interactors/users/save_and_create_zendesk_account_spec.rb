@@ -5,7 +5,7 @@ describe Users::SaveAndCreateZendeskAccount do
     subject(:interactor) { described_class.call(user: user) }
 
     let(:user) { build_stubbed :user }
-    let(:zendesk_user) { double :zendesk_user, id: 111 }
+    let(:zendesk_user) { double :zendesk_user, id: "111" }
 
     before do
       allow(ZendeskAPI::User).to receive(:create).and_return(zendesk_user)
