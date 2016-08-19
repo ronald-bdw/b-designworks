@@ -4,6 +4,7 @@ AllCops:
     - bin/**/*
     - db/**/*
     - lib/templates/**/*
+    - lib/rails_api_format/**/*
     - vendor/**/*
 
 Style/Documentation:

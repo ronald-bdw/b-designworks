@@ -1,6 +1,9 @@
 # B-DESIGNWORKS
 
 [![Build Status](https://semaphoreci.com/api/v1/projects/1ee1a880-7c50-47f2-9c3d-a2ae9560874d/913687/shields_badge.svg)](https://semaphoreci.com/fs/b-designworks)
+[![Code Climate](https://codeclimate.com/repos/57b6d54bc0f30d2d63005390/badges/4a73824810fdc7231b28/gpa.svg)](https://codeclimate.com/repos/57b6d54bc0f30d2d63005390/feed)
+[![Test Coverage](https://codeclimate.com/repos/57b6d54bc0f30d2d63005390/badges/4a73824810fdc7231b28/coverage.svg)](https://codeclimate.com/repos/57b6d54bc0f30d2d63005390/coverage)
+[![Issue Count](https://codeclimate.com/repos/57b6d54bc0f30d2d63005390/badges/4a73824810fdc7231b28/issue_count.svg)](https://codeclimate.com/repos/57b6d54bc0f30d2d63005390/feed)
 
 ## API
 
