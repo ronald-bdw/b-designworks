@@ -53,6 +53,7 @@ group :test do
   gem "email_spec"
   gem "shoulda-matchers", require: false
   gem "json_spec"
+  gem "codeclimate-test-reporter", require: nil
 end
 
 group :development, :test, :staging do
