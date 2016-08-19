@@ -35,6 +35,7 @@ RSpec.configure do |config|
   config.include Helpers
   config.include JsonSpec::Helpers
   config.include RailsApiFormat::Matchers
+  config.include ActionDispatch::TestProcess
 
   config.before :suite do
     DatabaseCleaner.strategy = :transaction

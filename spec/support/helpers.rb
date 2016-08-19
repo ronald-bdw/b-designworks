@@ -6,4 +6,9 @@ module Helpers
   def json_response_body
     parse_json(response_body)
   end
+
+  def setup_authentication_header(user)
+    header("X-User-Token", user.authentication_token)
+    header("X-User-Phone-Number", user.phone_number)
+  end
 end

@@ -29,6 +29,7 @@ SimpleTokenAuthentication.configure do |config|
   #
   #   When the identifiers option is set:
   #     `config.identifiers = { super_admin: :phone_number }`
+  config.identifiers = { user: :phone_number }
   #   Then both the header names identifier key and default value are modified accordingly:
   #     `config.header_names = { super_admin: { phone_number: 'X-SuperAdmin-PhoneNumber' } }`
   #
