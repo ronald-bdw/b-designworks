@@ -17,7 +17,7 @@ module V1
     end
 
     def update
-      user.save
+      self.user = Users::UpdateZendeskAccount.call(user: user).user
 
       respond_with user
     end
