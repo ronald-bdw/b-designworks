@@ -90,6 +90,8 @@ GEM
       mimemagic (>= 0.3.0)
     code_analyzer (0.4.4)
       sexp_processor
+    codeclimate-test-reporter (0.6.0)
+      simplecov (>= 0.7.1, < 1.0.0)
     colored (1.2)
     concurrent-ruby (1.0.2)
     crack (0.4.2)
@@ -345,6 +347,7 @@ DEPENDENCIES
   bundler-audit
   byebug
   carrierwave
+  codeclimate-test-reporter
   database_cleaner
   decent_exposure
   devise
