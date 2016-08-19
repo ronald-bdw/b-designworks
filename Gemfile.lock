@@ -191,6 +191,7 @@ GEM
     parser (2.3.1.2)
       ast (~> 2.2)
     pg (0.17.1)
+    phonelib (0.6.3)
     pkg-config (1.1.7)
     powerpack (0.1.1)
     rack (1.6.4)
@@ -364,6 +365,7 @@ DEPENDENCIES
   mail_safe
   mini_magick
   pg
+  phonelib
   rack-cors
   rails (= 4.2.7.1)
   rails-api
