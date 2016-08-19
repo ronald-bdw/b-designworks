@@ -1,0 +1,34 @@
+---
+engines:
+  brakeman:
+    enabled: true
+    config: "config/brakeman.yml"
+  bundler-audit:
+    enabled: true
+  coffeelint:
+    enabled: false
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+  fixme:
+    enabled: true
+  rubocop:
+    enabled: true
+    config: "config/rubocop.yml"
+ratings:
+  paths:
+  - Gemfile.lock
+  - "**.erb"
+  - "**.rb"
+  - "**.slim"
+  - "**.coffee"
+  - "**.js"
+exclude_paths:
+- bin/
+- config/
+- db/
+- spec/
+- lib/
