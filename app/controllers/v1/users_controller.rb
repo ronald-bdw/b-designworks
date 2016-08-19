@@ -17,7 +17,7 @@ module V1
     end
 
     def update
-      self.user = Users::UpdateZendeskAccount.call(user: user).user
+      self.user = Users::UpdateZendeskAccount.call(user: user, photo: user_params[:avatar]).user
 
       respond_with user
     end

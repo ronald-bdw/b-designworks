@@ -2,7 +2,7 @@ module Users
   class UpdateZendeskAccount
     include Interactor
 
-    delegate :user, to: :context
+    delegate :user, :photo, to: :context
 
     def call
       return if user.invalid?
@@ -21,6 +21,7 @@ module Users
         id: user.zendesk_id,
         email: user.email,
         name: "#{user.first_name} #{user.last_name}",
+        photo: photo,
         role: "end-user"
       }
     end
