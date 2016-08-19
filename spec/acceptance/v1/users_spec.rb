@@ -48,7 +48,7 @@ resource "Users" do
     end
 
     context "with invalid phone number" do
-      let(:error_message) { { "phone_number" => ["can't be blank"] } }
+      let(:error_message) { { "phone_number" => ["is invalid"] } }
       let(:params) do
         {
           user: user_params.except(:phone_number),
