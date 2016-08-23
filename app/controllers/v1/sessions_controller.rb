@@ -4,6 +4,7 @@ module V1
 
     def create
       user = AuthenticateUser.call(warden: warden).user
+      Users::UpdateToken.call(user: user)
       respond_with(user)
     end
   end
