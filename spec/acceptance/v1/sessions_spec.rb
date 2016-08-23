@@ -24,6 +24,7 @@ resource "Sessions" do
       end
 
       example_request "Sign in with phone number" do
+        user.reload
         expect(response_status).to eq 201
         expect(response["user"]).to be_a_user_representation(user)
       end
