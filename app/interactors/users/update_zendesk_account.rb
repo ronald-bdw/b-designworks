@@ -22,6 +22,7 @@ module Users
         email: user.email,
         name: "#{user.first_name} #{user.last_name}",
         photo: photo,
+        phone: user.phone_number,
         role: "end-user"
       }
     end
