@@ -1,5 +1,5 @@
 {
-  "resource": "Registrations",
+  "resource": "Users",
   "http_method": "POST",
   "route": "/v1/users",
   "description": "create user without phone number",
@@ -24,6 +24,16 @@
       "required": true,
       "name": "phone_number",
       "description": "Phone number"
+    },
+    {
+      "required": true,
+      "name": "auth_phone_code_id",
+      "description": "Auth phone code id"
+    },
+    {
+      "required": true,
+      "name": "sms_code",
+      "description": "Sms code"
     }
   ],
   "response_fields": [
@@ -33,7 +43,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users",
-      "request_body": "user[first_name]=Arianna&user[last_name]=Corwin&user[email]=user9%40example.com&auth_phone_code_id=14&sms_code=8125",
+      "request_body": "user[first_name]=Clifford&user[last_name]=Smith&user[email]=user8%40example.com&auth_phone_code_id=12&sms_code=6220",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -42,12 +52,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 422,
       "response_status_text": "Unprocessable Entity",
-      "response_body": "{\n  \"error\": {\n    \"id\": \"74e65c8a-e497-4f5f-b32d-4640e48e09ec\",\n    \"status\": 422,\n    \"error\": null,\n    \"validations\": {\n      \"phone_number\": [\n        \"can't be blank\"\n      ]\n    }\n  }\n}",
+      "response_body": "{\n  \"error\": {\n    \"id\": \"3347a35f-27f0-4767-9f10-cd6f36d77f51\",\n    \"status\": 422,\n    \"error\": null,\n    \"validations\": {\n      \"phone_number\": [\n        \"is invalid\"\n      ]\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Arianna&user[last_name]=Corwin&user[email]=user9%40example.com&auth_phone_code_id=14&sms_code=8125' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Clifford&user[last_name]=Smith&user[email]=user8%40example.com&auth_phone_code_id=12&sms_code=6220' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

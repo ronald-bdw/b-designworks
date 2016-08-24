@@ -1,5 +1,5 @@
 {
-  "resource": "Registrations",
+  "resource": "Users",
   "http_method": "POST",
   "route": "/v1/users",
   "description": "create user with invalid sms code",
@@ -24,6 +24,16 @@
       "required": true,
       "name": "phone_number",
       "description": "Phone number"
+    },
+    {
+      "required": true,
+      "name": "auth_phone_code_id",
+      "description": "Auth phone code id"
+    },
+    {
+      "required": true,
+      "name": "sms_code",
+      "description": "Sms code"
     }
   ],
   "response_fields": [
@@ -33,7 +43,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users",
-      "request_body": "user[first_name]=Bud&user[last_name]=Olson&user[email]=user11%40example.com&user[phone_number]=577.222.6232&auth_phone_code_id=16&sms_code=6088",
+      "request_body": "user[first_name]=Luciano&user[last_name]=Lynch&user[email]=user7%40example.com&user[phone_number]=%2B1-727-819-4840&auth_phone_code_id=11&sms_code=invalid_code",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -42,12 +52,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 422,
       "response_status_text": "Unprocessable Entity",
-      "response_body": "{\n  \"error\": {\n    \"id\": \"c63a04d6-d106-4c6e-bf0f-da6f48bf4077\",\n    \"status\": 422,\n    \"error\": null,\n    \"validations\": {\n      \"sms_code\": [\n        \"is expired\"\n      ]\n    }\n  }\n}",
+      "response_body": "{\n  \"error\": {\n    \"id\": \"5bbd354e-9a0b-43f6-81e4-ca4c89ed1099\",\n    \"status\": 422,\n    \"error\": null,\n    \"validations\": {\n      \"sms_code\": [\n        \"is invalid\"\n      ]\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Bud&user[last_name]=Olson&user[email]=user11%40example.com&user[phone_number]=577.222.6232&auth_phone_code_id=16&sms_code=6088' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Luciano&user[last_name]=Lynch&user[email]=user7%40example.com&user[phone_number]=%2B1-727-819-4840&auth_phone_code_id=11&sms_code=invalid_code' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

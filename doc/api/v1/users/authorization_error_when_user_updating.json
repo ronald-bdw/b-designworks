@@ -1,0 +1,57 @@
+{
+  "resource": "Users",
+  "http_method": "PUT",
+  "route": "/v1/users/:id",
+  "description": "authorization error when user updating",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "first_name",
+      "description": "First name"
+    },
+    {
+      "required": true,
+      "name": "last_name",
+      "description": "Last name"
+    },
+    {
+      "required": true,
+      "name": "email",
+      "description": "Email"
+    },
+    {
+      "required": true,
+      "name": "phone_number",
+      "description": "Phone number"
+    },
+    {
+      "name": "avatar",
+      "description": "Avatar"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/v1/users/7",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 401,
+      "response_status_text": "Unauthorized",
+      "response_body": "{\n  \"error\": {\n    \"id\": \"76518382-4e65-4698-97b8-7a7087e4b5ab\",\n    \"status\": 401,\n    \"error\": \"Phone number is invalid\",\n    \"validations\": null\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:5000/v1/users/7\" -d '' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: dsXyKy6eNif2HkFanFKQ\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-5774\""
+    }
+  ]
+}

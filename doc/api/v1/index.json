@@ -1,18 +1,6 @@
 {
   "resources": [
     {
-      "name": "Errors",
-      "examples": [
-        {
-          "description": "Request to unexisting page",
-          "link": "errors/request_to_unexisting_page.json",
-          "groups": "all",
-          "route": "/not-found",
-          "method": "get"
-        }
-      ]
-    },
-    {
       "name": "Sessions",
       "examples": [
         {
@@ -23,15 +11,15 @@
           "method": "post"
         },
         {
-          "description": "Sign in with phone number",
-          "link": "sessions/sign_in_with_phone_number.json",
+          "description": "Sign in without phone number",
+          "link": "sessions/sign_in_without_phone_number.json",
           "groups": "all",
           "route": "/v1/users/sign_in",
           "method": "post"
         },
         {
-          "description": "Sign in without phone number",
-          "link": "sessions/sign_in_without_phone_number.json",
+          "description": "Sign in with phone number",
+          "link": "sessions/sign_in_with_phone_number.json",
           "groups": "all",
           "route": "/v1/users/sign_in",
           "method": "post"
@@ -58,35 +46,61 @@
       ]
     },
     {
-      "name": "Registrations",
+      "name": "Users",
       "examples": [
         {
-          "description": "create user with invalid sms code",
-          "link": "registrations/create_user_with_invalid_sms_code.json",
+          "description": "create user with phone number",
+          "link": "users/create_user_with_phone_number.json",
           "groups": "all",
           "route": "/v1/users",
           "method": "post"
         },
         {
-          "description": "create user with phone number",
-          "link": "registrations/create_user_with_phone_number.json",
+          "description": "create user with invalid sms code",
+          "link": "users/create_user_with_invalid_sms_code.json",
+          "groups": "all",
+          "route": "/v1/users",
+          "method": "post"
+        },
+        {
+          "description": "create user with invalid sms code",
+          "link": "users/create_user_with_invalid_sms_code.json",
           "groups": "all",
           "route": "/v1/users",
           "method": "post"
         },
         {
           "description": "create user without phone number",
-          "link": "registrations/create_user_without_phone_number.json",
+          "link": "users/create_user_without_phone_number.json",
           "groups": "all",
           "route": "/v1/users",
           "method": "post"
         },
         {
-          "description": "create user with invalid sms code",
-          "link": "registrations/create_user_with_invalid_sms_code.json",
+          "description": "upload user avatar",
+          "link": "users/upload_user_avatar.json",
           "groups": "all",
-          "route": "/v1/users",
-          "method": "post"
+          "route": "/v1/users/:id",
+          "method": "put"
+        },
+        {
+          "description": "authorization error when user updating",
+          "link": "users/authorization_error_when_user_updating.json",
+          "groups": "all",
+          "route": "/v1/users/:id",
+          "method": "put"
+        }
+      ]
+    },
+    {
+      "name": "Errors",
+      "examples": [
+        {
+          "description": "Request to unexisting page",
+          "link": "errors/request_to_unexisting_page.json",
+          "groups": "all",
+          "route": "/not-found",
+          "method": "get"
         }
       ]
     }
