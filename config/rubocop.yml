@@ -42,3 +42,6 @@ Style/AlignParameters:
 
 Style/MultilineOperationIndentation:
   Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
