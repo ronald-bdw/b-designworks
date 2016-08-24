@@ -43,7 +43,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users",
-      "request_body": "user[first_name]=Clifford&user[last_name]=Smith&user[email]=user8%40example.com&auth_phone_code_id=12&sms_code=6220",
+      "request_body": "user[first_name]=Dereck&user[last_name]=Hoeger&user[email]=user10%40example.com&auth_phone_code_id=13&sms_code=2701",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -52,12 +52,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 422,
       "response_status_text": "Unprocessable Entity",
-      "response_body": "{\n  \"error\": {\n    \"id\": \"3347a35f-27f0-4767-9f10-cd6f36d77f51\",\n    \"status\": 422,\n    \"error\": null,\n    \"validations\": {\n      \"phone_number\": [\n        \"is invalid\"\n      ]\n    }\n  }\n}",
+      "response_body": "{\n  \"error\": {\n    \"id\": \"6c8b1b57-a99f-45df-bbcb-2e4e776f57dd\",\n    \"status\": 422,\n    \"error\": null,\n    \"validations\": {\n      \"phone_number\": [\n        \"is invalid\"\n      ]\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Clifford&user[last_name]=Smith&user[email]=user8%40example.com&auth_phone_code_id=12&sms_code=6220' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Dereck&user[last_name]=Hoeger&user[email]=user10%40example.com&auth_phone_code_id=13&sms_code=2701' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: 4m4tufyjWijQebPLVoJk\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-5140\""
     }
   ]
 }

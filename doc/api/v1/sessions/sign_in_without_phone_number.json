@@ -28,7 +28,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users/sign_in",
-      "request_body": "auth_phone_code_id=4&sms_code=4035",
+      "request_body": "auth_phone_code_id=6&sms_code=5886",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -37,12 +37,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 401,
       "response_status_text": "Unauthorized",
-      "response_body": "{\n  \"error\": {\n    \"id\": \"2df15cd4-0384-46c0-9720-f9432674226e\",\n    \"status\": 401,\n    \"error\": \"Phone number is invalid\",\n    \"validations\": null\n  }\n}",
+      "response_body": "{\n  \"error\": {\n    \"id\": \"57122642-09f1-4449-b82a-3eb746c0dba3\",\n    \"status\": 401,\n    \"error\": \"Phone number is invalid\",\n    \"validations\": null\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'auth_phone_code_id=4&sms_code=4035' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'auth_phone_code_id=6&sms_code=5886' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

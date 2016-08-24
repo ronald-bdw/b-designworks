@@ -28,7 +28,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users/sign_in",
-      "request_body": "phone_number=%2B1-727-819-8758&auth_phone_code_id=2&sms_code=invalid",
+      "request_body": "phone_number=%2B1-727-819-2740&auth_phone_code_id=4&sms_code=invalid",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -37,12 +37,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 401,
       "response_status_text": "Unauthorized",
-      "response_body": "{\n  \"error\": {\n    \"id\": \"865dad9f-9fba-442a-93e0-3783355285f8\",\n    \"status\": 401,\n    \"error\": \"Sms code is invalid\",\n    \"validations\": null\n  }\n}",
+      "response_body": "{\n  \"error\": {\n    \"id\": \"e6d26129-11c8-43ee-9491-16fe33db0aa9\",\n    \"status\": 401,\n    \"error\": \"Sms code is invalid\",\n    \"validations\": null\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'phone_number=%2B1-727-819-8758&auth_phone_code_id=2&sms_code=invalid' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'phone_number=%2B1-727-819-2740&auth_phone_code_id=4&sms_code=invalid' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

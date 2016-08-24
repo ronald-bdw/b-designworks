@@ -18,7 +18,7 @@
     {
       "request_method": "POST",
       "request_path": "v1/auth_phone_codes",
-      "request_body": "phone_number=%2B1-727-819-9699",
+      "request_body": "phone_number=%2B1-727-819-3130",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -27,12 +27,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"auth_phone_code\": {\n    \"id\": 7,\n    \"phone_registered\": true\n  }\n}",
+      "response_body": "{\n  \"auth_phone_code\": {\n    \"id\": 1,\n    \"phone_registered\": true\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000v1/auth_phone_codes\" -d 'phone_number=%2B1-727-819-9699' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000v1/auth_phone_codes\" -d 'phone_number=%2B1-727-819-3130' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }
