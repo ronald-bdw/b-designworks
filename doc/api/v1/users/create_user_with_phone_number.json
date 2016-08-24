@@ -43,7 +43,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users",
-      "request_body": "user[first_name]=Olen&user[last_name]=Koelpin&user[email]=user5%40example.com&user[phone_number]=%2B1-727-819-6779&auth_phone_code_id=9&sms_code=7059",
+      "request_body": "user[first_name]=Lucio&user[last_name]=Lynch&user[email]=user8%40example.com&user[phone_number]=%2B1-727-819-3454&auth_phone_code_id=11&sms_code=7681",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -52,12 +52,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"user\": {\n    \"id\": 5,\n    \"phone_number\": \"+1-727-819-6779\",\n    \"authentication_token\": \"HvmzRVLxXzYPdbX4sEBy\",\n    \"email\": \"user5@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    }\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 7,\n    \"first_name\": \"Lucio\",\n    \"last_name\": \"Lynch\",\n    \"phone_number\": \"+1-727-819-3454\",\n    \"authentication_token\": \"cprBtEba_E6uRyZMcoAQ\",\n    \"email\": \"user8@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Olen&user[last_name]=Koelpin&user[email]=user5%40example.com&user[phone_number]=%2B1-727-819-6779&auth_phone_code_id=9&sms_code=7059' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Lucio&user[last_name]=Lynch&user[email]=user8%40example.com&user[phone_number]=%2B1-727-819-3454&auth_phone_code_id=11&sms_code=7681' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: 4m4tufyjWijQebPLVoJk\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-5140\""
     }
   ]
 }

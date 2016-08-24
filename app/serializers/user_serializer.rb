@@ -1,5 +1,5 @@
 class UserSerializer < ApplicationSerializer
-  attributes :id, :phone_number, :authentication_token, :email, :avatar
+  attributes :id, :first_name, :last_name, :phone_number, :authentication_token, :email, :avatar
 
   def avatar
     {

@@ -1,6 +1,37 @@
 {
   "resources": [
     {
+      "name": "Errors",
+      "examples": [
+        {
+          "description": "Request to unexisting page",
+          "link": "errors/request_to_unexisting_page.json",
+          "groups": "all",
+          "route": "/not-found",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Authentication phone codes",
+      "examples": [
+        {
+          "description": "Send auth code to registered user phone number ",
+          "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
+          "groups": "all",
+          "route": "v1/auth_phone_codes",
+          "method": "post"
+        },
+        {
+          "description": "Send auth code to not registered user phone number",
+          "link": "authentication_phone_codes/send_auth_code_to_not_registered_user_phone_number.json",
+          "groups": "all",
+          "route": "v1/auth_phone_codes",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "name": "Sessions",
       "examples": [
         {
@@ -27,37 +58,25 @@
       ]
     },
     {
-      "name": "Authentication phone codes",
-      "examples": [
-        {
-          "description": "Send auth code to registered user phone number ",
-          "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
-          "groups": "all",
-          "route": "v1/auth_phone_codes",
-          "method": "post"
-        },
-        {
-          "description": "Send auth code to not registered user phone number",
-          "link": "authentication_phone_codes/send_auth_code_to_not_registered_user_phone_number.json",
-          "groups": "all",
-          "route": "v1/auth_phone_codes",
-          "method": "post"
-        }
-      ]
-    },
-    {
       "name": "Users",
       "examples": [
         {
-          "description": "create user with phone number",
-          "link": "users/create_user_with_phone_number.json",
+          "description": "upload user avatar",
+          "link": "users/upload_user_avatar.json",
           "groups": "all",
-          "route": "/v1/users",
-          "method": "post"
+          "route": "/v1/users/:id",
+          "method": "put"
         },
         {
-          "description": "create user with invalid sms code",
-          "link": "users/create_user_with_invalid_sms_code.json",
+          "description": "authorization error when user updating",
+          "link": "users/authorization_error_when_user_updating.json",
+          "groups": "all",
+          "route": "/v1/users/:id",
+          "method": "put"
+        },
+        {
+          "description": "create user with phone number",
+          "link": "users/create_user_with_phone_number.json",
           "groups": "all",
           "route": "/v1/users",
           "method": "post"
@@ -77,30 +96,11 @@
           "method": "post"
         },
         {
-          "description": "upload user avatar",
-          "link": "users/upload_user_avatar.json",
+          "description": "create user with invalid sms code",
+          "link": "users/create_user_with_invalid_sms_code.json",
           "groups": "all",
-          "route": "/v1/users/:id",
-          "method": "put"
-        },
-        {
-          "description": "authorization error when user updating",
-          "link": "users/authorization_error_when_user_updating.json",
-          "groups": "all",
-          "route": "/v1/users/:id",
-          "method": "put"
-        }
-      ]
-    },
-    {
-      "name": "Errors",
-      "examples": [
-        {
-          "description": "Request to unexisting page",
-          "link": "errors/request_to_unexisting_page.json",
-          "groups": "all",
-          "route": "/not-found",
-          "method": "get"
+          "route": "/v1/users",
+          "method": "post"
         }
       ]
     }
