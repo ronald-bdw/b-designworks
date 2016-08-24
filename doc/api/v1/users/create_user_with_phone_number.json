@@ -1,5 +1,5 @@
 {
-  "resource": "Registrations",
+  "resource": "Users",
   "http_method": "POST",
   "route": "/v1/users",
   "description": "create user with phone number",
@@ -24,6 +24,16 @@
       "required": true,
       "name": "phone_number",
       "description": "Phone number"
+    },
+    {
+      "required": true,
+      "name": "auth_phone_code_id",
+      "description": "Auth phone code id"
+    },
+    {
+      "required": true,
+      "name": "sms_code",
+      "description": "Sms code"
     }
   ],
   "response_fields": [
@@ -33,7 +43,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users",
-      "request_body": "user[first_name]=Bertrand&user[last_name]=Hamill&user[email]=user7%40example.com&user[phone_number]=%28154%29122-7407+x4821&auth_phone_code_id=12&sms_code=0303",
+      "request_body": "user[first_name]=Olen&user[last_name]=Koelpin&user[email]=user5%40example.com&user[phone_number]=%2B1-727-819-6779&auth_phone_code_id=9&sms_code=7059",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -42,12 +52,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"user\": {\n    \"id\": 7,\n    \"phone_number\": \"(154)122-7407 x4821\",\n    \"authentication_token\": \"8VDufsN5jiLAPzpdrsLF\",\n    \"email\": \"user7@example.com\"\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 5,\n    \"phone_number\": \"+1-727-819-6779\",\n    \"authentication_token\": \"HvmzRVLxXzYPdbX4sEBy\",\n    \"email\": \"user5@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Bertrand&user[last_name]=Hamill&user[email]=user7%40example.com&user[phone_number]=%28154%29122-7407+x4821&auth_phone_code_id=12&sms_code=0303' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Olen&user[last_name]=Koelpin&user[email]=user5%40example.com&user[phone_number]=%2B1-727-819-6779&auth_phone_code_id=9&sms_code=7059' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

@@ -28,7 +28,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users/sign_in",
-      "request_body": "phone_number=1-813-079-4223+x64829&auth_phone_code_id=4&sms_code=6128",
+      "request_body": "phone_number=%2B1-727-819-9419&auth_phone_code_id=6&sms_code=1586",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -37,12 +37,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"user\": {\n    \"id\": 2,\n    \"phone_number\": \"1-813-079-4223 x64829\",\n    \"authentication_token\": \"wuEiFSfsws1Zm33wvk9A\",\n    \"email\": \"user2@example.com\"\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 3,\n    \"phone_number\": \"+1-727-819-9419\",\n    \"authentication_token\": \"qHXs6VSeZgDFmQGwn2hT\",\n    \"email\": \"user3@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'phone_number=1-813-079-4223+x64829&auth_phone_code_id=4&sms_code=6128' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'phone_number=%2B1-727-819-9419&auth_phone_code_id=6&sms_code=1586' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }
