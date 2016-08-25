@@ -6,14 +6,19 @@ module Users
 
     def call
       return if user.invalid?
-      update_zendesk_user
-      user.save
+
+      user.save if update_zendesk_user
     end
 
     private
 
     def update_zendesk_user
       ZendeskAPI::User.update!(ZENDESK_CLIENT, zendesk_user_params)
+    rescue ZendeskAPI::Error::RecordInvalid => e
+      errors = Zendesk::HandleUserErrors.call(user_errors: e.errors).errors
+      user.errors.messages.merge!(errors)
+
+      false
     end
 
     def zendesk_user_params

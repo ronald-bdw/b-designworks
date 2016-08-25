@@ -22,7 +22,7 @@ module Users
     end
 
     def zendesk_errors
-      Zendesk::HandleUserErrors.call(zendesk_user: zendesk_user).errors
+      Zendesk::HandleUserErrors.call(user_errors: zendesk_user.errors).errors
     end
 
     def zendesk_user_params
