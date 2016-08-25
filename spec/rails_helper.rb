@@ -47,7 +47,7 @@ RSpec.configure do |config|
   config.include RailsApiFormat::Matchers
   config.include ActionDispatch::TestProcess
 
-  config.before :suite do
+  config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with :truncation
   end
@@ -62,5 +62,9 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+
+  config.after(:all) do
+    FileUtils.rm_rf(Rails.root.join("public", "test"))
   end
 end
