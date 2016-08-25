@@ -43,7 +43,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users",
-      "request_body": "user[first_name]=Alf&user[last_name]=Ortiz&user[email]=user11%40example.com&user[phone_number]=%2B1-727-819-3528&auth_phone_code_id=14&sms_code=invalid_code",
+      "request_body": "user[first_name]=Timmy&user[last_name]=Rempel&user[email]=user7%40example.com&user[phone_number]=%2B1-727-819-8099&auth_phone_code_id=6&sms_code=invalid_code",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -52,12 +52,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 422,
       "response_status_text": "Unprocessable Entity",
-      "response_body": "{\n  \"error\": {\n    \"id\": \"83615f4e-4d98-416e-884e-e9e60fafd5c3\",\n    \"status\": 422,\n    \"error\": null,\n    \"validations\": {\n      \"sms_code\": [\n        \"is invalid\"\n      ]\n    }\n  }\n}",
+      "response_body": "{\n  \"error\": {\n    \"id\": \"68b301a7-2b52-43db-b1c6-1ce7b88240b0\",\n    \"status\": 422,\n    \"error\": null,\n    \"validations\": {\n      \"sms_code\": [\n        \"is invalid\"\n      ]\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Alf&user[last_name]=Ortiz&user[email]=user11%40example.com&user[phone_number]=%2B1-727-819-3528&auth_phone_code_id=14&sms_code=invalid_code' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: 4m4tufyjWijQebPLVoJk\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-5140\""
+      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Timmy&user[last_name]=Rempel&user[email]=user7%40example.com&user[phone_number]=%2B1-727-819-8099&auth_phone_code_id=6&sms_code=invalid_code' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: CD79y4K5sxThrqyeyz39\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-3330\""
     }
   ]
 }

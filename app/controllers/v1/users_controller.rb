@@ -25,13 +25,10 @@ module V1
     private
 
     def user_params
-      params.require(:user).permit(
-        :first_name,
-        :last_name,
-        :email,
-        :avatar,
-        :phone_number
-      )
+      attributes = %i(first_name last_name email avatar)
+      attributes << :phone_number if action_name == "create"
+
+      params.require(:user).permit(attributes)
     end
 
     def auth_phone_code

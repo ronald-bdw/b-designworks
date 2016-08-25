@@ -43,7 +43,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users",
-      "request_body": "user[first_name]=Lucio&user[last_name]=Lynch&user[email]=user8%40example.com&user[phone_number]=%2B1-727-819-3454&auth_phone_code_id=11&sms_code=7681",
+      "request_body": "user[first_name]=Angelina&user[last_name]=Fahey&user[email]=user4%40example.com&user[phone_number]=%2B1-727-819-3527&auth_phone_code_id=3&sms_code=0368",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -52,12 +52,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"user\": {\n    \"id\": 7,\n    \"first_name\": \"Lucio\",\n    \"last_name\": \"Lynch\",\n    \"phone_number\": \"+1-727-819-3454\",\n    \"authentication_token\": \"cprBtEba_E6uRyZMcoAQ\",\n    \"email\": \"user8@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    }\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 3,\n    \"first_name\": \"Angelina\",\n    \"last_name\": \"Fahey\",\n    \"phone_number\": \"+1-727-819-3527\",\n    \"authentication_token\": \"n_CezxkpMdyDabf593Pe\",\n    \"email\": \"user4@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Lucio&user[last_name]=Lynch&user[email]=user8%40example.com&user[phone_number]=%2B1-727-819-3454&auth_phone_code_id=11&sms_code=7681' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: 4m4tufyjWijQebPLVoJk\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-5140\""
+      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Angelina&user[last_name]=Fahey&user[email]=user4%40example.com&user[phone_number]=%2B1-727-819-3527&auth_phone_code_id=3&sms_code=0368' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: CD79y4K5sxThrqyeyz39\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-3330\""
     }
   ]
 }

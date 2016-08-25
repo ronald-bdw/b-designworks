@@ -102,7 +102,6 @@ resource "Users" do
     parameter :first_name, "First name", required: true
     parameter :last_name, "Last name", required: true
     parameter :email, "Email", required: true
-    parameter :phone_number, "Phone number", required: true
     parameter :avatar, "Avatar"
 
     let(:user) { create :user }
@@ -124,8 +123,7 @@ resource "Users" do
         attributes_for(:user).slice(
           :first_name,
           :last_name,
-          :email,
-          :phone_number
+          :email
         ).merge(avatar: avatar)
       end
 
