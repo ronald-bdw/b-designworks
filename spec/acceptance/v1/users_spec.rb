@@ -47,7 +47,7 @@ resource "Users" do
       end
     end
 
-    context "with invalid phone number" do
+    context "with invalid phone number", document: false do
       let(:error_message) { { "phone_number" => ["is invalid"] } }
       let(:params) do
         {
@@ -57,13 +57,13 @@ resource "Users" do
         }
       end
 
-      example_request "Create user without phone number", document: false do
+      example_request "Create user without phone number" do
         expect(response_status).to eq 422
         expect(response).to be_an_validation_error_representation(:unprocessable_entity, error_message)
       end
     end
 
-    context "with invalid sms code" do
+    context "with invalid sms code", document: false do
       let(:error_message) { { "sms_code" => ["is invalid"] } }
       let(:params) do
         {
@@ -73,13 +73,13 @@ resource "Users" do
         }
       end
 
-      example_request "Create user with invalid sms code", document: false do
+      example_request "Create user with invalid sms code" do
         expect(response_status).to eq 422
         expect(response).to be_an_validation_error_representation(:unprocessable_entity, error_message)
       end
     end
 
-    context "with expired sms code" do
+    context "with expired sms code", document: false do
       let(:error_message) { { "sms_code" => ["is expired"] } }
       let(:params) do
         {
@@ -91,7 +91,7 @@ resource "Users" do
 
       let(:auth_phone_code) { create :auth_phone_code, expire_at: 5.minutes.ago }
 
-      example_request "Create user with invalid sms code", document: false do
+      example_request "Create user with invalid sms code" do
         expect(response_status).to eq 422
         expect(response).to be_an_validation_error_representation(:unprocessable_entity, error_message)
       end
