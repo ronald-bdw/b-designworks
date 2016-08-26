@@ -25,6 +25,7 @@ gem "zendesk_api"
 gem "carrierwave"
 gem "fog-aws"
 gem "mini_magick"
+gem "twilio-ruby", "~> 4.11.1"
 
 group :development do
   gem "letter_opener"
