@@ -1,58 +1,11 @@
 {
   "resources": [
     {
-      "name": "Sessions",
-      "examples": [
-        {
-          "description": "Sign in with phone number",
-          "link": "sessions/sign_in_with_phone_number.json",
-          "groups": "all",
-          "route": "/v1/users/sign_in",
-          "method": "post"
-        },
-        {
-          "description": "Sign in without phone number",
-          "link": "sessions/sign_in_without_phone_number.json",
-          "groups": "all",
-          "route": "/v1/users/sign_in",
-          "method": "post"
-        },
-        {
-          "description": "Sign in with invalid sms code",
-          "link": "sessions/sign_in_with_invalid_sms_code.json",
-          "groups": "all",
-          "route": "/v1/users/sign_in",
-          "method": "post"
-        }
-      ]
-    },
-    {
       "name": "Users",
       "examples": [
         {
-          "description": "Create user without phone number",
-          "link": "users/create_user_without_phone_number.json",
-          "groups": "all",
-          "route": "/v1/users",
-          "method": "post"
-        },
-        {
           "description": "Create user with phone number",
           "link": "users/create_user_with_phone_number.json",
-          "groups": "all",
-          "route": "/v1/users",
-          "method": "post"
-        },
-        {
-          "description": "Create user with invalid sms code",
-          "link": "users/create_user_with_invalid_sms_code.json",
-          "groups": "all",
-          "route": "/v1/users",
-          "method": "post"
-        },
-        {
-          "description": "Create user with invalid sms code",
-          "link": "users/create_user_with_invalid_sms_code.json",
           "groups": "all",
           "route": "/v1/users",
           "method": "post"
@@ -63,25 +16,18 @@
           "groups": "all",
           "route": "/v1/users/:id",
           "method": "put"
-        },
-        {
-          "description": "authorization error when user updating",
-          "link": "users/authorization_error_when_user_updating.json",
-          "groups": "all",
-          "route": "/v1/users/:id",
-          "method": "put"
         }
       ]
     },
     {
-      "name": "Errors",
+      "name": "Sessions",
       "examples": [
         {
-          "description": "Request to unexisting page",
-          "link": "errors/request_to_unexisting_page.json",
+          "description": "Sign in with phone number",
+          "link": "sessions/sign_in_with_phone_number.json",
           "groups": "all",
-          "route": "/not-found",
-          "method": "get"
+          "route": "/v1/users/sign_in",
+          "method": "post"
         }
       ]
     },
@@ -94,6 +40,18 @@
           "groups": "all",
           "route": "v1/auth_phone_codes",
           "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Errors",
+      "examples": [
+        {
+          "description": "Request to unexisting page",
+          "link": "errors/request_to_unexisting_page.json",
+          "groups": "all",
+          "route": "/not-found",
+          "method": "get"
         }
       ]
     }

@@ -30,7 +30,7 @@ resource "Sessions" do
       end
     end
 
-    context "with invalid phone number" do
+    context "with invalid phone number", document: false do
       let(:error_message) { "Phone number is invalid" }
 
       let(:params) do
@@ -40,13 +40,13 @@ resource "Sessions" do
         }
       end
 
-      example_request "Sign in without phone number", document: false do
+      example_request "Sign in without phone number" do
         expect(response_status).to eq 401
         expect(response).to be_an_error_representation(:unauthorized, error_message)
       end
     end
 
-    context "with invalid sms code" do
+    context "with invalid sms code", document: false do
       let(:error_message) { "Sms code is invalid" }
 
       let(:params) do
@@ -57,7 +57,7 @@ resource "Sessions" do
         }
       end
 
-      example_request "Sign in with invalid sms code", document: false do
+      example_request "Sign in with invalid sms code" do
         expect(response_status).to eq 401
         expect(response).to be_an_error_representation(:unauthorized, error_message)
       end

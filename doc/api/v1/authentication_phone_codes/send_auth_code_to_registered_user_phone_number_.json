@@ -18,7 +18,7 @@
     {
       "request_method": "POST",
       "request_path": "v1/auth_phone_codes",
-      "request_body": "phone_number=%2B1-727-819-9313",
+      "request_body": "phone_number=%2B1-727-819-4994",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -32,7 +32,7 @@
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000v1/auth_phone_codes\" -d 'phone_number=%2B1-727-819-9313' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000v1/auth_phone_codes\" -d 'phone_number=%2B1-727-819-4994' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

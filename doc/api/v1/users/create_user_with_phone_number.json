@@ -43,7 +43,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users",
-      "request_body": "user[first_name]=Lillie&user[last_name]=Okuneva&user[email]=user5%40example.com&user[phone_number]=%2B1-727-819-4243&auth_phone_code_id=8&sms_code=3589",
+      "request_body": "user[first_name]=Brooks&user[last_name]=McDermott&user[email]=user3%40example.com&user[phone_number]=%2B1-727-819-6852&auth_phone_code_id=3&sms_code=2638",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -52,12 +52,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"user\": {\n    \"id\": 4,\n    \"first_name\": \"Lillie\",\n    \"last_name\": \"Okuneva\",\n    \"phone_number\": \"+1-727-819-4243\",\n    \"authentication_token\": \"PCW8WuVbsKErZoP3zvcu\",\n    \"email\": \"user5@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    }\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 1,\n    \"first_name\": \"Brooks\",\n    \"last_name\": \"McDermott\",\n    \"phone_number\": \"+1-727-819-6852\",\n    \"authentication_token\": \"6YM__CrCrj8Qgxf28NmG\",\n    \"email\": \"user3@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Lillie&user[last_name]=Okuneva&user[email]=user5%40example.com&user[phone_number]=%2B1-727-819-4243&auth_phone_code_id=8&sms_code=3589' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Brooks&user[last_name]=McDermott&user[email]=user3%40example.com&user[phone_number]=%2B1-727-819-6852&auth_phone_code_id=3&sms_code=2638' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }
