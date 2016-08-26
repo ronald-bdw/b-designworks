@@ -35,5 +35,8 @@ en:
   user:
     errors:
       phone_number: "Phone number is invalid"
+  zendesk:
+    errors:
+      duplicate_value: "has already been taken"
 
 

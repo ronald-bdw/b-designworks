@@ -5,11 +5,11 @@ resource "Users" do
   header "Accept", "application/json"
 
   before do
-    allow(ZendeskAPI::User).to receive(:create).and_return(zendesk_user)
+    allow(ZendeskAPI::User).to receive(:new).and_return(zendesk_user)
     allow(ZendeskAPI::User).to receive(:update!).and_return(zendesk_user)
   end
 
-  let(:zendesk_user) { double :zendesk_user, id: 1 }
+  let(:zendesk_user) { double :zendesk_user, id: 1, save: true }
   let(:auth_phone_code) { create :auth_phone_code, expire_at: 2.days.from_now }
   let(:user_params) do
     attributes_for(:user).slice(
