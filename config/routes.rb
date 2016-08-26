@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     end
 
     resources :auth_phone_codes, only: %i(create)
-    resources :users, only: %i(create update)
+    resources :users, only: %i(create update destroy)
   end
 end
