@@ -7,6 +7,7 @@ resource "Users" do
   before do
     allow(ZendeskAPI::User).to receive(:new).and_return(zendesk_user)
     allow(ZendeskAPI::User).to receive(:update!).and_return(zendesk_user)
+    allow(ZendeskAPI::User).to receive(:destroy!).and_return(zendesk_user)
   end
 
   let(:zendesk_user) { double :zendesk_user, id: 1, save: true }
@@ -99,6 +100,7 @@ resource "Users" do
   end
 
   put "/v1/users/:id" do
+    parameter :id, "User ID", required: true
     parameter :first_name, "First name", required: true
     parameter :last_name, "Last name", required: true
     parameter :email, "Email", required: true
@@ -133,6 +135,33 @@ resource "Users" do
         expect(user_json["avatar"]["original"]).to include(avatar.original_filename)
         expect(user_json["avatar"]["thumb"]).to include(avatar.original_filename)
         expect(user_json).to be_a_user_representation(User.last)
+      end
+    end
+  end
+
+  delete "v1/users/:id" do
+    parameter :id, "User ID", required: true
+
+    let(:user) { create :user }
+    let(:id) { user.id }
+
+    it_behaves_like("a method that requires an authentication", "user", "destroy")
+
+    context "with authentication token" do
+      before { setup_authentication_header(user) }
+
+      example_request "Delete user" do
+        expect(response_status).to eq 200
+      end
+    end
+
+    context "when user is not authorized", document: false do
+      before { setup_authentication_header(user) }
+
+      let(:id) { create(:user).id }
+
+      example_request "Delete user" do
+        expect(response_status).to eq 422
       end
     end
   end

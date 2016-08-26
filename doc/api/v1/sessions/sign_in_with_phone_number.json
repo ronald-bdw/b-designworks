@@ -28,7 +28,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users/sign_in",
-      "request_body": "phone_number=%2B1-727-819-3952&auth_phone_code_id=8&sms_code=0784",
+      "request_body": "phone_number=%2B1-727-819-3193&auth_phone_code_id=8&sms_code=9783",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -37,12 +37,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"user\": {\n    \"id\": 4,\n    \"first_name\": \"Demetris\",\n    \"last_name\": \"Beahan\",\n    \"phone_number\": \"+1-727-819-3952\",\n    \"authentication_token\": \"NtfkdbRWsH8ZaDW3sfUh\",\n    \"email\": \"user8@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    }\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 4,\n    \"first_name\": \"Mayra\",\n    \"last_name\": \"Maggio\",\n    \"phone_number\": \"+1-727-819-3193\",\n    \"authentication_token\": \"QRjx1zUCs7vB7f1wpXfs\",\n    \"email\": \"user4@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'phone_number=%2B1-727-819-3952&auth_phone_code_id=8&sms_code=0784' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'phone_number=%2B1-727-819-3193&auth_phone_code_id=8&sms_code=9783' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

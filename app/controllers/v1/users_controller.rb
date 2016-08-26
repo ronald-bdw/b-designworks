@@ -2,7 +2,7 @@ module V1
   class UsersController < ApplicationController
     wrap_parameters :user
 
-    acts_as_token_authentication_handler_for User, only: :update
+    acts_as_token_authentication_handler_for User, only: %i(update destroy)
 
     expose(:user, attributes: :user_params)
 
@@ -20,6 +20,13 @@ module V1
       self.user = Users::UpdateZendeskAccount.call(user: user, photo: user_params[:avatar]).user
 
       respond_with user
+    end
+
+    def destroy
+      result = Users::Delete.call(user: user, current_user: current_user)
+      status = result.success? ? :ok : :unprocessable_entity
+
+      render nothing: true, status: status
     end
 
     private
