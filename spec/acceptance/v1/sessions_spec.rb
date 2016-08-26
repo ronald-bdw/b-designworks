@@ -40,7 +40,7 @@ resource "Sessions" do
         }
       end
 
-      example_request "Sign in without phone number" do
+      example_request "Sign in without phone number", document: false do
         expect(response_status).to eq 401
         expect(response).to be_an_error_representation(:unauthorized, error_message)
       end
@@ -57,7 +57,7 @@ resource "Sessions" do
         }
       end
 
-      example_request "Sign in with invalid sms code" do
+      example_request "Sign in with invalid sms code", document: false do
         expect(response_status).to eq 401
         expect(response).to be_an_error_representation(:unauthorized, error_message)
       end

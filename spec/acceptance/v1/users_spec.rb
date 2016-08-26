@@ -39,7 +39,7 @@ resource "Users" do
         }
       end
 
-      example_request "create user with phone number" do
+      example_request "Create user with phone number" do
         user = User.last
 
         expect(user.auth_phone_code).to eq(auth_phone_code)
@@ -57,7 +57,7 @@ resource "Users" do
         }
       end
 
-      example_request "create user without phone number" do
+      example_request "Create user without phone number", document: false do
         expect(response_status).to eq 422
         expect(response).to be_an_validation_error_representation(:unprocessable_entity, error_message)
       end
@@ -73,7 +73,7 @@ resource "Users" do
         }
       end
 
-      example_request "create user with invalid sms code" do
+      example_request "Create user with invalid sms code", document: false do
         expect(response_status).to eq 422
         expect(response).to be_an_validation_error_representation(:unprocessable_entity, error_message)
       end
@@ -91,7 +91,7 @@ resource "Users" do
 
       let(:auth_phone_code) { create :auth_phone_code, expire_at: 5.minutes.ago }
 
-      example_request "create user with invalid sms code" do
+      example_request "Create user with invalid sms code", document: false do
         expect(response_status).to eq 422
         expect(response).to be_an_validation_error_representation(:unprocessable_entity, error_message)
       end
@@ -129,7 +129,7 @@ resource "Users" do
 
       let(:params) { { user: user_params.merge(avatar: avatar) } }
 
-      example_request "upload user avatar" do
+      example_request "Update user with avatar" do
         expect(user_json["avatar"]["original"]).to include(avatar.original_filename)
         expect(user_json["avatar"]["thumb"]).to include(avatar.original_filename)
         expect(user_json).to be_a_user_representation(User.last)
