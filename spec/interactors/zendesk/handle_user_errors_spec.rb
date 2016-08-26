@@ -2,8 +2,14 @@ require "rails_helper"
 
 describe Zendesk::HandleUserErrors do
   describe ".call" do
-    let(:zendesk_user) { double :zendesk_user, errors: { "email" => [{ "error" => "DuplicateValue" }] } }
-    let(:parsed_errors) { { email: ["has already been taken"] } }
+    let(:parsed_errors) { { email: ["has already been taken"], name: ["is invalid"] } }
+    let(:zendesk_user) do
+      double :zendesk_user,
+        errors: {
+          "email" => [{ "error" => "DuplicateValue" }],
+          "name" => [{ "error" => "Error" }]
+        }
+    end
 
     subject(:interactor) { described_class.call(user_errors: zendesk_user.errors) }
 

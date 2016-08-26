@@ -11,14 +11,11 @@ module Zendesk
     private
 
     def parse_errors
-      errors = {}
-
-      user_errors.each do |key, value|
+      user_errors.reduce({}) do |errors, (key, value)|
         message = I18n.t("zendesk.errors.#{value[0]['error'].underscore}", default: "is invalid")
         errors[key.to_sym] = [message]
+        errors
       end
-
-      errors
     end
   end
 end
