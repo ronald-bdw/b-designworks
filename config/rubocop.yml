@@ -48,3 +48,4 @@ Style/MultilineOperationIndentation:
 
 Metrics/AbcSize:
   Enabled: false
+  Max: 18

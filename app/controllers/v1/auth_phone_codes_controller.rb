@@ -3,10 +3,9 @@ module V1
     wrap_parameters :auth_phone_code, include: %i(phone_number)
 
     def create
-      auth_phone_code = GenerateAuthPhoneCode
-        .call(params: auth_phone_code_params).auth_phone_code
+      result = SendPhoneCode.call(phone_number: auth_phone_code_params[:phone_number])
 
-      respond_with(auth_phone_code)
+      respond_with(result.auth_phone_code)
     end
 
     private

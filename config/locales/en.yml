@@ -38,5 +38,8 @@ en:
   zendesk:
     errors:
       duplicate_value: "has already been taken"
-
-
+  auth_phone_code:
+    phone_code:
+      verification: "PearUp security code: %{phone_code}. Use this to finish verification. \
+                     Link for android: http://pearup.com/authcode=%{phone_code}. \
+                     Link for ios: pearup://pearup.com?authcode=%{phone_code}"

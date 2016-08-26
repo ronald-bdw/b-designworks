@@ -3,6 +3,11 @@ require "rspec_api_documentation/dsl"
 
 resource "Authentication phone codes" do
   header "Accept", "application/json"
+  let(:message) { double :message, create: true }
+
+  before do
+    allow_any_instance_of(Twilio::REST::Client).to receive(:messages).and_return(message)
+  end
 
   post "v1/auth_phone_codes" do
     subject(:response) { json_response_body["auth_phone_code"] }
