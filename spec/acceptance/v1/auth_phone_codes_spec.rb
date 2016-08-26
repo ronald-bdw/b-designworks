@@ -18,7 +18,7 @@ resource "Authentication phone codes" do
       end
     end
 
-    context "when user is not registered" do
+    context "when user is not registered", document: false do
       let(:phone_number) { Faker::PhoneNumber.cell_phone }
 
       example_request "Send auth code to not registered user phone number" do
