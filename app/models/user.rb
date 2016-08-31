@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   devise :registerable, :trackable
 
   has_one :auth_phone_code, dependent: :destroy
+  has_many :activities, dependent: :destroy
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :first_name, :last_name, presence: true

@@ -1,13 +1,13 @@
 {
   "resources": [
     {
-      "name": "Authentication phone codes",
+      "name": "Sessions",
       "examples": [
         {
-          "description": "Send auth code to registered user phone number ",
-          "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
+          "description": "Sign in with phone number",
+          "link": "sessions/sign_in_with_phone_number.json",
           "groups": "all",
-          "route": "v1/auth_phone_codes",
+          "route": "/v1/users/sign_in",
           "method": "post"
         }
       ]
@@ -25,13 +25,13 @@
       ]
     },
     {
-      "name": "Sessions",
+      "name": "Activities",
       "examples": [
         {
-          "description": "Sign in with phone number",
-          "link": "sessions/sign_in_with_phone_number.json",
+          "description": "Save user activity with valid params",
+          "link": "activities/save_user_activity_with_valid_params.json",
           "groups": "all",
-          "route": "/v1/users/sign_in",
+          "route": "/v1/activities",
           "method": "post"
         }
       ]
@@ -39,13 +39,6 @@
     {
       "name": "Users",
       "examples": [
-        {
-          "description": "Create user with phone number",
-          "link": "users/create_user_with_phone_number.json",
-          "groups": "all",
-          "route": "/v1/users",
-          "method": "post"
-        },
         {
           "description": "Update user with avatar",
           "link": "users/update_user_with_avatar.json",
@@ -59,6 +52,25 @@
           "groups": "all",
           "route": "v1/users/:id",
           "method": "delete"
+        },
+        {
+          "description": "Create user with phone number",
+          "link": "users/create_user_with_phone_number.json",
+          "groups": "all",
+          "route": "/v1/users",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Authentication phone codes",
+      "examples": [
+        {
+          "description": "Send auth code to registered user phone number ",
+          "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
+          "groups": "all",
+          "route": "v1/auth_phone_codes",
+          "method": "post"
         }
       ]
     }
