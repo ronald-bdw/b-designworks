@@ -43,7 +43,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users",
-      "request_body": "user[first_name]=Michael&user[last_name]=Lind&user[email]=user7%40example.com&user[phone_number]=%2B1-727-819-6174&auth_phone_code_id=11&sms_code=1061",
+      "request_body": "user[first_name]=Ezequiel&user[last_name]=Borer&user[email]=user13%40example.com&user[phone_number]=%2B1-727-819-1531&auth_phone_code_id=15&sms_code=5221",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -52,12 +52,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"user\": {\n    \"id\": 5,\n    \"first_name\": \"Michael\",\n    \"last_name\": \"Lind\",\n    \"phone_number\": \"+1-727-819-6174\",\n    \"authentication_token\": \"JFVxfAwrq4YJN1qCy7ac\",\n    \"email\": \"user7@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    }\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 12,\n    \"first_name\": \"Ezequiel\",\n    \"last_name\": \"Borer\",\n    \"phone_number\": \"+1-727-819-1531\",\n    \"authentication_token\": \"9LRMeXwgVRMFi2oX_znc\",\n    \"email\": \"user13@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Michael&user[last_name]=Lind&user[email]=user7%40example.com&user[phone_number]=%2B1-727-819-6174&auth_phone_code_id=11&sms_code=1061' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Ezequiel&user[last_name]=Borer&user[email]=user13%40example.com&user[phone_number]=%2B1-727-819-1531&auth_phone_code_id=15&sms_code=5221' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: M8XyV-yYtxMusgf3QQxC\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-4990\""
     }
   ]
 }
