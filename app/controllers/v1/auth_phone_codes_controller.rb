@@ -5,7 +5,11 @@ module V1
     def create
       result = SendPhoneCode.call(phone_number: auth_phone_code_params[:phone_number])
 
-      respond_with(result.auth_phone_code)
+      if result.success?
+        respond_with(result.auth_phone_code)
+      else
+        render json: { error: result.error }
+      end
     end
 
     private

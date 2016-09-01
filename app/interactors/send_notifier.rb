@@ -10,5 +10,7 @@ class SendNotifier
       to: phone_number,
       body: message
     )
+  rescue => e
+    context.fail!(error: e.message)
   end
 end
