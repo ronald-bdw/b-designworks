@@ -8,7 +8,7 @@ module V1
       if result.success?
         respond_with(result.auth_phone_code)
       else
-        render json: { error: result.error }
+        respond_with(result)
       end
     end
 
