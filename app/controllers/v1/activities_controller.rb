@@ -13,6 +13,12 @@ module V1
       respond_with activity
     end
 
+    def index
+      self.activities = ActivitiesSum.create(activities: activities, count: params[:count])
+
+      respond_with activities, serializer: ActiveModel::Serializer::ArraySerializer
+    end
+
     private
 
     def activity_params
