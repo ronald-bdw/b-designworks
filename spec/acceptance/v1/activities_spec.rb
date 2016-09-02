@@ -33,4 +33,15 @@ resource "Activities" do
       expect(response).to be_an_validation_error_representation(:unprocessable_entity, error_message)
     end
   end
+
+  get "/v1/activities" do
+    before { create_list :activity, 5, user: user }
+
+    parameter :count, "Number of days with activities"
+
+    example_request "returns activities list grouped by day" do
+      expect(response_status).to eq(200)
+      expect(response).to be_an_activities_sum_representation
+    end
+  end
 end

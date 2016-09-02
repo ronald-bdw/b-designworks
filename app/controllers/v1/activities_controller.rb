@@ -14,9 +14,9 @@ module V1
     end
 
     def index
-      self.activities = ActivitiesSum.initialize(activities: activities, count: params[:count])
+      self.activities = ActivitiesSum.create(activities: activities, count: params[:count])
 
-      respond_with activities, serializer: ActivitiesSumSerializer
+      respond_with activities, serializer: ActiveModel::Serializer::ArraySerializer
     end
 
     private
