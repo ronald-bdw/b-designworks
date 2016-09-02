@@ -34,17 +34,16 @@ resource "Authentication phone codes" do
     end
 
     context "with invalid phone number", document: false do
-      let(:error_message) { "Invalid number" }
-      let(:phone_number)  { "invalid_number" }
+      let(:phone_number)  { "71112223330" }
 
       before do
         allow(Twilio::REST::Client).to receive_message_chain(:new, :messages, :create)
-          .and_raise(Twilio::REST::RequestError, error_message)
+          .and_raise(Twilio::REST::RequestError, nil)
       end
 
       example_request "Send auth code to invalid phone number" do
         expect(response_status).to eq 422
-        expect(json_response_body["error"]["validations"]).to eq([error_message])
+        expect(json_response_body).to be_an_error_representation(:unprocessable_entity)
       end
     end
   end

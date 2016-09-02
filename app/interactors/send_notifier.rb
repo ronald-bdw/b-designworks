@@ -11,6 +11,7 @@ class SendNotifier
       body: message
     )
   rescue Twilio::REST::RequestError => e
-    context.fail!(errors: [e.message])
+    errors = { message: [e.message] }
+    context.fail!(errors: errors)
   end
 end
