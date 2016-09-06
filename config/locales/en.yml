@@ -47,4 +47,4 @@ en:
   activity:
     errors:
       user:
-        not_found: "User is not found! Please check the user phone number."
+        not_found: "User is not found! Please check zendesk id."
