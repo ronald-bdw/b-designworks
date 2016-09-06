@@ -38,10 +38,23 @@ resource "Activities" do
     before { create_list :activity, 5, user: user }
 
     parameter :count, "Number of days with activities"
+    parameter :user_phone_number, "User phone number"
 
-    example_request "returns activities list grouped by day" do
-      expect(response_status).to eq(200)
-      expect(response).to be_an_activities_sum_representation
+    let(:user_phone_number) { user.phone_number }
+
+    context "with authorization header" do
+      header("X-Auth-Token", ZENDESK_PEARUP_API_TOKEN)
+
+      example_request "returns activities list grouped by day" do
+        expect(response_status).to eq(200)
+        expect(response).to be_an_activities_sum_representation
+      end
+    end
+
+    example "returns activities list grouped by day", document: false do
+      do_request
+
+      expect(response_status).to eq(401)
     end
   end
 end
