@@ -38,9 +38,9 @@ resource "Activities" do
     before { create_list :activity, 5, user: user }
 
     parameter :count, "Number of days with activities"
-    parameter :user_phone_number, "User phone number"
+    parameter :zendesk_id, "User zendesk id"
 
-    let(:user_phone_number) { user.phone_number }
+    let(:zendesk_id) { user.zendesk_id }
 
     context "with authorization header" do
       header("X-Auth-Token", ZENDESK_PEARUP_API_TOKEN)
