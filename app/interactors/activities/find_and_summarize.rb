@@ -17,7 +17,7 @@ module Activities
     end
 
     def user
-      @user ||= User.find_by(phone_number: params[:user_phone_number])
+      @user ||= User.find_by(zendesk_id: params[:zendesk_id])
     end
 
     def error
