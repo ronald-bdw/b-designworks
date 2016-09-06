@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :first_name, :last_name, presence: true
   validates :phone_number, phone: { types: %i(mobile) }, uniqueness: { case_sensitive: false }
-  validates :provider, presence: true, allow_nil: true
 
   delegate :thumb, to: :avatar, prefix: true, allow_nil: true
 end
