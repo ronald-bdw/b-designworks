@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831125349) do
+ActiveRecord::Schema.define(version: 20160905142024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,12 @@ ActiveRecord::Schema.define(version: 20160831125349) do
 
   add_index "auth_phone_codes", ["user_id"], name: "index_auth_phone_codes_on_user_id", using: :btree
 
+  create_table "providers", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                default: "", null: false
     t.datetime "remember_created_at"
@@ -53,10 +59,12 @@ ActiveRecord::Schema.define(version: 20160831125349) do
     t.string   "last_name"
     t.string   "zendesk_id"
     t.string   "avatar"
+    t.integer  "provider_id"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["phone_number"], name: "index_users_on_phone_number", unique: true, using: :btree
+  add_index "users", ["provider_id"], name: "index_users_on_provider_id", using: :btree
 
 end
