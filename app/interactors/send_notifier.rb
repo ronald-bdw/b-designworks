@@ -10,5 +10,8 @@ class SendNotifier
       to: phone_number,
       body: message
     )
+  rescue Twilio::REST::RequestError => e
+    errors = { message: [e.message] }
+    context.fail!(errors: errors)
   end
 end
