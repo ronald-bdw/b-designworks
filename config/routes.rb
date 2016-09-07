@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :auth_phone_codes, only: %i(create)
     resources :users, only: %i(create update destroy)
     resources :activities, only: %i(create index)
+    resources :providers, only: %i(index)
   end
 end
