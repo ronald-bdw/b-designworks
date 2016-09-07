@@ -28,7 +28,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/activities",
-      "request_body": "started_at=2016-08-30+14%3A53%3A45+UTC&finished_at=2016-08-31+14%3A53%3A45+UTC&steps_count=1000",
+      "request_body": "started_at=2016-09-06+13%3A11%3A18+UTC&finished_at=2016-09-07+13%3A11%3A18+UTC&steps_count=1000",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -37,12 +37,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"activity\": {\n    \"id\": 1,\n    \"started_at\": \"2016-08-30T14:53:45.000Z\",\n    \"finished_at\": \"2016-08-31T14:53:45.000Z\",\n    \"steps_count\": 1000\n  }\n}",
+      "response_body": "{\n  \"activity\": {\n    \"id\": 1,\n    \"started_at\": \"2016-09-06T13:11:18.000Z\",\n    \"finished_at\": \"2016-09-07T13:11:18.000Z\",\n    \"steps_count\": 1000\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/activities\" -d 'started_at=2016-08-30+14%3A53%3A45+UTC&finished_at=2016-08-31+14%3A53%3A45+UTC&steps_count=1000' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: Mojsxwv7njNSKac8pcSu\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-7194\""
+      "curl": "curl \"http://localhost:5000/v1/activities\" -d 'started_at=2016-09-06+13%3A11%3A18+UTC&finished_at=2016-09-07+13%3A11%3A18+UTC&steps_count=1000' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: uRFzv_A555AteKF3gTfY\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-8853\""
     }
   ]
 }
