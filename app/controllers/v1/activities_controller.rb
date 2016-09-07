@@ -10,9 +10,10 @@ module V1
     expose(:activity, attributes: :activity_params)
 
     def create
-      activity.save
+      result = SaveActivityBulk.call(activities: activity_params[:activities], user: current_user)
+      status = result.success? ? :created : :unprocessable_entity
 
-      respond_with activity
+      render nothing: true, status: status
     end
 
     def index
@@ -28,7 +29,7 @@ module V1
     private
 
     def activity_params
-      params.require(:activity).permit(:started_at, :finished_at, :steps_count)
+      params.permit(activities: %i(started_at finished_at steps_count))
     end
   end
 end
