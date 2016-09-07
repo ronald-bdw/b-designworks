@@ -8,6 +8,10 @@
     {
       "name": "count",
       "description": "Number of days with activities"
+    },
+    {
+      "name": "zendesk_id",
+      "description": "User zendesk id"
     }
   ],
   "response_fields": [
@@ -16,22 +20,24 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "/v1/activities",
+      "request_path": "/v1/activities?zendesk_id=1",
       "request_body": null,
       "request_headers": {
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "X-Auth-Token": "82cc8505364b42057525bcba5525eecc"
       },
       "request_query_parameters": {
+        "zendesk_id": "1"
       },
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "[\n  {\n    \"date\": \"2016-09-02\",\n    \"steps_count\": 5000\n  }\n]",
+      "response_body": "[\n  {\n    \"date\": \"2016-09-07\",\n    \"steps_count\": 5000\n  }\n]",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/activities\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: sdX7dwoSsMeyKJvedyJA\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-7496\""
+      "curl": "curl \"http://localhost:5000/v1/activities?zendesk_id=1\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"X-User-Token: ykaKdSCxAJ4ynj2RKjEt\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-1681\""
     }
   ]
 }

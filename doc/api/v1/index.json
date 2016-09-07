@@ -1,21 +1,45 @@
 {
   "resources": [
     {
-      "name": "Activities",
+      "name": "Errors",
       "examples": [
         {
-          "description": "returns activities list grouped by day",
-          "link": "activities/returns_activities_list_grouped_by_day.json",
+          "description": "Request to unexisting page",
+          "link": "errors/request_to_unexisting_page.json",
           "groups": "all",
-          "route": "/v1/activities",
+          "route": "/not-found",
           "method": "get"
-        },
+        }
+      ]
+    },
+    {
+      "name": "Activities",
+      "examples": [
         {
           "description": "Save user activity with valid params",
           "link": "activities/save_user_activity_with_valid_params.json",
           "groups": "all",
           "route": "/v1/activities",
           "method": "post"
+        },
+        {
+          "description": "returns activities list grouped by day",
+          "link": "activities/returns_activities_list_grouped_by_day.json",
+          "groups": "all",
+          "route": "/v1/activities",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Providers",
+      "examples": [
+        {
+          "description": "Get providers list",
+          "link": "providers/get_providers_list.json",
+          "groups": "all",
+          "route": "/v1/providers",
+          "method": "get"
         }
       ]
     },
@@ -32,26 +56,14 @@
       ]
     },
     {
-      "name": "Errors",
-      "examples": [
-        {
-          "description": "Request to unexisting page",
-          "link": "errors/request_to_unexisting_page.json",
-          "groups": "all",
-          "route": "/not-found",
-          "method": "get"
-        }
-      ]
-    },
-    {
       "name": "Users",
       "examples": [
         {
-          "description": "Delete user",
-          "link": "users/delete_user.json",
+          "description": "Update user with avatar",
+          "link": "users/update_user_with_avatar.json",
           "groups": "all",
-          "route": "v1/users/:id",
-          "method": "delete"
+          "route": "/v1/users/:id",
+          "method": "put"
         },
         {
           "description": "Create user with phone number",
@@ -61,11 +73,11 @@
           "method": "post"
         },
         {
-          "description": "Update user with avatar",
-          "link": "users/update_user_with_avatar.json",
+          "description": "Delete user",
+          "link": "users/delete_user.json",
           "groups": "all",
-          "route": "/v1/users/:id",
-          "method": "put"
+          "route": "v1/users/:id",
+          "method": "delete"
         }
       ]
     },
