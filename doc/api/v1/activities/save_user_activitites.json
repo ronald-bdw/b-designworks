@@ -1,0 +1,53 @@
+{
+  "resource": "Activities",
+  "http_method": "POST",
+  "route": "/v1/activities",
+  "description": "Save user activitites",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "activities",
+      "description": "(Array) Collection of activity data"
+    },
+    {
+      "required": true,
+      "name": "started_at",
+      "description": "(String) Period start for activity item"
+    },
+    {
+      "required": true,
+      "name": "finished_at",
+      "description": "(String) Period end for activity item"
+    },
+    {
+      "required": true,
+      "name": "steps_count",
+      "description": "(String) Steps count for activity item"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/v1/activities",
+      "request_body": "activities[][started_at]=2016-09-06+10%3A27%3A37+UTC&activities[][finished_at]=2016-09-07+10%3A27%3A37+UTC&activities[][steps_count]=2000&started_at=2016-09-06+10%3A27%3A37+UTC",
+      "request_headers": {
+        "Accept": "application/json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": null,
+      "response_headers": {
+        "Content-Type": "text/plain; charset=utf-8"
+      },
+      "response_content_type": "text/plain; charset=utf-8",
+      "curl": "curl \"http://localhost:5000/v1/activities\" -d 'activities[][started_at]=2016-09-06+10%3A27%3A37+UTC&activities[][finished_at]=2016-09-07+10%3A27%3A37+UTC&activities[][steps_count]=2000&started_at=2016-09-06+10%3A27%3A37+UTC' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: FvVh5chMYg2MTwunHkGH\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-6442\""
+    }
+  ]
+}
