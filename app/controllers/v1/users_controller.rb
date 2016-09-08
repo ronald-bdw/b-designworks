@@ -2,9 +2,13 @@ module V1
   class UsersController < ApplicationController
     wrap_parameters :user
 
-    acts_as_token_authentication_handler_for User, only: %i(update destroy)
+    acts_as_token_authentication_handler_for User, only: %i(update destroy account)
 
     expose(:user, attributes: :user_params)
+
+    def account
+      respond_with current_user
+    end
 
     def create
       self.user = Users::Create.call(

@@ -23,6 +23,21 @@ resource "Users" do
 
   subject(:response) { json_response_body }
 
+  get "/v1/users/account" do
+    let(:user) { create :user }
+
+    it_behaves_like("a method that requires an authentication", "user", "account")
+
+    context "with authentication token" do
+      before { setup_authentication_header(user) }
+
+      example_request "Get user account" do
+        expect(response_status).to eq 200
+        expect(response["user"]).to be_a_user_representation(user)
+      end
+    end
+  end
+
   post "/v1/users" do
     parameter :first_name, "First name", required: true
     parameter :last_name, "Last name", required: true
