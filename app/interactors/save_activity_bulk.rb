@@ -12,8 +12,9 @@ class SaveActivityBulk
     end
 
     return if invalid_data.empty?
+
     message = "Can't save activities: #{invalid_data}"
     context.fail!(message: message)
-    Rails.logger.error(message)
+    Rollbar.info(message, user_id: user.id)
   end
 end
