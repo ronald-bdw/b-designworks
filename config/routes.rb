@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     end
 
     resources :auth_phone_codes, only: %i(create)
-    resources :users, only: %i(create update destroy)
     resources :activities, only: %i(create index)
     resources :providers, only: %i(index)
+    resources :users, only: %i(create update destroy) do
+      get "account", on: :collection
+    end
   end
 end
