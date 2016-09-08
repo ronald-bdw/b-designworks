@@ -32,7 +32,7 @@ resource "Activities" do
     context "with invalid params", document: false do
       let(:started_at) { nil }
 
-      example "Save user activities" do
+      example "Can't save user activities" do
         do_request(activities: activities)
 
         expect(response_status).to eq 422

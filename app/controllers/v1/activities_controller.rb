@@ -10,7 +10,7 @@ module V1
     expose(:activity, attributes: :activity_params)
 
     def create
-      result = SaveActivityBulk.call(activities: activity_params[:activities], user: current_user)
+      result = SaveActivityBulk.call(params: activity_params[:activities], user: current_user)
       status = result.success? ? :created : :unprocessable_entity
 
       render nothing: true, status: status

@@ -1,18 +1,19 @@
 class SaveActivityBulk
   include Interactor
 
-  delegate :activities, :user, to: :context
+  delegate :params, :user, to: :context
 
   def call
-    activities.each do |data|
-      activity = Activity.new(activity_params(data))
-      context.fail!(message: "Data is not valid") unless activity.save
+    invalid_data = []
+
+    params.each do |data|
+      activity = Activity.new(data.merge(user_id: user.id))
+      invalid_data << data unless activity.save
     end
-  end
 
-  private
-
-  def activity_params(data)
-    data.merge(user_id: user.id)
+    return if invalid_data.empty?
+    message = "Can't save activities: #{invalid_data}"
+    context.fail!(message: message)
+    Rails.logger.error(message)
   end
 end
