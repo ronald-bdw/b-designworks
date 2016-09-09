@@ -36,8 +36,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/v1/users/14",
-      "request_body": "------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[first_name]\"\r\n\r\nErick\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[last_name]\"\r\n\r\nWiza\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[email]\"\r\n\r\nuser15@example.com\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[avatar]\"; filename=\"avatar.jpg\"\r\nContent-Type: image/jpg\r\nContent-Length: 2669\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r",
+      "request_path": "/v1/users/9",
+      "request_body": "------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[first_name]\"\r\n\r\nDimitri\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[last_name]\"\r\n\r\nSchinner\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[email]\"\r\n\r\nuser10@example.com\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[avatar]\"; filename=\"avatar.jpg\"\r\nContent-Type: image/jpg\r\nContent-Length: 2669\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -46,12 +46,12 @@
       "request_content_type": "multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"user\": {\n    \"id\": 14,\n    \"first_name\": \"Erick\",\n    \"last_name\": \"Wiza\",\n    \"phone_number\": \"+1-727-819-3155\",\n    \"authentication_token\": \"y2WK8mG_kcTq8m3Vvb2w\",\n    \"email\": \"user15@example.com\",\n    \"avatar\": {\n      \"original\": \"/test/uploads/user/avatar/14/avatar.jpg\",\n      \"thumb\": \"/test/uploads/user/avatar/14/thumb_avatar.jpg\"\n    }\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 9,\n    \"first_name\": \"Dimitri\",\n    \"last_name\": \"Schinner\",\n    \"phone_number\": \"+1-727-819-4612\",\n    \"authentication_token\": \"AF4EKRUcnLvmjxnWQ7Pp\",\n    \"email\": \"user10@example.com\",\n    \"avatar\": {\n      \"original\": \"/test/uploads/user/avatar/9/avatar.jpg\",\n      \"thumb\": \"/test/uploads/user/avatar/9/thumb_avatar.jpg\"\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users/14\" -d '------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[first_name]\"\r\n\r\nErick\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[last_name]\"\r\n\r\nWiza\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[email]\"\r\n\r\nuser15@example.com\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[avatar]\"; filename=\"avatar.jpg\"\r\nContent-Type: image/jpg\r\nContent-Length: 2669\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: y2WK8mG_kcTq8m3Vvb2w\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-3155\""
+      "curl": "curl \"http://localhost:5000/v1/users/9\" -d '------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[first_name]\"\r\n\r\nDimitri\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[last_name]\"\r\n\r\nSchinner\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[email]\"\r\n\r\nuser10@example.com\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[avatar]\"; filename=\"avatar.jpg\"\r\nContent-Type: image/jpg\r\nContent-Length: 2669\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: AF4EKRUcnLvmjxnWQ7Pp\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-4612\""
     }
   ]
 }

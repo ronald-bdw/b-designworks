@@ -33,7 +33,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/activities",
-      "request_body": "activities[][started_at]=2016-09-06+10%3A27%3A37+UTC&activities[][finished_at]=2016-09-07+10%3A27%3A37+UTC&activities[][steps_count]=2000&started_at=2016-09-06+10%3A27%3A37+UTC",
+      "request_body": "activities[][started_at]=2016-09-07+09%3A43%3A24+UTC&activities[][finished_at]=2016-09-08+09%3A43%3A24+UTC&activities[][steps_count]=2000&started_at=2016-09-07+09%3A43%3A24+UTC",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -47,7 +47,7 @@
         "Content-Type": "text/plain; charset=utf-8"
       },
       "response_content_type": "text/plain; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/activities\" -d 'activities[][started_at]=2016-09-06+10%3A27%3A37+UTC&activities[][finished_at]=2016-09-07+10%3A27%3A37+UTC&activities[][steps_count]=2000&started_at=2016-09-06+10%3A27%3A37+UTC' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: FvVh5chMYg2MTwunHkGH\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-6442\""
+      "curl": "curl \"http://localhost:5000/v1/activities\" -d 'activities[][started_at]=2016-09-07+09%3A43%3A24+UTC&activities[][finished_at]=2016-09-08+09%3A43%3A24+UTC&activities[][steps_count]=2000&started_at=2016-09-07+09%3A43%3A24+UTC' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: SH_N2_RkFsyDsUyixpGs\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-9463\""
     }
   ]
 }
