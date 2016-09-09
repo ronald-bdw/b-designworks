@@ -13,10 +13,11 @@ resource "Activities" do
 
   post "/v1/activities" do
     with_options required: true do |required|
-      required.parameter :activities, "(Array) Collection of activity data"
-      required.parameter :started_at, "(String) Period start for activity item"
-      required.parameter :finished_at, "(String) Period end for activity item"
-      required.parameter :steps_count, "(String) Steps count for activity item"
+      required.parameter :activities, "(array) Collection of activity data"
+      required.parameter :started_at, "(string) The start time"
+      required.parameter :finished_at, "(string) The date of the ending"
+      required.parameter :steps_count, "(integer) Steps count of activity"
+      required.parameter :source, "(string)[healthkit|googlefit|fitbit] Source of activity"
     end
 
     context "with valid params" do

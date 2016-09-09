@@ -5,6 +5,7 @@ RSpec::Matchers.define :be_an_activity_representation do |activity|
       started_at
       finished_at
       steps_count
+      source
     )
 
     expect(json).to be
