@@ -16,8 +16,7 @@ class SaveActivityBulk
 
   def create_activities
     params.each do |data|
-      data_with_user = data.merge(user_id: user.id)
-      activity = Activity.where(data_with_user).first_or_initialize
+      activity = user.activities.where(data).first_or_initialize
       invalid_data << data unless activity.save
     end
   end

@@ -6,8 +6,8 @@ describe SaveActivityBulk do
   let(:interactor)  { described_class.call(params: params, user: user) }
   let(:params) do
     [
-      { started_at: started_at, finished_at: finished_at, steps_count: 2000 },
-      { started_at: 2.day.ago, finished_at: 1.day.ago, steps_count: 3000 }
+      attributes_for(:activity, started_at: started_at, finished_at: finished_at),
+      attributes_for(:activity)
     ]
   end
 
@@ -21,7 +21,7 @@ describe SaveActivityBulk do
 
   context "with invalid params" do
     let(:started_at)   { nil }
-    let(:invalid_data) { "[{:started_at=>nil, :finished_at=>Thu, 08 Sep 2016 09:00:00 +0000, :steps_count=>2000}]" }
+    let(:invalid_data) { [attributes_for(:activity, started_at: nil, finished_at: finished_at)] }
     let(:message)      { "Can't save activities: #{invalid_data}" }
 
     it "creates only valid activities" do

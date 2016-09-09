@@ -5,7 +5,7 @@ resource "Activities" do
   header "Accept", "application/json"
 
   let(:user)       { create(:user) }
-  let(:activities) { [{ started_at: started_at, finished_at: 1.day.ago, steps_count: 2000 }] }
+  let(:activities) { [attributes_for(:activity, started_at: started_at)] }
 
   subject(:response) { json_response_body }
 
