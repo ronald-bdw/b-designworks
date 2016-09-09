@@ -52,7 +52,7 @@ resource "Activities" do
     context "with authorization header" do
       header("X-Auth-Token", ZENDESK_PEARUP_API_TOKEN)
 
-      example_request "returns activities list grouped by day" do
+      example_request "returns activities list" do
         expect(response_status).to eq(200)
         expect(response).to be_an_activities_sum_representation
       end
