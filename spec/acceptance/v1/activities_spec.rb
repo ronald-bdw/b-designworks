@@ -44,14 +44,15 @@ resource "Activities" do
     before { create_list :activity, 5, user: user }
 
     parameter :count, "Number of days with activities"
-    parameter :zendesk_id, "User zendesk id"
+    parameter :period, "Activities period"
+    parameter :zendesk_id, "User zendesk id", required: true
 
     let(:zendesk_id) { user.zendesk_id }
 
     context "with authorization header" do
       header("X-Auth-Token", ZENDESK_PEARUP_API_TOKEN)
 
-      example_request "returns activities list grouped by day" do
+      example_request "returns activities list" do
         expect(response_status).to eq(200)
         expect(response).to be_an_activities_sum_representation
       end

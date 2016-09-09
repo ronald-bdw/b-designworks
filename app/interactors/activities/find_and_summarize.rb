@@ -13,7 +13,9 @@ module Activities
     private
 
     def activities_sum
-      ActivitiesSum.create(activities: user.activities, count: params[:count])
+      activities_sum_params = params.slice(:count, :period).merge(activities: user.activities)
+
+      ActivitiesSum.create(activities_sum_params.symbolize_keys)
     end
 
     def user

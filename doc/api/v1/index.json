@@ -1,6 +1,49 @@
 {
   "resources": [
     {
+      "name": "Errors",
+      "examples": [
+        {
+          "description": "Request to unexisting page",
+          "link": "errors/request_to_unexisting_page.json",
+          "groups": "all",
+          "route": "/not-found",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Sessions",
+      "examples": [
+        {
+          "description": "Sign in with phone number",
+          "link": "sessions/sign_in_with_phone_number.json",
+          "groups": "all",
+          "route": "/v1/users/sign_in",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Activities",
+      "examples": [
+        {
+          "description": "Save user activitites",
+          "link": "activities/save_user_activitites.json",
+          "groups": "all",
+          "route": "/v1/activities",
+          "method": "post"
+        },
+        {
+          "description": "returns activities list",
+          "link": "activities/returns_activities_list.json",
+          "groups": "all",
+          "route": "/v1/activities",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "name": "Users",
       "examples": [
         {
@@ -9,13 +52,6 @@
           "groups": "all",
           "route": "/v1/users/:id",
           "method": "put"
-        },
-        {
-          "description": "Delete user",
-          "link": "users/delete_user.json",
-          "groups": "all",
-          "route": "v1/users/:id",
-          "method": "delete"
         },
         {
           "description": "Create user with phone number",
@@ -30,6 +66,13 @@
           "groups": "all",
           "route": "/v1/users/account",
           "method": "get"
+        },
+        {
+          "description": "Delete user",
+          "link": "users/delete_user.json",
+          "groups": "all",
+          "route": "v1/users/:id",
+          "method": "delete"
         }
       ]
     },
@@ -46,18 +89,6 @@
       ]
     },
     {
-      "name": "Errors",
-      "examples": [
-        {
-          "description": "Request to unexisting page",
-          "link": "errors/request_to_unexisting_page.json",
-          "groups": "all",
-          "route": "/not-found",
-          "method": "get"
-        }
-      ]
-    },
-    {
       "name": "Authentication phone codes",
       "examples": [
         {
@@ -65,37 +96,6 @@
           "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
           "groups": "all",
           "route": "v1/auth_phone_codes",
-          "method": "post"
-        }
-      ]
-    },
-    {
-      "name": "Activities",
-      "examples": [
-        {
-          "description": "Save user activitites",
-          "link": "activities/save_user_activitites.json",
-          "groups": "all",
-          "route": "/v1/activities",
-          "method": "post"
-        },
-        {
-          "description": "returns activities list grouped by day",
-          "link": "activities/returns_activities_list_grouped_by_day.json",
-          "groups": "all",
-          "route": "/v1/activities",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "name": "Sessions",
-      "examples": [
-        {
-          "description": "Sign in with phone number",
-          "link": "sessions/sign_in_with_phone_number.json",
-          "groups": "all",
-          "route": "/v1/users/sign_in",
           "method": "post"
         }
       ]

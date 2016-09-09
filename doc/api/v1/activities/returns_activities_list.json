@@ -2,7 +2,7 @@
   "resource": "Activities",
   "http_method": "GET",
   "route": "/v1/activities",
-  "description": "returns activities list grouped by day",
+  "description": "returns activities list",
   "explanation": null,
   "parameters": [
     {
@@ -10,6 +10,11 @@
       "description": "Number of days with activities"
     },
     {
+      "name": "period",
+      "description": "Activities period"
+    },
+    {
+      "required": true,
       "name": "zendesk_id",
       "description": "User zendesk id"
     }
@@ -24,7 +29,7 @@
       "request_body": null,
       "request_headers": {
         "Accept": "application/json",
-        "X-Auth-Token": "82cc8505364b42057525bcba5525eecc"
+        "X-Auth-Token": "746a9e515c628cd29632f77c37791163"
       },
       "request_query_parameters": {
         "zendesk_id": "1"
@@ -37,7 +42,7 @@
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/activities?zendesk_id=1\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"X-User-Token: xHNcFc8sw6iUPzYr9niS\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-5816\""
+      "curl": "curl \"http://localhost:5000/v1/activities?zendesk_id=1\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\" \\\n\t-H \"X-User-Token: PWjXBtVwDA94G7Jk7rE4\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-4965\""
     }
   ]
 }
