@@ -14,7 +14,7 @@ describe SaveActivityBulk do
   context "with valid params" do
     let(:started_at) { "2016-09-07 09:00:00 UTC".to_datetime }
 
-    it "creates activities with given params" do
+    it "creates activities" do
       expect { interactor }.to change { Activity.count }.by(2)
     end
   end
@@ -24,7 +24,7 @@ describe SaveActivityBulk do
     let(:invalid_data) { "[{:started_at=>nil, :finished_at=>Thu, 08 Sep 2016 09:00:00 +0000, :steps_count=>2000}]" }
     let(:message)      { "Can't save activities: #{invalid_data}" }
 
-    it "returns error message" do
+    it "creates only valid activities" do
       expect { interactor }.to change { Activity.count }.by(1)
       expect(interactor.error).to be_kind_of(RailsApiFormat::Error)
     end

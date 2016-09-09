@@ -35,7 +35,7 @@ class SaveActivityBulk
   def error
     RailsApiFormat::Error.new(
       status: :unprocessable_entity,
-      error: I18n.t("activity.errors.invalid_data", invalid_data: invalid_data)
+      error: I18n.t("activity.errors.invalid_data", data: invalid_data)
     )
   end
 end
