@@ -27,6 +27,7 @@ gem "simple_token_authentication"
 gem "thin"
 gem "twilio-ruby", "~> 4.11.1"
 gem "zendesk_api"
+gem "rollbar"
 
 group :development do
   gem "letter_opener"
@@ -67,6 +68,5 @@ group :development, :test, :staging do
 end
 
 group :staging, :production do
-  gem "rollbar"
   gem "rails_12factor"
 end
