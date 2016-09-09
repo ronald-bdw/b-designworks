@@ -23,12 +23,12 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"user\": {\n    \"id\": 5,\n    \"first_name\": \"Fae\",\n    \"last_name\": \"Koelpin\",\n    \"phone_number\": \"+1-727-819-9711\",\n    \"authentication_token\": \"J52PXk5nqaDx_X4mD2se\",\n    \"email\": \"user5@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_activity\": {\n      \"id\": null,\n      \"started_at\": null,\n      \"finished_at\": null,\n      \"steps_count\": null\n    }\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 8,\n    \"first_name\": \"Daniela\",\n    \"last_name\": \"Huels\",\n    \"phone_number\": \"+1-727-819-1631\",\n    \"authentication_token\": \"ovCupxVodsBootjky9Jq\",\n    \"email\": \"user12@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_activity\": {\n      \"id\": null,\n      \"started_at\": null,\n      \"finished_at\": null,\n      \"steps_count\": null\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users/account\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: J52PXk5nqaDx_X4mD2se\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-9711\""
+      "curl": "curl \"http://localhost:5000/v1/users/account\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: ovCupxVodsBootjky9Jq\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-1631\""
     }
   ]
 }

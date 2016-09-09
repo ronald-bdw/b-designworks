@@ -48,3 +48,4 @@ en:
     errors:
       user:
         not_found: "User is not found! Please check zendesk id."
+      invalid_data: "Can't save activities: %{data}"
