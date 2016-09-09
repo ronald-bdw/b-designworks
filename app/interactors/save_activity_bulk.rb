@@ -1,20 +1,41 @@
+require "rollbar"
+
 class SaveActivityBulk
   include Interactor
 
-  delegate :params, :user, to: :context
+  before do
+    context.invalid_data = []
+  end
+
+  delegate :params, :user, :invalid_data, to: :context
 
   def call
-    invalid_data = []
+    create_activities
+    check_for_errors
+  end
 
+  private
+
+  def create_activities
     params.each do |data|
-      activity = Activity.new(data.merge(user_id: user.id))
+      data_with_user = data.merge(user_id: user.id)
+      activity = Activity.where(data_with_user).first_or_initialize
       invalid_data << data unless activity.save
     end
+  end
 
+  def check_for_errors
     return if invalid_data.empty?
 
-    message = "Can't save activities: #{invalid_data}"
-    context.fail!(message: message)
-    Rollbar.info(message, user_id: user.id)
+    context.error = error
+    Rollbar.info(context.error, user_id: user.id)
+    context.fail!
+  end
+
+  def error
+    RailsApiFormat::Error.new(
+      status: :unprocessable_entity,
+      error: I18n.t("activity.errors.invalid_data", invalid_data: invalid_data)
+    )
   end
 end

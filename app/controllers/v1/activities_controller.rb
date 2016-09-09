@@ -11,9 +11,12 @@ module V1
 
     def create
       result = SaveActivityBulk.call(params: activity_params[:activities], user: current_user)
-      status = result.success? ? :created : :unprocessable_entity
 
-      render nothing: true, status: status
+      if result.success?
+        render nothing: true, status: :created
+      else
+        render json: result.error, status: result.error.status
+      end
     end
 
     def index

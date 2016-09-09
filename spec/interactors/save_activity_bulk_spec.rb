@@ -26,7 +26,7 @@ describe SaveActivityBulk do
 
     it "returns error message" do
       expect { interactor }.to change { Activity.count }.by(1)
-      expect(interactor.message).to eq(message)
+      expect(interactor.error).to be_kind_of(RailsApiFormat::Error)
     end
   end
 end
