@@ -44,7 +44,8 @@ resource "Activities" do
     before { create_list :activity, 5, user: user }
 
     parameter :count, "Number of days with activities"
-    parameter :zendesk_id, "User zendesk id"
+    parameter :period, "Activities period"
+    parameter :zendesk_id, "User zendesk id", required: true
 
     let(:zendesk_id) { user.zendesk_id }
 
