@@ -13,13 +13,22 @@ module Activities
     private
 
     def activities_sum
-      activities_sum_params = params.slice(:count, :period).merge(activities: user.activities)
+      activities_sum_params = params.slice(:count, :period).merge(activities: activities)
 
       ActivitiesSum.create(activities_sum_params.symbolize_keys)
     end
 
     def user
       @user ||= User.find_by(zendesk_id: params[:zendesk_id])
+    end
+
+    def activities
+      if params[:date].present?
+        date = DateTime.parse(params[:date])
+        user.activities.where(finished_at: date.at_beginning_of_day..date.at_end_of_day)
+      else
+        user.activities
+      end
     end
 
     def error
