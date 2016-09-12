@@ -46,6 +46,7 @@ resource "Activities" do
 
     parameter :count, "Number of days with activities"
     parameter :period, "Activities period"
+    parameter :date, "Activities' date"
     parameter :zendesk_id, "User zendesk id", required: true
 
     let(:zendesk_id) { user.zendesk_id }
