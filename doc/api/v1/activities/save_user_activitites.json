@@ -8,22 +8,27 @@
     {
       "required": true,
       "name": "activities",
-      "description": "(Array) Collection of activity data"
+      "description": "(array) Collection of activity data"
     },
     {
       "required": true,
       "name": "started_at",
-      "description": "(String) Period start for activity item"
+      "description": "(string) The start time"
     },
     {
       "required": true,
       "name": "finished_at",
-      "description": "(String) Period end for activity item"
+      "description": "(string) The date of the ending"
     },
     {
       "required": true,
       "name": "steps_count",
-      "description": "(String) Steps count for activity item"
+      "description": "(integer) Steps count of activity"
+    },
+    {
+      "required": true,
+      "name": "source",
+      "description": "(string)[healthkit|googlefit|fitbit] Source of activity"
     }
   ],
   "response_fields": [
@@ -33,7 +38,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/activities",
-      "request_body": "activities[][started_at]=2016-09-07+10%3A41%3A02+UTC&activities[][finished_at]=2016-09-09+10%3A41%3A02+UTC&activities[][steps_count]=1000&started_at=2016-09-07+10%3A41%3A02+UTC",
+      "request_body": "activities[][started_at]=2016-09-10+13%3A23%3A27+UTC&activities[][finished_at]=2016-09-12+13%3A23%3A27+UTC&activities[][steps_count]=1000&activities[][source]=healthkit&started_at=2016-09-10+13%3A23%3A27+UTC",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -47,7 +52,7 @@
         "Content-Type": "text/plain; charset=utf-8"
       },
       "response_content_type": "text/plain; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/activities\" -d 'activities[][started_at]=2016-09-07+10%3A41%3A02+UTC&activities[][finished_at]=2016-09-09+10%3A41%3A02+UTC&activities[][steps_count]=1000&started_at=2016-09-07+10%3A41%3A02+UTC' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: PsMxYLh7x7aWf93-R2Qx\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-7271\""
+      "curl": "curl \"http://localhost:5000/v1/activities\" -d 'activities[][started_at]=2016-09-10+13%3A23%3A27+UTC&activities[][finished_at]=2016-09-12+13%3A23%3A27+UTC&activities[][steps_count]=1000&activities[][source]=healthkit&started_at=2016-09-10+13%3A23%3A27+UTC' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: EAuznJiWeT_iSpKHWMHK\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-7219\""
     }
   ]
 }

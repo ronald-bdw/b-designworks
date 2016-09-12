@@ -7,6 +7,9 @@ RSpec::Matchers.define :be_a_user_representation do |user|
       authentication_token
       email
       phone_number
+      last_healthkit_activity
+      last_googlefit_activity
+      last_fitbit_activity
     )
 
     expect(json).to be

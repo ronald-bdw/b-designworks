@@ -32,7 +32,7 @@ module V1
     private
 
     def activity_params
-      params.permit(activities: %i(started_at finished_at steps_count))
+      params.permit(activities: %i(started_at finished_at steps_count source))
     end
   end
 end

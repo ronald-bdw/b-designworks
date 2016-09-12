@@ -23,7 +23,7 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"providers\": [\n    {\n      \"id\": 1,\n      \"name\": \"autem\"\n    },\n    {\n      \"id\": 2,\n      \"name\": \"voluptas\"\n    },\n    {\n      \"id\": 3,\n      \"name\": \"sapiente\"\n    }\n  ]\n}",
+      "response_body": "{\n  \"providers\": [\n    {\n      \"id\": 1,\n      \"name\": \"tempora\"\n    },\n    {\n      \"id\": 2,\n      \"name\": \"nobis\"\n    },\n    {\n      \"id\": 3,\n      \"name\": \"numquam\"\n    }\n  ]\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },

@@ -5,8 +5,17 @@ class UserSerializer < ApplicationSerializer
     :phone_number,
     :authentication_token,
     :email,
-    :avatar,
-    :last_activity
+    :avatar
+
+  Activity.sources.keys.each do |source_name|
+    attr_name = "last_#{source_name}_activity".to_sym
+    attribute attr_name
+
+    define_method attr_name do
+      activity = activities_by(source_name.to_sym).last
+      ActivitySerializer.new(activity).attributes if activity
+    end
+  end
 
   def avatar
     {
@@ -15,7 +24,9 @@ class UserSerializer < ApplicationSerializer
     }
   end
 
-  def last_activity
-    ActivitySerializer.new(object.activities.order_by_finished_at.last).attributes
+  private
+
+  def activities_by(scope)
+    object.activities.send(scope).order_by_finished_at
   end
 end
