@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160909133226) do
+ActiveRecord::Schema.define(version: 20160919094220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,14 @@ ActiveRecord::Schema.define(version: 20160909133226) do
     t.string   "zendesk_id"
     t.string   "avatar"
     t.integer  "provider_id"
+    t.string   "project_id"
+    t.string   "member_number"
+    t.string   "street_number"
+    t.string   "street_name"
+    t.string   "street_type"
+    t.string   "suburb"
+    t.string   "state"
+    t.string   "postcode"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
