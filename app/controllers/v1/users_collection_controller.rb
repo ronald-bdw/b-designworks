@@ -3,10 +3,13 @@ module V1
     before_action :authorize_zendesk_app!
 
     def create
-      result = Users::CreateFromFile.call(file: params[:file])
-      status = result.success? ? :created : :unprocessable_entity
+      result = Users::CreateFromFile.call(file: params[:file].tempfile)
 
-      render nothing: true, status: status
+      if result.success?
+        render nothing: true, status: :created
+      else
+        respond_with result.invalid_users, status: :unprocessable_entity
+      end
     end
   end
 end
