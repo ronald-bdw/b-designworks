@@ -52,7 +52,7 @@ resource "Activities" do
     let(:zendesk_id) { user.zendesk_id }
 
     context "with authorization header" do
-      header("X-Auth-Token", ZENDESK_PEARUP_API_TOKEN)
+      include_context "zendesk app"
 
       example_request "returns activities list" do
         expect(response_status).to eq(200)
