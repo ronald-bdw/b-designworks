@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 20160919094220) do
 
   add_index "auth_phone_codes", ["user_id"], name: "index_auth_phone_codes_on_user_id", using: :btree
 
+  create_table "fitness_tokens", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "token",         null: false
+    t.integer  "source",        null: false
+    t.string   "refresh_token"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "fitness_tokens", ["user_id"], name: "index_fitness_tokens_on_user_id", using: :btree
+
   create_table "providers", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at"
@@ -76,4 +87,5 @@ ActiveRecord::Schema.define(version: 20160919094220) do
   add_index "users", ["phone_number"], name: "index_users_on_phone_number", unique: true, using: :btree
   add_index "users", ["provider_id"], name: "index_users_on_provider_id", using: :btree
 
+  add_foreign_key "fitness_tokens", "users"
 end
