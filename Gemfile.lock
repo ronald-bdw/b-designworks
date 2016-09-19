@@ -284,8 +284,12 @@ GEM
     ruby2ruby (2.0.8)
       ruby_parser (~> 3.1)
       sexp_processor (~> 4.0)
+    rubyXL (3.3.21)
+      nokogiri (>= 1.4.4)
+      rubyzip (>= 1.1.6)
     ruby_parser (3.4.1)
       sexp_processor (~> 4.1)
+    rubyzip (1.2.0)
     safe_yaml (1.0.2)
     sass (3.3.4)
     scrub_rb (1.0.1)
@@ -385,6 +389,7 @@ DEPENDENCIES
   rspec-rails
   rspec_api_documentation
   rubocop
+  rubyXL
   seedbank
   shoulda-matchers
   simple_token_authentication
