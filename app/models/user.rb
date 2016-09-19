@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   has_one :auth_phone_code, dependent: :destroy
   has_many :activities, dependent: :destroy
+  has_many :fitness_tokens, dependent: :destroy
+
   belongs_to :provider
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }

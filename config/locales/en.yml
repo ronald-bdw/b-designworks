@@ -49,3 +49,7 @@ en:
       user:
         not_found: "User is not found! Please check zendesk id."
       invalid_data: "Can't save activities: %{data}"
+  fitness_token:
+    errors:
+      invalid_data: "Errors while fetch fitbit token: %{message}"
+

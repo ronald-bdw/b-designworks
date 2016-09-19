@@ -363,6 +363,7 @@ DEPENDENCIES
   email_spec
   factory_girl_rails
   faker
+  faraday
   fog-aws
   foreman
   groupdate

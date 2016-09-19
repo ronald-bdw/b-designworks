@@ -28,6 +28,7 @@ gem "thin"
 gem "twilio-ruby", "~> 4.11.1"
 gem "zendesk_api"
 gem "rollbar"
+gem "faraday"
 
 group :development do
   gem "letter_opener"
