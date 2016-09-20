@@ -15,7 +15,7 @@ module Users
       suburb
       state
       postcode
-    )
+    ).freeze
 
     delegate :file, :invalid_users, to: :context
 

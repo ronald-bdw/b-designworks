@@ -46,6 +46,9 @@ Style/AlignParameters:
 Style/MultilineOperationIndentation:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Metrics/AbcSize:
   Enabled: false
   Max: 18

@@ -41,9 +41,9 @@ module FitnessTokens
     end
 
     def redirect_url
-      if device_type.match(/android/)
+      if device_type =~ /android/
         ENV["ANDROID_REDIRECT_URL"]
-      elsif device_type.match(/iphone/)
+      elsif device_type =~ /iphone/
         ENV["IOS_REDIRECT_URL"]
       else
         ""
