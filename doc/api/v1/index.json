@@ -1,42 +1,6 @@
 {
   "resources": [
     {
-      "name": "Errors",
-      "examples": [
-        {
-          "description": "Request to unexisting page",
-          "link": "errors/request_to_unexisting_page.json",
-          "groups": "all",
-          "route": "/not-found",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "name": "Authentication phone codes",
-      "examples": [
-        {
-          "description": "Send auth code to registered user phone number ",
-          "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
-          "groups": "all",
-          "route": "v1/auth_phone_codes",
-          "method": "post"
-        }
-      ]
-    },
-    {
-      "name": "Providers",
-      "examples": [
-        {
-          "description": "Get providers list",
-          "link": "providers/get_providers_list.json",
-          "groups": "all",
-          "route": "/v1/providers",
-          "method": "get"
-        }
-      ]
-    },
-    {
       "name": "Sessions",
       "examples": [
         {
@@ -45,6 +9,37 @@
           "groups": "all",
           "route": "/v1/users/sign_in",
           "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "FitnessTokens",
+      "examples": [
+        {
+          "description": "Save user fitness token",
+          "link": "fitnesstokens/save_user_fitness_token.json",
+          "groups": "all",
+          "route": "/v1/fitness_tokens",
+          "method": "post"
+        },
+        {
+          "description": "Save user fitness token",
+          "link": "fitnesstokens/save_user_fitness_token.json",
+          "groups": "all",
+          "route": "/v1/fitness_tokens",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Errors",
+      "examples": [
+        {
+          "description": "Request to unexisting page",
+          "link": "errors/request_to_unexisting_page.json",
+          "groups": "all",
+          "route": "/not-found",
+          "method": "get"
         }
       ]
     },
@@ -68,22 +63,27 @@
       ]
     },
     {
-      "name": "Users",
+      "name": "Users collection",
       "examples": [
         {
-          "description": "Delete user",
-          "link": "users/delete_user.json",
+          "description": "return unprocessable entity status",
+          "link": "users_collection/return_unprocessable_entity_status.json",
           "groups": "all",
-          "route": "v1/users/:id",
-          "method": "delete"
-        },
-        {
-          "description": "Create user with phone number",
-          "link": "users/create_user_with_phone_number.json",
-          "groups": "all",
-          "route": "/v1/users",
+          "route": "/v1/users_collection",
           "method": "post"
         },
+        {
+          "description": "returns created status",
+          "link": "users_collection/returns_created_status.json",
+          "groups": "all",
+          "route": "/v1/users_collection",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "examples": [
         {
           "description": "Update user with avatar",
           "link": "users/update_user_with_avatar.json",
@@ -97,6 +97,44 @@
           "groups": "all",
           "route": "/v1/users/account",
           "method": "get"
+        },
+        {
+          "description": "Delete user",
+          "link": "users/delete_user.json",
+          "groups": "all",
+          "route": "v1/users/:id",
+          "method": "delete"
+        },
+        {
+          "description": "Create user with phone number",
+          "link": "users/create_user_with_phone_number.json",
+          "groups": "all",
+          "route": "/v1/users",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Providers",
+      "examples": [
+        {
+          "description": "Get providers list",
+          "link": "providers/get_providers_list.json",
+          "groups": "all",
+          "route": "/v1/providers",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Authentication phone codes",
+      "examples": [
+        {
+          "description": "Send auth code to registered user phone number ",
+          "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
+          "groups": "all",
+          "route": "v1/auth_phone_codes",
+          "method": "post"
         }
       ]
     }
