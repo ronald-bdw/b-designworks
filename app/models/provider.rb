@@ -1,5 +1,5 @@
 class Provider < ActiveRecord::Base
-  DEFAULT_PROVIDER_NAME = "HBF"
+  DEFAULT_PROVIDER_NAME = "HBF".freeze
 
   has_many :users
 

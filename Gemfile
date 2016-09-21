@@ -45,7 +45,6 @@ group :development, :test do
   gem "rspec-rails"
   gem "mail_safe"
 
-  gem "rails_best_practices"
   gem "brakeman"
   gem "rubocop"
   gem "bundler-audit"

@@ -22,7 +22,7 @@ class GenerateAuthPhoneCode
   end
 
   def auth_phone_code
-    @auth_phone_code ||= (user && user.auth_phone_code) || AuthPhoneCode.new
+    @auth_phone_code ||= user&.auth_phone_code || AuthPhoneCode.new
   end
 
   def generator
