@@ -1,6 +1,6 @@
 module V1
   class FitnessTokensController < ApplicationController
-    wrap_parameters :fitness_token
+    wrap_parameters :fitness_token, include: %i(authorization_code source)
 
     acts_as_token_authentication_handler_for User, only: :create
 
@@ -21,7 +21,6 @@ module V1
     def fitness_token_params
       params.require(:fitness_token).permit(
         :source,
-        :token,
         :authorization_code
       )
     end
