@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       post "users/sign_in", to: "sessions#create"
     end
 
+    namespace :zendesk do
+      resources :users, only: :update
+    end
+
     resources :auth_phone_codes, only: %i(create)
     resources :activities, only: %i(create index)
     resources :providers, only: %i(index)
