@@ -17,7 +17,8 @@ module V1
         attrs = params.require(:user).permit(:email, :name)
 
         if attrs[:name].present?
-          name_attrs = Hash[%i(first_name last_name).zip(attrs.delete(:name).split(" ", 2))]
+          splitted_name = attrs.delete(:name).split(" ", 2)
+          name_attrs = Hash[%i(first_name last_name).zip(splitted_name)]
           attrs.merge!(name_attrs)
         end
 
