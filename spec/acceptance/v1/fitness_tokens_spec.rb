@@ -30,7 +30,7 @@ resource "FitnessTokens" do
   post "/v1/fitness_tokens" do
     with_options required: true do |required|
       required.parameter :source, "(string)[googlefit|fitbit] Source of fitness token"
-      required.parameter :token, "(string) The token"
+      required.parameter :authorization_code, "(string) The authorization code"
     end
 
     context "with valid params" do
@@ -87,7 +87,8 @@ resource "FitnessTokens" do
 
       example_request "Can't save user fitness token" do
         expect(response_status).to eq 422
-        expect(response["error"]["validations"]).to eq({ token: ["is invalid"] }.stringify_keys)
+        error = { token: [{ body: ["Something went wrong!"] }] }.deep_stringify_keys
+        expect(response["error"]["validations"]).to eq(error)
       end
     end
   end

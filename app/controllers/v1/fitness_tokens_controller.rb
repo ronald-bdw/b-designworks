@@ -9,8 +9,7 @@ module V1
 
     def create
       result = FitnessTokens::Create.call(
-        fitness_token: fitness_token,
-        device_type: request.user_agent
+        fitness_token: fitness_token
       )
 
       respond_with result.fitness_token
