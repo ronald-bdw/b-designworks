@@ -26,8 +26,10 @@ resource "Zendesk User" do
 
   post "/v1/zendesk/users/fetch" do
     before do
-      allow(ZENDESK_CLIENT).to receive(:users) # .and_return(double :users, all: zendesk_users)
+      allow(ZENDESK_CLIENT).to receive(:users)
     end
+
+    parameter :notify_email, "Admin's email to notify"
 
     example_request "Create or update users from zendesk" do
       expect(status).to eq 201
