@@ -2,6 +2,6 @@ module FitnessTokens
   class Create
     include Interactor::Organizer
 
-    organize FetchFitbitToken, Save
+    organize FetchToken, Save
   end
 end

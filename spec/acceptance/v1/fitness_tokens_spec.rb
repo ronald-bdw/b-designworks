@@ -6,16 +6,6 @@ resource "FitnessTokens" do
 
   let!(:user) { create(:user) }
   let(:user_id) { user.id }
-  let(:access_token_params) do
-    {
-      access_token: "access_token_from_fitbit",
-      expires_in: 28_800,
-      refresh_token: "refresh_token_from_fitbit",
-      scope: "activity",
-      token_type: "Bearer",
-      user_id: "fitbit_user_id"
-    }.to_json
-  end
   let(:access_token_response) { double :response, status: 200, body: access_token_params }
 
   subject(:response) { json_response_body }
@@ -35,6 +25,16 @@ resource "FitnessTokens" do
 
     context "with valid params" do
       context "for fitbit integration" do
+        let(:access_token_params) do
+          {
+            access_token: "access_token_from_fitbit",
+            expires_in: 28_800,
+            refresh_token: "refresh_token_from_fitbit",
+            scope: "activity",
+            token_type: "Bearer",
+            user_id: "fitbit_user_id"
+          }.to_json
+        end
         let(:params) do
           {
             authorization_code: "my token",
@@ -50,7 +50,15 @@ resource "FitnessTokens" do
         end
       end
 
-      context "for googlefit integration", pending: true do
+      context "for googlefit integration" do
+        let(:access_token_params) do
+          {
+            access_token: "access_token_from_googlefit",
+            expires_in: 28_800,
+            refresh_token: "refresh_token_from_googlefit",
+            token_type: "Bearer"
+          }.to_json
+        end
         let(:params) do
           {
             authorization_code: "my token",
@@ -62,8 +70,8 @@ resource "FitnessTokens" do
           fitness_token = user.fitness_tokens.last
 
           expect(response_status).to eq 201
-          expect(fitness_token.token).to eq "my token"
-          expect(fitness_token.refresh_token).to be_nil
+          expect(fitness_token.token).to eq "access_token_from_googlefit"
+          expect(fitness_token.refresh_token).to eq "refresh_token_from_googlefit"
         end
       end
     end

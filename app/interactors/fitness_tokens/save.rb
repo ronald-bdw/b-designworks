@@ -2,12 +2,12 @@ module FitnessTokens
   class Save
     include Interactor
 
-    delegate :fitness_token, :fitbit_access_token, :fitbit_refresh_token, to: :context
+    delegate :fitness_token, :access_token, :refresh_token, to: :context
 
     def call
-      if fitbit_access_token
-        fitness_token.token = fitbit_access_token
-        fitness_token.refresh_token = fitbit_refresh_token
+      if access_token
+        fitness_token.token = access_token
+        fitness_token.refresh_token = refresh_token
       end
       fitness_token.save
     end
