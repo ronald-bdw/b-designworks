@@ -23,7 +23,7 @@ module V1
         attrs = params.require(:user).permit(:email, :name)
 
         if attrs[:name].present?
-          attrs.merge!(Users::SplittedName.new(attrs[:name]).to_hash)
+          attrs.merge!(Users::SplittedName.new(attrs.delete(:name)).to_hash)
         end
 
         attrs

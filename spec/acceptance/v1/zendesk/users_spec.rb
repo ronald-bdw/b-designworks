@@ -23,4 +23,15 @@ resource "Zendesk User" do
       expect(user.last_name).to eq("Simpson")
     end
   end
+
+  post "/v1/zendesk/users/fetch" do
+    before do
+      allow(ZENDESK_CLIENT).to receive(:users) # .and_return(double :users, all: zendesk_users)
+    end
+
+    example_request "Create or update users from zendesk" do
+      expect(status).to eq 201
+      expect(json_response_body).to have_key("job_id")
+    end
+  end
 end
