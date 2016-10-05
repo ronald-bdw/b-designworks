@@ -83,6 +83,11 @@ GEM
     daemons (1.1.9)
     database_cleaner (1.2.0)
     decent_exposure (2.3.1)
+    delayed_job (4.1.2)
+      activesupport (>= 3.0, < 5.1)
+    delayed_job_active_record (4.1.1)
+      activerecord (>= 3.0, < 5.1)
+      delayed_job (>= 3.0, < 5)
     devise (3.5.6)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -320,6 +325,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   database_cleaner
   decent_exposure
+  delayed_job_active_record
   devise
   dotenv-rails
   email_spec
@@ -363,4 +369,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.13.2
