@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
     namespace :zendesk do
       resources :users, only: :update
+      resources :tickets, only: :create
     end
 
     resources :auth_phone_codes, only: %i(create)
