@@ -43,6 +43,7 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
   config.include Helpers
+  config.include ZendeskStubs
   config.include JsonSpec::Helpers
   config.include RailsApiFormat::Matchers
   config.include ActionDispatch::TestProcess

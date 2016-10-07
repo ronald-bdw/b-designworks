@@ -11,15 +11,19 @@ module V1
         respond_with user
       end
 
+      def fetch
+        job = FetchUsersFromZendeskJob.perform_later(params[:notify_email])
+
+        respond_with job
+      end
+
       private
 
       def user_params
         attrs = params.require(:user).permit(:email, :name)
 
         if attrs[:name].present?
-          splitted_name = attrs.delete(:name).split(" ", 2)
-          name_attrs = Hash[%i(first_name last_name).zip(splitted_name)]
-          attrs.merge!(name_attrs)
+          attrs.merge!(Users::SplittedName.new(attrs.delete(:name)).to_hash)
         end
 
         attrs
