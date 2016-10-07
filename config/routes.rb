@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       resources :users, only: :update do
         post :fetch, on: :collection
       end
+
+      resources :tickets, only: :create
     end
 
     resources :auth_phone_codes, only: %i(create)
