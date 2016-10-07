@@ -25,13 +25,10 @@ resource "Zendesk User" do
   end
 
   post "/v1/zendesk/users/fetch" do
-    before do
-      allow(ZENDESK_CLIENT).to receive(:users).and_return(users)
-    end
+    before { stub_zendesk_all_user }
 
     let(:notify_email) { "homer.simpson@example.com" }
     let(:email) { open_last_email_for(notify_email) }
-    let(:users) { double :users, all: [] }
 
     parameter :notify_email, "Admin's email to notify"
 
