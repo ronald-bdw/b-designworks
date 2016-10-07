@@ -26,14 +26,19 @@ resource "Zendesk User" do
 
   post "/v1/zendesk/users/fetch" do
     before do
-      allow(ZENDESK_CLIENT).to receive(:users)
+      allow(ZENDESK_CLIENT).to receive(:users).and_return(users)
     end
+
+    let(:notify_email) { "homer.simpson@example.com" }
+    let(:email) { open_last_email_for(notify_email) }
+    let(:users) { double :users, all: [] }
 
     parameter :notify_email, "Admin's email to notify"
 
     example_request "Create or update users from zendesk" do
-      expect(status).to eq 201
+      expect(status).to eq(201)
       expect(json_response_body).to have_key("job_id")
+      expect(email).to have_subject("Users are imported")
     end
   end
 end
