@@ -1,6 +1,7 @@
 class FitbitRequest < BaseRequest
   def initialize(options)
     @authorization_code = options[:authorization_code]
+    @token = options[:token]
     @base_url = "https://api.fitbit.com"
     @token_path = "/oauth2/token"
     @activities_path = "1/user/-/activities/steps/date/today/1d.json"
@@ -15,6 +16,15 @@ class FitbitRequest < BaseRequest
   end
 
   private
+
+  def prepare_header(req)
+    req.url token_path
+    setup_headers(
+      req,
+      "Basic #{encoded_secret}",
+      "application/x-www-form-urlencoded"
+    )
+  end
 
   def request_body
     {

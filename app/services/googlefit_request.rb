@@ -1,6 +1,7 @@
 class GooglefitRequest < BaseRequest
   def initialize(options)
     @authorization_code = options[:authorization_code]
+    @token = options[:token]
     @base_url = "https://www.googleapis.com"
     @token_path = "oauth2/v4/token"
     @activities_path = "/fitness/v1/users/me/dataSources"
@@ -16,6 +17,10 @@ class GooglefitRequest < BaseRequest
 
   private
 
+  def prepare_header(req)
+    req.url token_path
+  end
+
   def request_body
     {
       grant_type: "authorization_code",
@@ -24,9 +29,5 @@ class GooglefitRequest < BaseRequest
       redirect_uri: ENV["GOOGLEFIT_CALLBACK_URL"],
       client_secret: ENV["GOOGLEFIT_CLIENT_SECRET"]
     }
-  end
-
-  def encoded_secret
-    Base64.encode64("#{ENV['FITBIT_CLIENT_ID']}:#{ENV['FITBIT_CLIENT_SECRET']}")
   end
 end
