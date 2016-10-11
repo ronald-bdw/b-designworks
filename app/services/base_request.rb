@@ -6,12 +6,7 @@ class BaseRequest
 
   def retrive_token
     faraday_client.post do |req|
-      req.url token_path
-      setup_headers(
-        req,
-        "Basic #{encoded_secret}",
-        "application/x-www-form-urlencoded"
-      )
+      prepare_header(req)
       req.body = request_body
     end
   end
