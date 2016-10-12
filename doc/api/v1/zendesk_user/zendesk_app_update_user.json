@@ -1,0 +1,49 @@
+{
+  "resource": "Zendesk User",
+  "http_method": "PATCH",
+  "route": "/v1/zendesk/users/:zendesk_id",
+  "description": "Zendesk app update user",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "zendesk_id",
+      "description": "User's zendesk id"
+    },
+    {
+      "scope": "user",
+      "name": "email",
+      "description": "User's email address"
+    },
+    {
+      "scope": "user",
+      "name": "name",
+      "description": "User's name"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PATCH",
+      "request_path": "/v1/zendesk/users/1",
+      "request_body": "user[email]=homer.simpson%40example.com&user[name]=Homer+Simpson",
+      "request_headers": {
+        "X-Auth-Token": "746a9e515c628cd29632f77c37791163",
+        "Accept": "application/json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"user\": {\n    \"id\": 21,\n    \"first_name\": \"Homer\",\n    \"last_name\": \"Simpson\",\n    \"phone_number\": \"+1-727-819-6348\",\n    \"authentication_token\": \"c7PyHnRVazTX_sAj5YLh\",\n    \"email\": \"homer.simpson@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"last_googlefit_activity\": null,\n    \"last_fitbit_activity\": null,\n    \"provider\": null\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:5000/v1/zendesk/users/1\" -d 'user[email]=homer.simpson%40example.com&user[name]=Homer+Simpson' -X PATCH \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\" \\\n\t-H \"Accept: application/json\""
+    }
+  ]
+}
