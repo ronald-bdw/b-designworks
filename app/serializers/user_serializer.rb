@@ -7,6 +7,8 @@ class UserSerializer < ApplicationSerializer
     :email,
     :avatar
 
+  belongs_to :provider
+
   Activity.sources.keys.each do |source_name|
     attr_name = "last_#{source_name}_activity".to_sym
     attribute attr_name
