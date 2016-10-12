@@ -1,0 +1,38 @@
+{
+  "resource": "Zendesk User",
+  "http_method": "POST",
+  "route": "/v1/zendesk/users/fetch",
+  "description": "Create or update users from zendesk",
+  "explanation": null,
+  "parameters": [
+    {
+      "name": "notify_email",
+      "description": "Admin's email to notify"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/v1/zendesk/users/fetch",
+      "request_body": "notify_email=homer.simpson%40example.com",
+      "request_headers": {
+        "X-Auth-Token": "746a9e515c628cd29632f77c37791163",
+        "Accept": "application/json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"arguments\": [\n    \"homer.simpson@example.com\"\n  ],\n  \"job_id\": \"b30730fe-2dcc-4732-98c0-c49847f9cc8d\",\n  \"queue_name\": \"default\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:5000/v1/zendesk/users/fetch\" -d 'notify_email=homer.simpson%40example.com' -X POST \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\" \\\n\t-H \"Accept: application/json\""
+    }
+  ]
+}

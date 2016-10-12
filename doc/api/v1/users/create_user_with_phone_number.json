@@ -43,7 +43,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users",
-      "request_body": "user[first_name]=Jakob&user[last_name]=Boyer&user[email]=user20%40example.com&user[phone_number]=%2B1-727-819-9476&auth_phone_code_id=22&sms_code=2014",
+      "request_body": "user[first_name]=Shanon&user[last_name]=Friesen&user[email]=user5%40example.com&user[phone_number]=%2B1-727-819-5555&auth_phone_code_id=5&sms_code=7354",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -52,12 +52,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"user\": {\n    \"id\": 19,\n    \"first_name\": \"Jakob\",\n    \"last_name\": \"Boyer\",\n    \"phone_number\": \"+1-727-819-9476\",\n    \"authentication_token\": \"146w4zvYpS6W2yeebMPW\",\n    \"email\": \"user20@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"last_googlefit_activity\": null,\n    \"last_fitbit_activity\": null\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 5,\n    \"first_name\": \"Shanon\",\n    \"last_name\": \"Friesen\",\n    \"phone_number\": \"+1-727-819-5555\",\n    \"authentication_token\": \"qyssMvEQf3GXZ6ZKoVtw\",\n    \"email\": \"user5@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"last_googlefit_activity\": null,\n    \"last_fitbit_activity\": null,\n    \"provider\": null\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Jakob&user[last_name]=Boyer&user[email]=user20%40example.com&user[phone_number]=%2B1-727-819-9476&auth_phone_code_id=22&sms_code=2014' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: Jscw2n9zduwsW1hFcSNX\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-5608\""
+      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Shanon&user[last_name]=Friesen&user[email]=user5%40example.com&user[phone_number]=%2B1-727-819-5555&auth_phone_code_id=5&sms_code=7354' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: py-jsDmz84Fxfv1Kpzgx\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-3969\""
     }
   ]
 }
