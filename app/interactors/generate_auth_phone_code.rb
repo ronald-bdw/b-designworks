@@ -6,6 +6,7 @@ class GenerateAuthPhoneCode
   def call
     auth_phone_code.phone_code = generator.phone_code
     auth_phone_code.expire_at = generator.expire_at
+    auth_phone_code.user_id = user&.id
     auth_phone_code.save
 
     context.auth_phone_code = auth_phone_code
