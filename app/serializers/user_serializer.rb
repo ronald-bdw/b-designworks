@@ -5,18 +5,20 @@ class UserSerializer < ApplicationSerializer
     :phone_number,
     :authentication_token,
     :email,
-    :avatar
+    :avatar,
+    :last_healthkit_activity,
+    :integrations
 
   belongs_to :provider
 
-  Activity.sources.keys.each do |source_name|
-    attr_name = "last_#{source_name}_activity".to_sym
-    attribute attr_name
+  def last_healthkit_activity
+    activity = object.activities.healthkit.order_by_finished_at.last
 
-    define_method attr_name do
-      activity = activities_by(source_name.to_sym).last
-      ActivitySerializer.new(activity).attributes if activity
-    end
+    ActivitySerializer.new(activity).attributes if activity
+  end
+
+  def integrations
+    Users::IntegrationsSerializer.new(object).attributes
   end
 
   def avatar
@@ -24,11 +26,5 @@ class UserSerializer < ApplicationSerializer
       original: object.avatar_url,
       thumb: object.avatar_thumb.url
     }
-  end
-
-  private
-
-  def activities_by(scope)
-    object.activities.send(scope).order_by_finished_at
   end
 end
