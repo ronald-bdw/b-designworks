@@ -26,8 +26,6 @@ Rails.application.routes.draw do
       get "account", on: :collection
     end
 
-    namespace :users do
-      resources :notifications, only: %i(create destroy)
-    end
+    resources :notifications, only: %i(create destroy)
   end
 end

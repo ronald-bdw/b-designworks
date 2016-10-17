@@ -8,7 +8,7 @@ resource "Users notifications" do
 
   before { setup_authentication_header(user) }
 
-  post "/v1/users/notifications" do
+  post "/v1/notifications" do
     it_behaves_like(
       "a method that requires an authentication",
       "user",
@@ -22,9 +22,17 @@ resource "Users notifications" do
     example_request "create notification" do
       expect(status).to eq 201
     end
+
+    context "when message push notification exists", document: false do
+      before { create :notification, user: user }
+
+      example_request "create notification" do
+        expect(status).to eq 422
+      end
+    end
   end
 
-  delete "/v1/users/notifications/:kind" do
+  delete "/v1/notifications/:kind" do
     it_behaves_like(
       "a method that requires an authentication",
       "user",
@@ -33,9 +41,7 @@ resource "Users notifications" do
 
     parameter :kind, "(string)[message_push] Kind of notification"
 
-    before do
-      create :notification, user: user
-    end
+    before { create :notification, user: user }
 
     example_request "delete notification", kind: "message_push" do
       expect(status).to eq 200
