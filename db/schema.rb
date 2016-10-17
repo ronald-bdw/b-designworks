@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005094547) do
+ActiveRecord::Schema.define(version: 20161017144157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,13 @@ ActiveRecord::Schema.define(version: 20161005094547) do
   end
 
   add_index "fitness_tokens", ["user_id"], name: "index_fitness_tokens_on_user_id", using: :btree
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "kind",    default: 0, null: false
+  end
+
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "providers", force: :cascade do |t|
     t.string   "name",       null: false
