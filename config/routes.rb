@@ -21,8 +21,13 @@ Rails.application.routes.draw do
     resources :providers, only: %i(index)
     resources :users_collection, only: %i(create)
     resources :fitness_tokens, only: :create
+
     resources :users, only: %i(create update destroy) do
       get "account", on: :collection
+    end
+
+    namespace :users do
+      resources :notifications, only: %i(create destroy)
     end
   end
 end
