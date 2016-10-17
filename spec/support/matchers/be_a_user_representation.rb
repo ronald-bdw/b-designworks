@@ -7,12 +7,12 @@ RSpec::Matchers.define :be_a_user_representation do |user|
       authentication_token
       email
       phone_number
-      last_healthkit_activity
-      last_googlefit_activity
-      last_fitbit_activity
     )
+
+    custom_keys = %w(last_healthkit_activity integrations)
 
     expect(json).to be
     expect(json).to include_attributes(response_attributes)
+    expect(json).to include(*custom_keys)
   end
 end
