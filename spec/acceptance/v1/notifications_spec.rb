@@ -26,7 +26,7 @@ resource "Users notifications" do
     context "when message push notification exists", document: false do
       before { create :notification, user: user }
 
-      example_request "create notification" do
+      example_request "Enable notification" do
         expect(status).to eq 422
       end
     end
@@ -43,7 +43,7 @@ resource "Users notifications" do
 
     before { create :notification, user: user }
 
-    example_request "delete notification", kind: "message_push" do
+    example_request "Disable notification", kind: "message_push" do
       expect(status).to eq 200
     end
   end

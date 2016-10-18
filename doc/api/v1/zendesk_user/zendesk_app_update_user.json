@@ -38,7 +38,7 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"user\": {\n    \"id\": 21,\n    \"first_name\": \"Homer\",\n    \"last_name\": \"Simpson\",\n    \"phone_number\": \"+1-727-819-6348\",\n    \"authentication_token\": \"c7PyHnRVazTX_sAj5YLh\",\n    \"email\": \"homer.simpson@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"last_googlefit_activity\": null,\n    \"last_fitbit_activity\": null,\n    \"provider\": null\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 19,\n    \"first_name\": \"Homer\",\n    \"last_name\": \"Simpson\",\n    \"phone_number\": \"+1-727-819-8805\",\n    \"authentication_token\": \"mgKzFindSiNxozMbDSQ8\",\n    \"email\": \"homer.simpson@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": {\n      \"googlefit\": false,\n      \"fitbit\": false\n    },\n    \"provider\": null\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },

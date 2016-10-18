@@ -23,12 +23,12 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"user\": {\n    \"id\": 14,\n    \"first_name\": \"Boyd\",\n    \"last_name\": \"Boehm\",\n    \"phone_number\": \"+1-727-819-9152\",\n    \"authentication_token\": \"Z3VCu3cpuHyFFvzrgjwA\",\n    \"email\": \"user13@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": {\n      \"googlefit\": false,\n      \"fitbit\": false\n    },\n    \"provider\": null\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 7,\n    \"first_name\": \"Velma\",\n    \"last_name\": \"Spinka\",\n    \"phone_number\": \"+1-727-819-4650\",\n    \"authentication_token\": \"k2Kjt284Ltcjad-FZrds\",\n    \"email\": \"user7@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": {\n      \"googlefit\": false,\n      \"fitbit\": false\n    },\n    \"provider\": null\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users/account\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: Z3VCu3cpuHyFFvzrgjwA\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-9152\""
+      "curl": "curl \"http://localhost:5000/v1/users/account\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: k2Kjt284Ltcjad-FZrds\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-4650\""
     }
   ]
 }

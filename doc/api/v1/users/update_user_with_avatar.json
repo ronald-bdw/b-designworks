@@ -36,8 +36,8 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/v1/users/16",
-      "request_body": "------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[first_name]\"\r\n\r\nAdolph\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[last_name]\"\r\n\r\nHauck\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[email]\"\r\n\r\nuser16@example.com\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[avatar]\"; filename=\"avatar.jpg\"\r\nContent-Type: image/jpg\r\nContent-Length: 2669\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r",
+      "request_path": "/v1/users/14",
+      "request_body": "------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[first_name]\"\r\n\r\nReyna\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[last_name]\"\r\n\r\nWalker\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[email]\"\r\n\r\nuser18@example.com\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[avatar]\"; filename=\"avatar.jpg\"\r\nContent-Type: image/jpg\r\nContent-Length: 2669\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -46,12 +46,12 @@
       "request_content_type": "multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"user\": {\n    \"id\": 16,\n    \"first_name\": \"Adolph\",\n    \"last_name\": \"Hauck\",\n    \"phone_number\": \"+1-727-819-9436\",\n    \"authentication_token\": \"BPQhJCkkQviLADLEtcdo\",\n    \"email\": \"user16@example.com\",\n    \"avatar\": {\n      \"original\": \"/test/uploads/user/avatar/16/avatar.jpg\",\n      \"thumb\": \"/test/uploads/user/avatar/16/thumb_avatar.jpg\"\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": {\n      \"googlefit\": false,\n      \"fitbit\": false\n    },\n    \"provider\": null\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 14,\n    \"first_name\": \"Reyna\",\n    \"last_name\": \"Walker\",\n    \"phone_number\": \"+1-727-819-4167\",\n    \"authentication_token\": \"Y8sakWk5wABM6wHaxNuy\",\n    \"email\": \"user18@example.com\",\n    \"avatar\": {\n      \"original\": \"/test/uploads/user/avatar/14/avatar.jpg\",\n      \"thumb\": \"/test/uploads/user/avatar/14/thumb_avatar.jpg\"\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": {\n      \"googlefit\": false,\n      \"fitbit\": false\n    },\n    \"provider\": null\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users/16\" -d '------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[first_name]\"\r\n\r\nAdolph\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[last_name]\"\r\n\r\nHauck\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[email]\"\r\n\r\nuser16@example.com\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[avatar]\"; filename=\"avatar.jpg\"\r\nContent-Type: image/jpg\r\nContent-Length: 2669\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: BPQhJCkkQviLADLEtcdo\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-9436\""
+      "curl": "curl \"http://localhost:5000/v1/users/14\" -d '------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[first_name]\"\r\n\r\nReyna\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[last_name]\"\r\n\r\nWalker\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[email]\"\r\n\r\nuser18@example.com\r\n------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"user[avatar]\"; filename=\"avatar.jpg\"\r\nContent-Type: image/jpg\r\nContent-Length: 2669\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: Y8sakWk5wABM6wHaxNuy\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-4167\""
     }
   ]
 }
