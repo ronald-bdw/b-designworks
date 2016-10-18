@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20161017144157) do
 
   create_table "fitness_tokens", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "token"
-    t.integer  "source"
+    t.string   "token",         null: false
+    t.integer  "source",        null: false
     t.string   "refresh_token"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

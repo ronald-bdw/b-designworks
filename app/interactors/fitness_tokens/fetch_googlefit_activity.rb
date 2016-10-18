@@ -8,7 +8,7 @@ module FitnessTokens
       if googlefit_request.success?
         context.steps = googlefit_request.steps
       else
-        fitness_token.errors.add(:token, googlefit_request.errors)
+        Rollbar.info(googlefit_request.errors)
         context.fail!
       end
     end
@@ -17,7 +17,9 @@ module FitnessTokens
 
     def googlefit_request
       @request ||= GooglefitRequest.new(
-        token: fitness_token.token
+        token: fitness_token.token,
+        started_at: Time.current - 1.hour,
+        finished_at: Time.current
       ).fetch_activities
     end
   end

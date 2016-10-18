@@ -2,12 +2,12 @@ class FetchFitbitActivityJob < ActiveJob::Base
   queue_as :default
 
   def perform
-    FitnessToken.source_fitbit.find_each do |fitness_token|
+    FitnessToken.fitbit.find_each do |fitness_token|
       result = FitnessTokens::FetchFitbitActivity.call(fitness_token: fitness_token)
 
-      if result.success?
+      if result.success? && result.steps.present?
         SaveActivityBulk.call(
-          params: activities(result.steps, fitness_token.source),
+          params: activities(result.steps),
           user: fitness_token.user
         )
       end
@@ -16,18 +16,18 @@ class FetchFitbitActivityJob < ActiveJob::Base
 
   private
 
-  def activities(steps, source)
+  def activities(steps)
     steps.map do |step|
-      build_activity(step, source)
+      build_activity(step)
     end
   end
 
-  def build_activity(step, source)
+  def build_activity(step)
     date_time = step["dateTime"].to_datetime
     {
       started_at: date_time.beginning_of_day,
       finished_at: date_time.end_of_day,
-      source: source,
+      source: "fitbit",
       steps_count: step["value"].to_i
     }
   end

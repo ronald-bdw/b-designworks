@@ -2,12 +2,12 @@ class FetchGooglefitActivityJob < ActiveJob::Base
   queue_as :default
 
   def perform
-    FitnessToken.source_googlefit.find_each do |fitness_token|
+    FitnessToken.googlefit.find_each do |fitness_token|
       result = FitnessTokens::FetchGooglefitActivity.call(fitness_token: fitness_token)
 
-      if result.success?
+      if result.success? && result.steps.present?
         SaveActivityBulk.call(
-          params: activities(result.steps, fitness_token.source),
+          params: activities(result.steps),
           user: fitness_token.user
         )
       end
@@ -16,17 +16,17 @@ class FetchGooglefitActivityJob < ActiveJob::Base
 
   private
 
-  def activities(steps, source)
+  def activities(steps)
     steps.map do |step|
-      build_activity(step, source)
+      build_activity(step)
     end
   end
 
-  def build_activity(step, source)
+  def build_activity(step)
     {
       started_at: time_parse(step, "start"),
       finished_at: time_parse(step, "end"),
-      source: source,
+      source: "googlefit",
       steps_count: step["value"].map { |val| val[:intVal].to_i }.sum
     }
   end

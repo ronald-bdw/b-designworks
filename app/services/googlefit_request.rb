@@ -1,14 +1,14 @@
 class GooglefitRequest < BaseRequest
-  attr_reader :start_date, :end_date
-  private :start_date, :end_date
+  attr_reader :started_at, :finished_at
+  private :started_at, :finished_at
 
   def initialize(options)
     @authorization_code = options[:authorization_code]
     @token = options[:token]
     @base_url = "https://www.googleapis.com"
     @token_path = "oauth2/v4/token"
-    @start_date = options[:start_date]
-    @end_date = options[:end_date]
+    @started_at = options[:started_at]
+    @finished_at = options[:finished_at]
     data_source_id = "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
     @activities_path = "/fitness/v1/users/me/dataSources/#{data_source_id}/datasets/#{date_range}"
   end
@@ -38,6 +38,6 @@ class GooglefitRequest < BaseRequest
   end
 
   def date_range
-    "#{start_date.to_i}000000000-#{end_date.to_i}000000000"
+    "#{started_at.to_i}000000000-#{finished_at.to_i}000000000"
   end
 end
