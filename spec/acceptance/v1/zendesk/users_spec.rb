@@ -5,7 +5,20 @@ resource "Zendesk User" do
   include_context "zendesk app"
   header "Accept", "application/json"
 
-  patch "/v1/zendesk/users/:zendesk_id" do
+  get "/v1/zendesk/users/:zendesk_id" do
+    let(:user) { create :user }
+    let(:zendesk_id) { user.zendesk_id }
+    let(:user_json) { json_response_body["user"] }
+
+    parameter :zendesk_id, "User's zendesk id", required: true
+
+    example_request "Get user info" do
+      expect(status).to eq(200)
+      expect(user_json).to be_a_zendesk_user_representation
+    end
+  end
+
+  put "/v1/zendesk/users/:zendesk_id" do
     let(:user) { create :user }
     let(:zendesk_id) { user.zendesk_id }
     let(:email) { "homer.simpson@example.com" }

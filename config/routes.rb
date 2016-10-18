@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
 
     namespace :zendesk do
-      resources :users, only: :update do
+      resources :users, only: %i(show update) do
         post :fetch, on: :collection
       end
 
