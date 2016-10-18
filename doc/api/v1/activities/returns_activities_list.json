@@ -41,12 +41,12 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "[\n  {\n    \"date\": \"2016-10-12\",\n    \"steps_count\": 5000\n  }\n]",
+      "response_body": "[\n  {\n    \"date\": \"2016-10-18\",\n    \"steps_count\": 5000\n  }\n]",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/activities?zendesk_id=1\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\" \\\n\t-H \"X-User-Token: MaUYR5zJZavWMaecnv5i\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-7546\""
+      "curl": "curl \"http://localhost:5000/v1/activities?zendesk_id=1\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\" \\\n\t-H \"X-User-Token: zxNBS3jxGhVymDePJyts\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-6286\""
     }
   ]
 }

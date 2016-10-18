@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   devise :registerable, :trackable
 
   has_one :auth_phone_code, dependent: :destroy
+
+  has_many :notifications, dependent: :destroy
   has_many :activities, dependent: :destroy
   has_many :fitness_tokens, dependent: :destroy
 

@@ -26,7 +26,7 @@
       "request_content_type": "multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1",
       "response_status": 422,
       "response_status_text": "Unprocessable Entity",
-      "response_body": "{\n  \"users\": [\n    {\n      \"id\": null,\n      \"first_name\": null,\n      \"last_name\": null,\n      \"phone_number\": \"448711711\",\n      \"authentication_token\": null,\n      \"email\": \"bobevans@gmail.com\",\n      \"avatar\": {\n        \"original\": null,\n        \"thumb\": null\n      },\n      \"last_healthkit_activity\": null,\n      \"last_googlefit_activity\": null,\n      \"last_fitbit_activity\": null,\n      \"provider\": {\n        \"id\": 2,\n        \"name\": \"HBF\"\n      }\n    }\n  ]\n}",
+      "response_body": "{\n  \"users\": [\n    {\n      \"id\": null,\n      \"first_name\": null,\n      \"last_name\": null,\n      \"phone_number\": \"448711711\",\n      \"authentication_token\": null,\n      \"email\": \"bobevans@gmail.com\",\n      \"avatar\": {\n        \"original\": null,\n        \"thumb\": null\n      },\n      \"last_healthkit_activity\": null,\n      \"integrations\": {\n        \"googlefit\": false,\n        \"fitbit\": false\n      },\n      \"provider\": {\n        \"id\": 5,\n        \"name\": \"HBF\"\n      }\n    }\n  ]\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },

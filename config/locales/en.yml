@@ -20,6 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    errors:
+      models:
+        notification:
+          attributes:
+            kind:
+              taken: "has already enabled for this user"
   hello: "Hello world"
   time:
     formats:

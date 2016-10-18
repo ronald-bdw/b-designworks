@@ -43,7 +43,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users",
-      "request_body": "user[first_name]=Gay&user[last_name]=Morissette&user[email]=user24%40example.com&user[phone_number]=%2B1-727-819-3825&auth_phone_code_id=28&sms_code=6474",
+      "request_body": "user[first_name]=Alysson&user[last_name]=Wisozk&user[email]=user12%40example.com&user[phone_number]=%2B1-727-819-5879&auth_phone_code_id=14&sms_code=6033",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -52,12 +52,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"user\": {\n    \"id\": 21,\n    \"first_name\": \"Gay\",\n    \"last_name\": \"Morissette\",\n    \"phone_number\": \"+1-727-819-3825\",\n    \"authentication_token\": \"b_CyMPh35fNrDB447Y5e\",\n    \"email\": \"user24@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": {\n      \"googlefit\": false,\n      \"fitbit\": false\n    },\n    \"provider\": null\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 12,\n    \"first_name\": \"Alysson\",\n    \"last_name\": \"Wisozk\",\n    \"phone_number\": \"+1-727-819-5879\",\n    \"authentication_token\": \"Gk_JzFmbd7xF1xKQNJsU\",\n    \"email\": \"user12@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": {\n      \"googlefit\": false,\n      \"fitbit\": false\n    },\n    \"provider\": null\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Gay&user[last_name]=Morissette&user[email]=user24%40example.com&user[phone_number]=%2B1-727-819-3825&auth_phone_code_id=28&sms_code=6474' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: mm4yYyrFt6Hfe-wZSvx5\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-3140\""
+      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Alysson&user[last_name]=Wisozk&user[email]=user12%40example.com&user[phone_number]=%2B1-727-819-5879&auth_phone_code_id=14&sms_code=6033' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: KDRsN351t3WTtPs4ciRP\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-5267\""
     }
   ]
 }
