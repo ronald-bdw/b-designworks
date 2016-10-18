@@ -16,7 +16,8 @@ class SaveActivityBulk
 
   def create_activities
     params.each do |data|
-      activity = user.activities.where(data).first_or_initialize
+      activity = user.activities.find_or_initialize_by(data.except(:steps_count))
+      activity.steps_count = data[:steps_count].to_i
       invalid_data << data unless activity.save
     end
   end

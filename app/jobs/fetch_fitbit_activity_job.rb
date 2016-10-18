@@ -6,28 +6,29 @@ class FetchFitbitActivityJob < ActiveJob::Base
       result = FitnessTokens::FetchFitbitActivity.call(fitness_token: fitness_token)
 
       if result.success?
-        user = fitness_token.user
-        create_fitbit_activities(user, result.steps, fitness_token.source)
+        SaveActivityBulk.call(
+          params: activities(result.steps, fitness_token.source),
+          user: fitness_token.user
+        )
       end
     end
   end
 
   private
 
-  def create_fitbit_activities(user, steps, source)
-    steps.each do |step|
-      update_or_create_activity(user, step, source)
+  def activities(steps, source)
+    steps.map do |step|
+      build_activity(step, source)
     end
   end
 
-  def update_or_create_activity(user, step, source)
+  def build_activity(step, source)
     date_time = step["dateTime"].to_datetime
-    activity = user.activities.find_or_initialize_by(
+    {
       started_at: date_time.beginning_of_day,
       finished_at: date_time.end_of_day,
-      source: source
-    )
-    activity&.steps_count = step["value"].to_i
-    activity.save
+      source: source,
+      steps_count: step["value"].to_i
+    }
   end
 end
