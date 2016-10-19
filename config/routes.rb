@@ -27,5 +27,6 @@ Rails.application.routes.draw do
     end
 
     resources :notifications, only: %i(create destroy)
+    resource :registration_status, only: %i(create)
   end
 end
