@@ -19,7 +19,7 @@ resource "Users notifications" do
 
     let(:kind) { "message_push" }
 
-    example_request "create notification" do
+    example_request "Enable notification" do
       expect(status).to eq 201
     end
 

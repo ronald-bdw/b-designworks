@@ -15,12 +15,12 @@ resource "Users collection" do
         )
       end
 
-      example_request "returns created status" do
+      example_request "Create users from xlsx" do
         expect(status).to eq(201)
       end
     end
 
-    context "with invalid xlsx file" do
+    context "with invalid xlsx file", document: false do
       let(:file) do
         fixture_file_upload(
           "spec/fixtures/files/invalid_users_collection.xlsx",

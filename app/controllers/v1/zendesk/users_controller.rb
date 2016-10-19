@@ -5,6 +5,10 @@ module V1
 
       expose(:user, attributes: :user_params, finder: :find_by_zendesk_id)
 
+      def show
+        respond_with user, serializer: ::Zendesk::UserSerializer
+      end
+
       def update
         user.save
 
