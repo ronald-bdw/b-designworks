@@ -10,7 +10,7 @@ module Users
     def to_a
       integrations_list.map do |source_name|
         if respond_to?(source_name, :include_private)
-          self.send(source_name)
+          send(source_name)
         else
           integration_status(source_name)
         end

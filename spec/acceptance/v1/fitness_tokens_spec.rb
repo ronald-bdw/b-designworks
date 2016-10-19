@@ -5,19 +5,22 @@ resource "FitnessTokens" do
   header "Accept", "application/json"
 
   let!(:user) { create(:user) }
-  let(:user_id) { user.id }
-  let(:access_token_response) { double :response, status: 200, body: access_token_params }
-
-  subject(:response) { json_response_body }
 
   before do
-    allow_any_instance_of(Faraday::Connection)
-      .to receive(:post).and_return(access_token_response)
-
     setup_authentication_header(user)
   end
 
   post "/v1/fitness_tokens" do
+    let(:user_id) { user.id }
+    let(:access_token_response) { double :response, status: 200, body: access_token_params }
+
+    subject(:response) { json_response_body }
+
+    before do
+      allow_any_instance_of(Faraday::Connection)
+        .to receive(:post).and_return(access_token_response)
+    end
+
     with_options required: true do |required|
       required.parameter :source, "(string)[googlefit|fitbit] Source of fitness token"
       required.parameter :authorization_code, "(string) The authorization code"
@@ -98,6 +101,17 @@ resource "FitnessTokens" do
         error = { token: [{ body: ["Something went wrong!"] }] }.deep_stringify_keys
         expect(response["error"]["validations"]).to eq(error)
       end
+    end
+  end
+
+  delete "/v1/fitness_tokens/:id" do
+    parameter :id, "Fitness token id", required: true
+
+    let(:fitness_token) { create :fitness_token, user: user }
+    let(:id) { fitness_token.id }
+
+    example_request "Delete fitness token" do
+      expect(status).to eq(200)
     end
   end
 end
