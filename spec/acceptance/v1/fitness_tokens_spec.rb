@@ -50,7 +50,7 @@ resource "FitnessTokens" do
         end
       end
 
-      context "for googlefit integration" do
+      context "for googlefit integration", document: false do
         let(:access_token_params) do
           {
             access_token: "access_token_from_googlefit",

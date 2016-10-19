@@ -54,7 +54,7 @@ resource "Activities" do
     context "with authorization header" do
       include_context "zendesk app"
 
-      example_request "returns activities list" do
+      example_request "Get activities list" do
         expect(response_status).to eq(200)
         expect(response).to be_an_activities_sum_representation
       end
