@@ -12,7 +12,7 @@ class GooglefitResponse
   end
 
   def steps
-    body["dataSources"]
+    body["point"]
   end
 
   def access_token

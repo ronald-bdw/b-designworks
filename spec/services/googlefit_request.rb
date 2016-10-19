@@ -17,7 +17,7 @@ describe FitnessTokens::GooglefitRequest do
         create(
           :fitness_token,
           source: "googlefit",
-          authorization_code: "auth code from fitbit"
+          authorization_code: "auth code from googlefit"
         )
       end
 
@@ -63,6 +63,38 @@ describe FitnessTokens::GooglefitRequest do
       it "does not assigns token and refresh_token" do
         message = { body: ["Something went wrong!"] }
         expect(googlefit_request.errors.messages).to eq message
+      end
+    end
+  end
+
+  describe ".fetch_activities" do
+    subject(:googlefit_request) do
+      described_class.new(
+        token: "token from googlefit",
+        path: "activities_path_from_env"
+      ).fetch_activities
+    end
+
+    before do
+      allow_any_instance_of(Faraday::Connection)
+        .to receive(:get).and_return(fetched_activities_response)
+    end
+
+    context "with valid params" do
+      let(:fitness_token) do
+        create(
+          :fitness_token,
+          source: "googlefit",
+          authorization_code: "auth code from googlefit"
+        )
+      end
+      let(:fetched_activities) do
+        JSON.parse(File.read("spec/fixtures/googlefit_user_activites.json"))
+      end
+      let(:fetched_activities_response) { double :response, status: 200, body: fetched_activities.to_json }
+
+      it "assigns token and refresh_token" do
+        expect(subject.steps).to eq fetched_activities.deep_stringify_keys["point"]
       end
     end
   end

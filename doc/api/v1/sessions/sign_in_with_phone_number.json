@@ -28,7 +28,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users/sign_in",
-      "request_body": "phone_number=%2B1-727-819-8537&auth_phone_code_id=33&sms_code=2142",
+      "request_body": "phone_number=%2B1-727-819-4381&auth_phone_code_id=14&sms_code=1895",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -37,12 +37,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"user\": {\n    \"id\": 26,\n    \"first_name\": \"Milo\",\n    \"last_name\": \"Prohaska\",\n    \"phone_number\": \"+1-727-819-8537\",\n    \"authentication_token\": \"PpqfvNHzPkCcJmojDokp\",\n    \"email\": \"user29@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": {\n      \"googlefit\": false,\n      \"fitbit\": false\n    },\n    \"provider\": null\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 11,\n    \"first_name\": \"Junius\",\n    \"last_name\": \"Fay\",\n    \"phone_number\": \"+1-727-819-4381\",\n    \"authentication_token\": \"LoqtGzovmwNsKnYPBpyC\",\n    \"email\": \"user11@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": {\n      \"googlefit\": false,\n      \"fitbit\": false\n    },\n    \"provider\": null\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'phone_number=%2B1-727-819-8537&auth_phone_code_id=33&sms_code=2142' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'phone_number=%2B1-727-819-4381&auth_phone_code_id=14&sms_code=1895' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

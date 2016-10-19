@@ -5,7 +5,5 @@ class FitnessToken < ActiveRecord::Base
 
   validates :source, :token, presence: true
 
-  scope :source_fitbit, -> { where(source: sources["fitbit"]) }
-
   enum source: %i(googlefit fitbit)
 end

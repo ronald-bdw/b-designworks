@@ -2,7 +2,7 @@
   "resource": "Users notifications",
   "http_method": "POST",
   "route": "/v1/notifications",
-  "description": "create notification",
+  "description": "Enable notification",
   "explanation": null,
   "parameters": [
     {
@@ -32,7 +32,7 @@
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/notifications\" -d 'notification[kind]=message_push' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: qENtZho-ThtkCK-_pJAL\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-1538\""
+      "curl": "curl \"http://localhost:5000/v1/notifications\" -d 'notification[kind]=message_push' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: 4_o8NSEQCyydBB3JeBCX\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-4362\""
     }
   ]
 }

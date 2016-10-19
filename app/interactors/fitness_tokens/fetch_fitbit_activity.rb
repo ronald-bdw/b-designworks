@@ -8,7 +8,7 @@ module FitnessTokens
       if fitbit_request.success?
         context.steps = fitbit_request.steps
       else
-        fitness_token.errors.add(:token, fitbit_request.errors)
+        Rollbar.info(fitbit_request.errors)
         context.fail!
       end
     end
