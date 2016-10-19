@@ -18,7 +18,7 @@ class UserSerializer < ApplicationSerializer
   end
 
   def integrations
-    Users::IntegrationsSerializer.new(object).attributes
+    Users::Integrations.new(object, skipped_integrations: ["healthkit"]).to_a
   end
 
   def avatar
