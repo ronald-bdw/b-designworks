@@ -2,7 +2,7 @@ module V1
   class FitnessTokensController < ApplicationController
     wrap_parameters :fitness_token, include: %i(authorization_code source)
 
-    acts_as_token_authentication_handler_for User, only: :create
+    acts_as_token_authentication_handler_for User
 
     expose(:fitness_token, attributes: :fitness_token_params)
     expose(:fitness_tokens, ancestor: :current_user)
@@ -13,6 +13,12 @@ module V1
       )
 
       respond_with result.fitness_token
+    end
+
+    def destroy
+      fitness_token.destroy
+
+      respond_with fitness_token
     end
 
     private
