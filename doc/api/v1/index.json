@@ -1,32 +1,44 @@
 {
   "resources": [
     {
-      "name": "Providers",
+      "name": "Authentication phone codes",
       "examples": [
         {
-          "description": "Get providers list",
-          "link": "providers/get_providers_list.json",
+          "description": "Send auth code to registered user phone number ",
+          "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
           "groups": "all",
-          "route": "/v1/providers",
-          "method": "get"
+          "route": "v1/auth_phone_codes",
+          "method": "post"
         }
       ]
     },
     {
-      "name": "Activities",
+      "name": "FitnessTokens",
       "examples": [
         {
-          "description": "Get activities list",
-          "link": "activities/get_activities_list.json",
+          "description": "Save user fitness token",
+          "link": "fitnesstokens/save_user_fitness_token.json",
           "groups": "all",
-          "route": "/v1/activities",
-          "method": "get"
+          "route": "/v1/fitness_tokens",
+          "method": "post"
         },
         {
-          "description": "Save user activitites",
-          "link": "activities/save_user_activitites.json",
+          "description": "Delete fitness token",
+          "link": "fitnesstokens/delete_fitness_token.json",
           "groups": "all",
-          "route": "/v1/activities",
+          "route": "/v1/fitness_tokens/:id",
+          "method": "delete"
+        }
+      ]
+    },
+    {
+      "name": "Users registration status",
+      "examples": [
+        {
+          "description": "Get users registration status",
+          "link": "users_registration_status/get_users_registration_status.json",
+          "groups": "all",
+          "route": "/v1/registration_status",
           "method": "post"
         }
       ]
@@ -44,33 +56,78 @@
       ]
     },
     {
-      "name": "Authentication phone codes",
-      "examples": [
-        {
-          "description": "Send auth code to registered user phone number ",
-          "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
-          "groups": "all",
-          "route": "v1/auth_phone_codes",
-          "method": "post"
-        }
-      ]
-    },
-    {
       "name": "Users notifications",
       "examples": [
-        {
-          "description": "Enable notification",
-          "link": "users_notifications/enable_notification.json",
-          "groups": "all",
-          "route": "/v1/notifications",
-          "method": "post"
-        },
         {
           "description": "Disable notification",
           "link": "users_notifications/disable_notification.json",
           "groups": "all",
           "route": "/v1/notifications/:kind",
           "method": "delete"
+        },
+        {
+          "description": "Enable notification",
+          "link": "users_notifications/enable_notification.json",
+          "groups": "all",
+          "route": "/v1/notifications",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Providers",
+      "examples": [
+        {
+          "description": "Get providers list",
+          "link": "providers/get_providers_list.json",
+          "groups": "all",
+          "route": "/v1/providers",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "examples": [
+        {
+          "description": "Update user with avatar",
+          "link": "users/update_user_with_avatar.json",
+          "groups": "all",
+          "route": "/v1/users/:id",
+          "method": "put"
+        },
+        {
+          "description": "Get user account",
+          "link": "users/get_user_account.json",
+          "groups": "all",
+          "route": "/v1/users/account",
+          "method": "get"
+        },
+        {
+          "description": "Create user with phone number",
+          "link": "users/create_user_with_phone_number.json",
+          "groups": "all",
+          "route": "/v1/users",
+          "method": "post"
+        },
+        {
+          "description": "Delete user",
+          "link": "users/delete_user.json",
+          "groups": "all",
+          "route": "v1/users/:id",
+          "method": "delete"
+        }
+      ]
+    },
+    {
+      "name": "Errors",
+      "examples": [
+        {
+          "description": "Request to unexisting page",
+          "link": "errors/request_to_unexisting_page.json",
+          "groups": "all",
+          "route": "/not-found",
+          "method": "get"
         }
       ]
     },
@@ -101,25 +158,6 @@
       ]
     },
     {
-      "name": "FitnessTokens",
-      "examples": [
-        {
-          "description": "Delete fitness token",
-          "link": "fitnesstokens/delete_fitness_token.json",
-          "groups": "all",
-          "route": "/v1/fitness_tokens/:id",
-          "method": "delete"
-        },
-        {
-          "description": "Save user fitness token",
-          "link": "fitnesstokens/save_user_fitness_token.json",
-          "groups": "all",
-          "route": "/v1/fitness_tokens",
-          "method": "post"
-        }
-      ]
-    },
-    {
       "name": "Sessions",
       "examples": [
         {
@@ -132,58 +170,20 @@
       ]
     },
     {
-      "name": "Users registration status",
+      "name": "Activities",
       "examples": [
         {
-          "description": "Get users registration status",
-          "link": "users_registration_status/get_users_registration_status.json",
+          "description": "Save user activitites",
+          "link": "activities/save_user_activitites.json",
           "groups": "all",
-          "route": "/v1/registration_status",
-          "method": "post"
-        }
-      ]
-    },
-    {
-      "name": "Errors",
-      "examples": [
-        {
-          "description": "Request to unexisting page",
-          "link": "errors/request_to_unexisting_page.json",
-          "groups": "all",
-          "route": "/not-found",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "name": "Users",
-      "examples": [
-        {
-          "description": "Create user with phone number",
-          "link": "users/create_user_with_phone_number.json",
-          "groups": "all",
-          "route": "/v1/users",
+          "route": "/v1/activities",
           "method": "post"
         },
         {
-          "description": "Update user with avatar",
-          "link": "users/update_user_with_avatar.json",
+          "description": "Get activities list",
+          "link": "activities/get_activities_list.json",
           "groups": "all",
-          "route": "/v1/users/:id",
-          "method": "put"
-        },
-        {
-          "description": "Delete user",
-          "link": "users/delete_user.json",
-          "groups": "all",
-          "route": "v1/users/:id",
-          "method": "delete"
-        },
-        {
-          "description": "Get user account",
-          "link": "users/get_user_account.json",
-          "groups": "all",
-          "route": "/v1/users/account",
+          "route": "/v1/activities",
           "method": "get"
         }
       ]
