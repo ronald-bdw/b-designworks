@@ -105,6 +105,12 @@ resource "FitnessTokens" do
   end
 
   delete "/v1/fitness_tokens/:id" do
+    it_behaves_like(
+      "a method that requires an authentication",
+      "fitness_token",
+      "deleting"
+    )
+
     parameter :id, "Fitness token id", required: true
 
     let(:fitness_token) { create :fitness_token, user: user }
@@ -112,6 +118,14 @@ resource "FitnessTokens" do
 
     example_request "Delete fitness token" do
       expect(status).to eq(200)
+    end
+
+    context "when fitness token does not exist", document: false do
+      let(:id) { "99999" }
+
+      example_request "Deleting not existed fitness token" do
+        expect(status).to eq(404)
+      end
     end
   end
 end
