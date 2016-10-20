@@ -19,7 +19,7 @@
       "request_path": "/v1/users_collection",
       "request_body": "------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"file\"; filename=\"valid_users_collection.xlsx\"\r\nContent-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\nContent-Length: 6576\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r",
       "request_headers": {
-        "X-Auth-Token": "development"
+        "X-Auth-Token": "746a9e515c628cd29632f77c37791163"
       },
       "request_query_parameters": {
       },
@@ -31,7 +31,7 @@
         "Content-Type": "text/plain; charset=utf-8"
       },
       "response_content_type": "text/plain; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users_collection\" -d '------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"file\"; filename=\"valid_users_collection.xlsx\"\r\nContent-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\nContent-Length: 6576\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r' -X POST \\\n\t-H \"X-Auth-Token: development\""
+      "curl": "curl \"http://localhost:5000/v1/users_collection\" -d '------------XnJLe9ZIbbGUYtzPQJ16u1\r\nContent-Disposition: form-data; name=\"file\"; filename=\"valid_users_collection.xlsx\"\r\nContent-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\nContent-Length: 6576\r\n\r\n[uploaded data]\r\n------------XnJLe9ZIbbGUYtzPQJ16u1--\r' -X POST \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\""
     }
   ]
 }
