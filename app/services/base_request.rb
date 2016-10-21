@@ -1,5 +1,10 @@
 class BaseRequest
-  attr_reader :token, :authorization_code, :base_url, :token_path, :activities_path
+  attr_reader :token,
+    :refresh_token,
+    :authorization_code,
+    :base_url,
+    :token_path,
+    :activities_path
   private :base_url, :token_path, :activities_path
 
   private

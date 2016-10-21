@@ -1,7 +1,9 @@
 class FitbitRequest < BaseRequest
   def initialize(options)
+    @fitness_token = options[:fitness_token]
     @authorization_code = options[:authorization_code]
-    @token = options[:token]
+    @token = @fitness_token.token
+    @refresh_token = @fitness_token.refresh_token
     @base_url = "https://api.fitbit.com"
     @token_path = "/oauth2/token"
     @activities_path = "1/user/-/activities/steps/date/today/1d.json"
@@ -13,6 +15,19 @@ class FitbitRequest < BaseRequest
 
   def fetch_activities
     FitbitResponse.new(retrive_activities.body)
+  end
+
+  def refresh_access_token
+    response = faraday_client.post do |request|
+      prepare_header(request)
+      request.body = {
+        grant_type: "refresh_token",
+        refresh_token: refresh_token,
+        expires_in: 3600
+      }
+    end
+
+    FitbitResponse.new(response.body)
   end
 
   private
