@@ -1,16 +1,14 @@
 module FitnessTokens
-  class RefreshFitnessToken
+  class FetchSteps
     include Interactor
 
     delegate :fitness_token, to: :context
 
     def call
       if response.success?
-        fitness_token.token = response.access_token
-        fitness_token.refresh_token = response.refresh_token
-        fitness_token.save
+        context.steps = response.steps
       else
-        Rollbar.info(fitbit_response.errors)
+        Rollbar.info(response.errors)
         context.fail!
       end
     end
@@ -18,7 +16,11 @@ module FitnessTokens
     private
 
     def response
-      @response ||= request_klass.new(fitness_token: fitness_token).refresh_access_token
+      @response ||= request_klass.new(
+        fitness_token: fitness_token,
+        started_at: Time.current - 1.hour,
+        finished_at: Time.current
+      ).fetch_activities
     end
 
     def request_klass

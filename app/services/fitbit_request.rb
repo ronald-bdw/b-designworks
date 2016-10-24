@@ -1,12 +1,10 @@
 class FitbitRequest < BaseRequest
-  def initialize(options)
-    @fitness_token = options[:fitness_token]
-    @authorization_code = options[:authorization_code]
-    @token = @fitness_token.token
-    @refresh_token = @fitness_token.refresh_token
+  def initialize(options = {})
+    super
+
     @base_url = "https://api.fitbit.com"
-    @token_path = "/oauth2/token"
-    @activities_path = "1/user/-/activities/steps/date/today/1d.json"
+    @auth_path = "/oauth2/token"
+    @steps_path = "1/user/-/activities/steps/date/today/1d.json"
   end
 
   def fetch_token
@@ -14,26 +12,17 @@ class FitbitRequest < BaseRequest
   end
 
   def fetch_activities
-    FitbitResponse.new(retrive_activities.body)
+    FitbitResponse.new(retrive_steps.body)
   end
 
   def refresh_access_token
-    response = faraday_client.post do |request|
-      prepare_header(request)
-      request.body = {
-        grant_type: "refresh_token",
-        refresh_token: refresh_token,
-        expires_in: 3600
-      }
-    end
-
-    FitbitResponse.new(response.body)
+    FitbitResponse.new(retrive_refresh_token.body)
   end
 
   private
 
-  def prepare_header(req)
-    req.url token_path
+  def prepare_auth_headers(req)
+    req.url(auth_path)
     setup_headers(
       req,
       "Basic #{encoded_secret}",
@@ -41,7 +30,14 @@ class FitbitRequest < BaseRequest
     )
   end
 
-  def request_body
+  def refresh_token_body
+    {
+      grant_type: "refresh_token",
+      refresh_token: refresh_token
+    }
+  end
+
+  def auth_request_body
     {
       grant_type: "authorization_code",
       client_id: ENV["FITBIT_CLIENT_ID"],
