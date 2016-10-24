@@ -12,23 +12,22 @@ RSpec.describe FetchFitbitActivityJob do
         user: user
       )
     end
+
     let(:fetched_activities) do
-      {
-        "activities-steps": [
-          {
-            "dateTime": Date.today.strftime("%Y-%m-%d"),
-            "value": "0"
-          }
-        ]
-      }.to_json
+      [
+        {
+          "dateTime" => Date.today.strftime("%Y-%m-%d"),
+          "value" => "0"
+        }
+      ]
     end
-    let(:fetched_activities_response) { double :response, status: 200, body: fetched_activities }
 
     subject(:job) { described_class.perform_now }
 
     before do
-      allow_any_instance_of(Faraday::Connection)
-        .to receive(:get).and_return(fetched_activities_response)
+      allow(
+        FitnessTokens::FetchActivity
+      ).to receive(:call).and_return(double(:context, success?: true, steps: fetched_activities))
     end
 
     it "fetch activities for fitbit and save in activities" do

@@ -8,8 +8,12 @@ class BaseRequest
 
   def initialize(options = {})
     @fitness_token = options[:fitness_token]
-    @access_token = @fitness_token.token
-    @refresh_token = @fitness_token.refresh_token
+
+    if @fitness_token.present?
+      @access_token = @fitness_token.token
+      @refresh_token = @fitness_token.refresh_token
+    end
+
     @authorization_code = options[:authorization_code]
   end
 
