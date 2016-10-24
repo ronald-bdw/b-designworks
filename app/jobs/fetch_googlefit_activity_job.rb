@@ -3,7 +3,7 @@ class FetchGooglefitActivityJob < ActiveJob::Base
 
   def perform
     FitnessToken.googlefit.find_each do |fitness_token|
-      result = FitnessTokens::FetchGooglefitActivity.call(fitness_token: fitness_token)
+      result = FitnessTokens::FetchActivity.call(fitness_token: fitness_token)
 
       if result.success? && result.steps.present?
         SaveActivityBulk.call(
