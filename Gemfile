@@ -42,24 +42,23 @@ group :development do
 end
 
 group :development, :test do
-  gem "byebug"
-  gem "rspec-rails"
-  gem "mail_safe"
-
   gem "brakeman"
-  gem "rubocop"
   gem "bundler-audit"
+  gem "byebug"
+  gem "mail_safe"
+  gem "rspec-rails"
+  gem "rubocop"
 end
 
 group :test do
-  gem "simplecov", require: false
-  gem "webmock", require: false
-
+  gem "codeclimate-test-reporter", require: nil
   gem "database_cleaner"
   gem "email_spec"
-  gem "shoulda-matchers", require: false
   gem "json_spec"
-  gem "codeclimate-test-reporter", require: nil
+  gem "shoulda-matchers", require: false
+  gem "simplecov", require: false
+  gem "vcr", require: false
+  gem "webmock", require: false
 end
 
 group :development, :test, :staging do

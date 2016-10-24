@@ -298,6 +298,7 @@ GEM
       thread_safe (~> 0.1)
     unicode-display_width (1.1.1)
     uniform_notifier (1.9.0)
+    vcr (3.0.3)
     warden (1.2.6)
       rack (>= 1.0)
     webmock (1.17.4)
@@ -362,6 +363,7 @@ DEPENDENCIES
   spring-commands-rspec
   thin
   twilio-ruby (~> 4.11.1)
+  vcr
   webmock
   zendesk_api
 

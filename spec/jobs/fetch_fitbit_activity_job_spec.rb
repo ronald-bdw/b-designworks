@@ -13,22 +13,7 @@ RSpec.describe FetchFitbitActivityJob do
       )
     end
 
-    let(:fetched_activities) do
-      [
-        {
-          "dateTime" => Date.today.strftime("%Y-%m-%d"),
-          "value" => "0"
-        }
-      ]
-    end
-
     subject(:job) { described_class.perform_now }
-
-    before do
-      allow(
-        FitnessTokens::FetchActivity
-      ).to receive(:call).and_return(double(:context, success?: true, steps: fetched_activities))
-    end
 
     it "fetch activities for fitbit and save in activities" do
       expect { subject }.to change { user.activities.count }.by(1)
