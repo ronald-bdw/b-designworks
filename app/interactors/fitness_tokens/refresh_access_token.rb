@@ -22,9 +22,11 @@ module FitnessTokens
       fitness_token.destroy
 
       Rails.logger.info(
-        I18n.t("fitness_token.deleted_with_invalid_refresh_token",
-        source: fitness_token.source,
-        user_id: fitness_token.user.id)
+        I18n.t(
+          "fitness_token.deleted_with_invalid_refresh_token",
+          source: fitness_token.source,
+          user_id: fitness_token.user.id
+        )
       )
     end
 

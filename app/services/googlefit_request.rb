@@ -8,7 +8,7 @@ class GooglefitRequest < BaseRequest
 
     @base_url = "https://www.googleapis.com"
     @auth_path = "oauth2/v4/token"
-    @started_at = options[:started_at_at]
+    @started_at = options[:started_at]
     @finished_at = options[:finished_at]
     @steps_path = "/fitness/v1/users/me/dataSources/#{DATA_SOURCE_ID}/datasets/#{date_range}"
   end
