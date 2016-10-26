@@ -4,5 +4,11 @@ FactoryGirl.define do
     token "MyString"
     source 1
     refresh_token "MyString"
+
+    FitnessToken.sources.keys.each do |source|
+      trait source.to_sym do
+        source source
+      end
+    end
   end
 end
