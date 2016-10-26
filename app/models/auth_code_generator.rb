@@ -9,7 +9,8 @@ class AuthCodeGenerator
   private
 
   def generate_phone_code
-    "1234"
+    return "1234" if ENV["TWILIO_MODE"] == "TEST"
+    rand(0..9999).to_s.rjust(4, "0")
   end
 
   def generate_expire_at
