@@ -11,11 +11,24 @@ module FitnessTokens
         fitness_token.save
       else
         Rollbar.info(response.errors)
+        delete_fitness_token if response.invalid_refresh_token?
         context.fail!
       end
     end
 
     private
+
+    def delete_fitness_token
+      fitness_token.destroy
+
+      Rails.logger.info(
+        I18n.t(
+          "fitness_token.deleted_with_invalid_refresh_token",
+          source: fitness_token.source,
+          user_id: fitness_token.user.id
+        )
+      )
+    end
 
     def response
       @response ||= request_klass.new(fitness_token: fitness_token).refresh_access_token

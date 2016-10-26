@@ -1,4 +1,6 @@
 class FitbitResponse
+  INVALID_REFRESH_TOKEN_ERROR_TYPE = "invalid_grant".freeze
+
   attr_reader :success, :body
 
   include ActiveModel::Validations
@@ -21,6 +23,10 @@ class FitbitResponse
 
   def refresh_token
     body["refresh_token"]
+  end
+
+  def invalid_refresh_token?
+    body["errors"][0]["errorType"] == INVALID_REFRESH_TOKEN_ERROR_TYPE
   end
 
   private

@@ -1,4 +1,6 @@
 class GooglefitResponse
+  INVALID_REFRESH_TOKEN_ERROR_TYPE = "invalid_grant".freeze
+
   attr_reader :success, :body
 
   include ActiveModel::Validations
@@ -23,12 +25,16 @@ class GooglefitResponse
     body["refresh_token"]
   end
 
+  def invalid_refresh_token?
+    body["error"] == INVALID_REFRESH_TOKEN_ERROR_TYPE
+  end
+
   private
 
   def check_response
-    return if body["errors"].blank?
+    return if body["error"].blank?
 
-    Rollbar.info(body["errors"][0]["message"])
+    Rollbar.info(body["error_description"])
     errors.add :body, "Something went wrong!"
   end
 end

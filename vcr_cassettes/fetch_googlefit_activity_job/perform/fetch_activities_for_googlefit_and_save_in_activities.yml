@@ -42,12 +42,13 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token": "access_token","token_type": "Bearer","expires_in": 3600,"id_token": "token_id"}'
+      string: '{"access_token": "access_token","token_type": "Bearer","expires_in":
+        3600,"id_token": "token_id"}'
     http_version:
   recorded_at: Mon, 24 Oct 2016 15:58:07 GMT
 - request:
     method: get
-    uri: https://www.googleapis.com/fitness/v1/users/me/dataSources/derived:com.google.step_count.delta:com.google.android.gms:estimated_steps/datasets/0000000000-0000000000
+    uri: https://www.googleapis.com/fitness/v1/users/me/dataSources/derived:com.google.step_count.delta:com.google.android.gms:estimated_steps/datasets/1451638800000000000-1451642400000000000
     body:
       encoding: US-ASCII
       string: ''
@@ -179,4 +180,3 @@ http_interactions:
         }
     http_version:
   recorded_at: Mon, 24 Oct 2016 15:59:22 GMT
-recorded_with: VCR 3.0.3
