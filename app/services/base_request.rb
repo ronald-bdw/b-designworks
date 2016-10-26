@@ -2,6 +2,8 @@ class BaseRequest
   attr_reader :access_token,
     :refresh_token,
     :authorization_code,
+    :started_at,
+    :finished_at,
     :base_url,
     :auth_path,
     :steps_path
@@ -15,6 +17,8 @@ class BaseRequest
     end
 
     @authorization_code = options[:authorization_code]
+    @started_at = options[:started_at]
+    @finished_at = options[:finished_at]
   end
 
   private

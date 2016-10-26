@@ -1,6 +1,4 @@
 class GooglefitRequest < BaseRequest
-  attr_reader :started_at, :finished_at
-
   DATA_SOURCE_ID = "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps".freeze
 
   def initialize(options = {})
@@ -8,8 +6,6 @@ class GooglefitRequest < BaseRequest
 
     @base_url = "https://www.googleapis.com"
     @auth_path = "oauth2/v4/token"
-    @started_at = options[:started_at]
-    @finished_at = options[:finished_at]
     @steps_path = "/fitness/v1/users/me/dataSources/#{DATA_SOURCE_ID}/datasets/#{date_range}"
   end
 

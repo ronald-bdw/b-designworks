@@ -1,5 +1,5 @@
 class GooglefitStep
-  SOURCE = "googlefit"
+  SOURCE = "googlefit".freeze
 
   attr_reader :params
 

@@ -1,5 +1,5 @@
 class FitbitStep
-  SOURCE = "fitbit"
+  SOURCE = "fitbit".freeze
 
   attr_reader :params
 

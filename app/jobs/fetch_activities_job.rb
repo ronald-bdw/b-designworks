@@ -1,9 +1,13 @@
 class FetchActivitiesJob < ActiveJob::Base
   queue_as :default
 
+  DEFAULT_PERIOD = 1.hour.freeze
+
   def perform(params = {})
-    FitnessToken.find_each do |fitness_token|
-      result = FitnessTokens::FetchActivity.call(fitness_token: fitness_token)
+    parse_params(params)
+
+    fitness_tokens.find_each do |fitness_token|
+      result = FitnessTokens::FetchActivity.call(build_params(fitness_token))
 
       if result.success? && result.steps.present?
         SaveActivityBulk.call(
@@ -15,6 +19,29 @@ class FetchActivitiesJob < ActiveJob::Base
   end
 
   private
+
+  def parse_params(params)
+    @fitness_token_id = params[:fitness_token_id]
+    @period = params[:period]
+  end
+
+  def period
+    @period || DEFAULT_PERIOD
+  end
+
+  def fitness_tokens
+    return FitnessToken.all if @fitness_token_id.nil?
+
+    FitnessToken.where(id: @fitness_token_id)
+  end
+
+  def build_params(fitness_token)
+    {
+      fitness_token: fitness_token,
+      started_at: Time.current - period,
+      finished_at: Time.current
+    }
+  end
 
   def build_activities(steps, source)
     builder_klass = "#{source.capitalize}Step".constantize
