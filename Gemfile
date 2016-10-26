@@ -33,15 +33,15 @@ gem "twilio-ruby", "~> 4.11.1"
 gem "zendesk_api"
 
 group :development do
-  gem "letter_opener"
-  gem "foreman"
   gem "bullet"
-
+  gem "foreman"
+  gem "letter_opener"
   gem "spring"
   gem "spring-commands-rspec"
 end
 
 group :development, :test do
+  gem "pry-rails"
   gem "brakeman"
   gem "bundler-audit"
   gem "byebug"
