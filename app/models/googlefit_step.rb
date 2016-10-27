@@ -27,6 +27,6 @@ class GooglefitStep
   end
 
   def steps_count
-    params["value"].map { |val| val[:intVal].to_i }.sum
+    params["value"].map { |val| val["intVal"].to_i }.sum
   end
 end
