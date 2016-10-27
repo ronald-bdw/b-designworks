@@ -4,7 +4,7 @@ class FitbitRequest < BaseRequest
 
     @base_url = "https://api.fitbit.com"
     @auth_path = "/oauth2/token"
-    @steps_path = "1/user/-/activities/steps/date/today/1d.json"
+    @steps_path = "1/user/-/activities/steps/date/today/#{period}.json"
   end
 
   def fetch_token
@@ -20,6 +20,12 @@ class FitbitRequest < BaseRequest
   end
 
   private
+
+  def period
+    return "1d" unless started_at && finished_at
+
+    started_at.to_date == finished_at.to_date ? "1d" : "7d"
+  end
 
   def prepare_auth_headers(req)
     req.url(auth_path)

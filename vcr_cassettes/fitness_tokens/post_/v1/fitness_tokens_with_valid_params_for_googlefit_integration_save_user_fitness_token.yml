@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.googleapis.com/oauth2/v4/token
+    body:
+      encoding: UTF-8
+      string: client_id=1031731430214-cgrtpcni90gh3lmmr3fem5nihb4b3iuk.apps.googleusercontent.com&client_secret=iMPFqGEPCd2Z3bR5iZDmt_k2&code=my+token&grant_type=authorization_code&redirect_uri=https%3A%2F%2Fpearup-144805.firebaseapp.com%2F__%2Fauth%2Fhandler
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 400
+      message:
+    headers:
+      vary:
+      - Origin, X-Origin
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Wed, 26 Oct 2016 15:09:58 GMT
+      expires:
+      - Wed, 26 Oct 2016 15:09:58 GMT
+      cache-control:
+      - private, max-age=0
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      server:
+      - GSE
+      alt-svc:
+      - quic=":443"; ma=2592000; v="36,35,34"
+      connection:
+      - close
+      transfer-encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"access_token_from_googlefit", "expires_in":28800,
+        "refresh_token":"refresh_token_from_googlefit", "token_type":"Bearer"}'
+    http_version:
+  recorded_at: Wed, 26 Oct 2016 15:09:58 GMT
+recorded_with: VCR 3.0.3

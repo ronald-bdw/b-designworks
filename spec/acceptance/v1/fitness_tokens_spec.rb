@@ -5,21 +5,18 @@ resource "FitnessTokens" do
   header "Accept", "application/json"
 
   let!(:user) { create(:user) }
+  let(:date) { Time.zone.parse("2016-01-01 10:00:00") }
 
   before do
     setup_authentication_header(user)
+    allow(Time).to receive(:current).and_return(date)
+    allow(FetchActivitiesJob).to receive(:perform_later).and_return(true)
   end
 
   post "/v1/fitness_tokens" do
     let(:user_id) { user.id }
-    let(:access_token_response) { double :response, status: 200, body: access_token_params }
 
     subject(:response) { json_response_body }
-
-    before do
-      allow_any_instance_of(Faraday::Connection)
-        .to receive(:post).and_return(access_token_response)
-    end
 
     with_options required: true do |required|
       required.parameter :source, "(string)[googlefit|fitbit] Source of fitness token"
@@ -28,16 +25,6 @@ resource "FitnessTokens" do
 
     context "with valid params" do
       context "for fitbit integration" do
-        let(:access_token_params) do
-          {
-            access_token: "access_token_from_fitbit",
-            expires_in: 28_800,
-            refresh_token: "refresh_token_from_fitbit",
-            scope: "activity",
-            token_type: "Bearer",
-            user_id: "fitbit_user_id"
-          }.to_json
-        end
         let(:params) do
           {
             authorization_code: "my token",
@@ -54,14 +41,6 @@ resource "FitnessTokens" do
       end
 
       context "for googlefit integration", document: false do
-        let(:access_token_params) do
-          {
-            access_token: "access_token_from_googlefit",
-            expires_in: 28_800,
-            refresh_token: "refresh_token_from_googlefit",
-            token_type: "Bearer"
-          }.to_json
-        end
         let(:params) do
           {
             authorization_code: "my token",
@@ -80,20 +59,6 @@ resource "FitnessTokens" do
     end
 
     context "with invalid params", document: false do
-      let(:access_token_response) do
-        double(
-          :response,
-          status: 422,
-          body: {
-            errors: [{
-              errorType: "invalid_request",
-              message: "Missing parameters: code"
-            }],
-            success: false
-          }.to_json
-        )
-      end
-
       let(:params) { { source: "fitbit" } }
 
       example_request "Can't save user fitness token" do

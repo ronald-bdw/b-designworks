@@ -2,7 +2,7 @@ module FitnessTokens
   class FetchSteps
     include Interactor
 
-    delegate :fitness_token, to: :context
+    delegate :fitness_token, :started_at, :finished_at, to: :context
 
     def call
       if response.success?
@@ -18,8 +18,8 @@ module FitnessTokens
     def response
       @response ||= request_klass.new(
         fitness_token: fitness_token,
-        started_at: Time.current - 1.hour,
-        finished_at: Time.current
+        started_at: started_at,
+        finished_at: finished_at
       ).fetch_activities
     end
 
