@@ -17,7 +17,7 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/v1/fitness_tokens/3",
+      "request_path": "/v1/fitness_tokens/1",
       "request_body": null,
       "request_headers": {
         "Accept": "application/json"
@@ -27,12 +27,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 3,\n  \"user_id\": 5,\n  \"token\": \"MyString\",\n  \"source\": \"fitbit\",\n  \"refresh_token\": \"MyString\",\n  \"created_at\": \"2016-10-20T14:50:32.503Z\",\n  \"updated_at\": \"2016-10-20T14:50:32.503Z\"\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"user_id\": 23,\n  \"token\": \"MyString\",\n  \"source\": \"fitbit\",\n  \"refresh_token\": \"MyString\",\n  \"created_at\": \"2016-11-01T14:12:43.186Z\",\n  \"updated_at\": \"2016-11-01T14:12:43.186Z\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/fitness_tokens/3\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: Mud3yu1GEoVwVLmaAmWF\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-6410\""
+      "curl": "curl \"http://localhost:5000/v1/fitness_tokens/1\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: t28xtv1JeWzjgWcMQxPq\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-9619\""
     }
   ]
 }

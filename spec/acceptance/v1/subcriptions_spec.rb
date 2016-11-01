@@ -41,7 +41,7 @@ resource "Subcriptions" do
 
       example_request "Can't save user subscription" do
         expect(response_status).to eq 422
-        error = { "plan_name"=>["can't be blank"] }.deep_stringify_keys
+        error = { "plan_name" => ["can't be blank"] }.deep_stringify_keys
         expect(response["error"]["validations"]).to eq(error)
       end
     end
