@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017144157) do
+ActiveRecord::Schema.define(version: 20161101091808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20161017144157) do
 
   create_table "fitness_tokens", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "token",         null: false
-    t.integer  "source",        null: false
+    t.string   "token"
+    t.integer  "source"
     t.string   "refresh_token"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 20161017144157) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "plan_name"
+    t.datetime "expires_at",                 null: false
+    t.boolean  "active",     default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                default: "", null: false
@@ -111,4 +122,5 @@ ActiveRecord::Schema.define(version: 20161017144157) do
   add_index "users", ["provider_id"], name: "index_users_on_provider_id", using: :btree
 
   add_foreign_key "fitness_tokens", "users"
+  add_foreign_key "subscriptions", "users"
 end

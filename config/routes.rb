@@ -28,5 +28,6 @@ Rails.application.routes.draw do
 
     resources :notifications, only: %i(create destroy)
     resource :registration_status, only: %i(create)
+    resources :subscriptions, only: %i(create)
   end
 end
