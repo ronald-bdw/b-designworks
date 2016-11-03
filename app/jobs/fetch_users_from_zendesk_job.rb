@@ -2,9 +2,16 @@ class FetchUsersFromZendeskJob < ActiveJob::Base
   queue_as :default
 
   def perform(notify_email = nil)
+    phone_numbers = []
+
     ZENDESK_CLIENT.users.all do |user|
-      create_or_update_user(user) if zendesk_user_valid?(user)
+      if zendesk_user_valid?(user)
+        phone_numbers << user.phone
+        create_or_update_user(user)
+      end
     end
+
+    delete_unnecessary_users(phone_numbers.compact)
 
     send_notify_email(notify_email) if notify_email
   end
@@ -29,5 +36,9 @@ class FetchUsersFromZendeskJob < ActiveJob::Base
 
   def send_notify_email(email)
     ZendeskMailer.users_synchronized(email).deliver_now
+  end
+
+  def delete_unnecessary_users(phone_numbers)
+    User.where.not(phone_number: phone_numbers).delete_all if phone_numbers.present?
   end
 end
