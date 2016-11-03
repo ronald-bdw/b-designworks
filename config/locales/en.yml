@@ -27,8 +27,9 @@ en:
       not_authorized_token: "Please use authorized zendesk app token"
   auth_phone_code:
     phone_code:
-      verification: "PearUp security code: %{phone_code}. Use this link to finish verification: \
-                     http://pearup.com/authcode=%{phone_code}."
+      verification: "PearUp security code: %{phone_code}. Use this to finish verification. \
+                     Link for android: http://pearup.com/authcode=%{phone_code}. \
+                     Link for ios: pearup://pearup.com?authcode=%{phone_code}"
   activity:
     errors:
       user:
