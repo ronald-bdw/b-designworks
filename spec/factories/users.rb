@@ -6,5 +6,6 @@ FactoryGirl.define do
     email
     phone_number
     zendesk_id 1
+    provider
   end
 end
