@@ -21,6 +21,7 @@ resource "Authentication phone codes" do
 
         example_request "Send auth code to registered user phone number " do
           expect(response["phone_registered"]).to be_truthy
+          expect(response["provider"]).to eq user.provider_name
         end
       end
 
@@ -29,6 +30,7 @@ resource "Authentication phone codes" do
 
         example_request "Send auth code to not registered user phone number" do
           expect(response["phone_registered"]).to be_falsey
+          expect(response["provider"]).to be_nil
         end
       end
     end

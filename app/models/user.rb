@@ -18,4 +18,5 @@ class User < ActiveRecord::Base
   validates :phone_number, phone: { types: %i(mobile) }, uniqueness: { case_sensitive: false }
 
   delegate :thumb, to: :avatar, prefix: true, allow_nil: true
+  delegate :name, to: :provider, prefix: true, allow_nil: true
 end
