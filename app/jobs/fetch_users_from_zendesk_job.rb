@@ -39,6 +39,6 @@ class FetchUsersFromZendeskJob < ActiveJob::Base
   end
 
   def delete_unnecessary_users(phone_numbers)
-    User.where.not(phone_number: phone_numbers).delete_all if phone_numbers.present?
+    User.where.not(phone_number: phone_numbers).map(&:destroy) if phone_numbers.present?
   end
 end
