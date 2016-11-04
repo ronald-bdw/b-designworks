@@ -31,7 +31,7 @@ class FetchUsersFromZendeskJob < ActiveJob::Base
   end
 
   def zendesk_user_valid?(zendesk_user)
-    zendesk_user.role.name == "end-user" && zendesk_user.phone.present?
+    zendesk_user.role.name == "end-user" && zendesk_user.phone.present? && zendesk_user.organization_id.present?
   end
 
   def send_notify_email(email)
