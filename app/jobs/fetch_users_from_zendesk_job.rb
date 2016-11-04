@@ -22,7 +22,7 @@ class FetchUsersFromZendeskJob < ActiveJob::Base
     user = User.find_or_initialize_by(phone_number: zendesk_user.phone)
     splitted_name = Users::SplittedName.new(zendesk_user.name)
 
-    user.provider = Provider.default
+    user.provider = Provider.default if zendesk_user.organization_id.present?
     user.first_name = splitted_name.first_name
     user.last_name = splitted_name.last_name || "LastName"
     user.email = zendesk_user.email
@@ -31,7 +31,7 @@ class FetchUsersFromZendeskJob < ActiveJob::Base
   end
 
   def zendesk_user_valid?(zendesk_user)
-    zendesk_user.role.name == "end-user" && zendesk_user.phone.present? && zendesk_user.organization_id.present?
+    zendesk_user.role.name == "end-user" && zendesk_user.phone.present?
   end
 
   def send_notify_email(email)
