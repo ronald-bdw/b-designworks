@@ -38,7 +38,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/activities",
-      "request_body": "activities[][started_at]=2016-10-30+14%3A12%3A43+UTC&activities[][finished_at]=2016-11-01+14%3A12%3A43+UTC&activities[][steps_count]=1000&activities[][source]=healthkit&started_at=2016-10-30+14%3A12%3A43+UTC",
+      "request_body": "activities[][started_at]=2016-11-05+11%3A13%3A01+UTC&activities[][finished_at]=2016-11-07+11%3A13%3A01+UTC&activities[][steps_count]=1000&activities[][source]=healthkit&started_at=2016-11-05+11%3A13%3A01+UTC",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -52,7 +52,7 @@
         "Content-Type": "text/plain; charset=utf-8"
       },
       "response_content_type": "text/plain; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/activities\" -d 'activities[][started_at]=2016-10-30+14%3A12%3A43+UTC&activities[][finished_at]=2016-11-01+14%3A12%3A43+UTC&activities[][steps_count]=1000&activities[][source]=healthkit&started_at=2016-10-30+14%3A12%3A43+UTC' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: kKZWVxCWZgZ95GrRyUr9\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-7336\""
+      "curl": "curl \"http://localhost:5000/v1/activities\" -d 'activities[][started_at]=2016-11-05+11%3A13%3A01+UTC&activities[][finished_at]=2016-11-07+11%3A13%3A01+UTC&activities[][steps_count]=1000&activities[][source]=healthkit&started_at=2016-11-05+11%3A13%3A01+UTC' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: 2oWtvEQgHHj11dakjP-S\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-7386\""
     }
   ]
 }

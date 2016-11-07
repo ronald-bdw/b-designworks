@@ -19,7 +19,7 @@
       "request_path": "/v1/zendesk/users/fetch",
       "request_body": "notify_email=homer.simpson%40example.com",
       "request_headers": {
-        "X-Auth-Token": "development",
+        "X-Auth-Token": "82cc8505364b42057525bcba5525eecc",
         "Accept": "application/json"
       },
       "request_query_parameters": {
@@ -27,12 +27,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"arguments\": [\n    \"homer.simpson@example.com\"\n  ],\n  \"job_id\": \"ed5b2d3d-951d-484c-8a12-b280f8175d9a\",\n  \"queue_name\": \"default\"\n}",
+      "response_body": "{\n  \"arguments\": [\n    \"homer.simpson@example.com\"\n  ],\n  \"job_id\": \"f060ff7a-1a50-41b7-863d-cd42d65f30a0\",\n  \"queue_name\": \"default\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/zendesk/users/fetch\" -d 'notify_email=homer.simpson%40example.com' -X POST \\\n\t-H \"X-Auth-Token: development\" \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/zendesk/users/fetch\" -d 'notify_email=homer.simpson%40example.com' -X POST \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

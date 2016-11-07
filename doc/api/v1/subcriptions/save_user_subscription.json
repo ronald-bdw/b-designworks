@@ -28,7 +28,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/subscriptions",
-      "request_body": "plan_name=monthly&expires_at=2016-11-01+14%3A22%3A42+UTC&active=false",
+      "request_body": "plan_name=monthly&expires_at=2016-11-07+11%3A23%3A01+UTC&active=false",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -37,12 +37,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 1,\n  \"user_id\": 1,\n  \"plan_name\": \"monthly\",\n  \"expires_at\": \"2016-11-01T14:22:42.000Z\",\n  \"active\": false,\n  \"created_at\": \"2016-11-01T14:12:42.030Z\",\n  \"updated_at\": \"2016-11-01T14:12:42.030Z\"\n}",
+      "response_body": "{\n  \"id\": 2,\n  \"user_id\": 23,\n  \"plan_name\": \"monthly\",\n  \"expires_at\": \"2016-11-07T11:23:01.000Z\",\n  \"active\": false,\n  \"created_at\": \"2016-11-07T11:13:01.827Z\",\n  \"updated_at\": \"2016-11-07T11:13:01.827Z\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/subscriptions\" -d 'plan_name=monthly&expires_at=2016-11-01+14%3A22%3A42+UTC&active=false' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: isCnoBZnzTrxYKLB59ym\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-7552\""
+      "curl": "curl \"http://localhost:5000/v1/subscriptions\" -d 'plan_name=monthly&expires_at=2016-11-07+11%3A23%3A01+UTC&active=false' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: p4cyByCE2aQymTF6gqD3\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-7494\""
     }
   ]
 }
