@@ -7,12 +7,19 @@ class RegistrationStatus
   end
 
   def as_json(_options = nil)
-    { phone_registered: phone_registered }
+    {
+      phone_registered: phone_registered,
+      provider: provider
+    }
   end
 
   private
 
   def phone_registered
     user.present?
+  end
+
+  def provider
+    user&.provider_name
   end
 end
