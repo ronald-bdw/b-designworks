@@ -1,6 +1,6 @@
 module Zendesk
   class UserSerializer < ApplicationSerializer
-    attributes :integrations, :notifications
+    attributes :integrations, :notifications, :subscription_status
 
     def integrations
       Users::Integrations.new(object).to_a
@@ -13,6 +13,10 @@ module Zendesk
           status: object.notifications.send(notification_kind).present?
         }
       end
+    end
+
+    def subscription_status
+      object.subscription&.active
     end
   end
 end
