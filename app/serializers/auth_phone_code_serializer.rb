@@ -1,11 +1,7 @@
 class AuthPhoneCodeSerializer < ApplicationSerializer
-  attributes :id, :phone_registered, :provider
+  attributes :id, :phone_registered
 
   def phone_registered
     object.user.present?
-  end
-
-  def provider
-    object.user&.provider_name
   end
 end

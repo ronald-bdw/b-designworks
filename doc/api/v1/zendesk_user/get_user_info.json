@@ -28,7 +28,7 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"user\": {\n    \"integrations\": [\n      {\n        \"name\": \"HealthKit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Googlefit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Fitbit\",\n        \"status\": false\n      }\n    ],\n    \"notifications\": [\n      {\n        \"name\": \"Message push\",\n        \"status\": false\n      }\n    ]\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"integrations\": [\n      {\n        \"name\": \"HealthKit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Googlefit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Fitbit\",\n        \"status\": false\n      }\n    ],\n    \"notifications\": [\n      {\n        \"name\": \"Message push\",\n        \"status\": false\n      }\n    ],\n    \"subscription_status\": null\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
