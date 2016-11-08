@@ -16,7 +16,8 @@ class SaveActivityBulk
 
   def create_activities
     params.each do |data|
-      activity = user.activities.find_or_initialize_by(data.except(:steps_count))
+      activity_params = data.except(:steps_count).merge(source: Activity.sources[data[:source]])
+      activity = user.activities.find_or_initialize_by(activity_params)
       activity.steps_count = data[:steps_count].to_i
       invalid_data << data unless activity.save
     end

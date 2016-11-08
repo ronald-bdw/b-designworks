@@ -29,4 +29,29 @@ describe SaveActivityBulk do
       expect(interactor.error).to be_kind_of(RailsApiFormat::Error)
     end
   end
+
+  context "with exists activity with same data for fitbit" do
+    let(:started_at) { "2016-09-07 09:00:00 UTC".to_datetime }
+    let!(:activity) do
+      create(
+        :activity,
+        started_at: started_at,
+        finished_at: finished_at,
+        source: "fitbit",
+        steps_count: 2000,
+        user: user
+      )
+    end
+
+    let(:params) do
+      [
+        activity.slice(:started_at, :finished_at, :steps_count, :source),
+        attributes_for(:activity)
+      ]
+    end
+
+    it "creates activities" do
+      expect { interactor }.to change { Activity.count }.by(1)
+    end
+  end
 end
