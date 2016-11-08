@@ -32,12 +32,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 4,\n  \"user_id\": 32,\n  \"token\": \"access_token_from_fitbit\",\n  \"source\": \"fitbit\",\n  \"refresh_token\": \"refresh_token_from_fitbit\",\n  \"created_at\": \"2016-11-07T11:13:02.110Z\",\n  \"updated_at\": \"2016-11-07T11:13:02.110Z\"\n}",
+      "response_body": "{\n  \"id\": 3,\n  \"user_id\": 29,\n  \"token\": \"access_token_from_fitbit\",\n  \"source\": \"fitbit\",\n  \"refresh_token\": \"refresh_token_from_fitbit\",\n  \"created_at\": \"2016-11-08T10:36:54.124Z\",\n  \"updated_at\": \"2016-11-08T10:36:54.124Z\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/fitness_tokens\" -d 'authorization_code=my+token&source=fitbit' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: KARTmjCHbst8CcVLmSQo\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-2543\""
+      "curl": "curl \"http://localhost:5000/v1/fitness_tokens\" -d 'authorization_code=my+token&source=fitbit' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: y685aCPAi-XMZ8c3ok4y\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-4975\""
     }
   ]
 }
