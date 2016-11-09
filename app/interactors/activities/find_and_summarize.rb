@@ -13,7 +13,7 @@ module Activities
     private
 
     def activities_sum
-      activities_sum_params = params.slice(:count, :period).merge(activities: activities)
+      activities_sum_params = params.slice(:count, :period, :source).merge(activities: activities)
 
       ActivitiesSum.create(activities_sum_params.symbolize_keys)
     end
