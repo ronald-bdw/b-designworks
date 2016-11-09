@@ -48,8 +48,10 @@ resource "Activities" do
     parameter :period, "Activities period"
     parameter :date, "Activities' date"
     parameter :zendesk_id, "User zendesk id", required: true
+    parameter :source, "Activities' source"
 
     let(:zendesk_id) { user.zendesk_id }
+    let(:source) { "healthkit" }
 
     context "with authorization header" do
       include_context "zendesk app"
