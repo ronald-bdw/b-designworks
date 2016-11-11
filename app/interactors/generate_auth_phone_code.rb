@@ -1,7 +1,7 @@
 class GenerateAuthPhoneCode
   include Interactor
 
-  delegate :phone_number, to: :context
+  delegate :phone_number, :device_type, to: :context
 
   def call
     auth_phone_code.phone_code = generator.phone_code
@@ -11,7 +11,7 @@ class GenerateAuthPhoneCode
 
     context.auth_phone_code = auth_phone_code
     context.message = I18n.t(
-      "auth_phone_code.phone_code.verification",
+      "auth_phone_code.phone_code.#{device_type}.verification",
       phone_code: auth_phone_code.phone_code
     )
   end
