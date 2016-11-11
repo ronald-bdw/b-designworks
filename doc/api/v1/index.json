@@ -1,8 +1,53 @@
 {
   "resources": [
     {
+      "name": "Users registration status",
+      "examples": [
+        {
+          "description": "Get users registration status",
+          "link": "users_registration_status/get_users_registration_status.json",
+          "groups": "all",
+          "route": "/v1/registration_status",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Zendesk User",
+      "examples": [
+        {
+          "description": "Create or update users from zendesk",
+          "link": "zendesk_user/create_or_update_users_from_zendesk.json",
+          "groups": "all",
+          "route": "/v1/zendesk/users/fetch",
+          "method": "post"
+        },
+        {
+          "description": "Get user info",
+          "link": "zendesk_user/get_user_info.json",
+          "groups": "all",
+          "route": "/v1/zendesk/users/:zendesk_id",
+          "method": "get"
+        },
+        {
+          "description": "Zendesk app update user",
+          "link": "zendesk_user/zendesk_app_update_user.json",
+          "groups": "all",
+          "route": "/v1/zendesk/users/:zendesk_id",
+          "method": "put"
+        }
+      ]
+    },
+    {
       "name": "Users",
       "examples": [
+        {
+          "description": "Delete user",
+          "link": "users/delete_user.json",
+          "groups": "all",
+          "route": "v1/users/:id",
+          "method": "delete"
+        },
         {
           "description": "Get user account",
           "link": "users/get_user_account.json",
@@ -23,13 +68,6 @@
           "groups": "all",
           "route": "/v1/users",
           "method": "post"
-        },
-        {
-          "description": "Delete user",
-          "link": "users/delete_user.json",
-          "groups": "all",
-          "route": "v1/users/:id",
-          "method": "delete"
         }
       ]
     },
@@ -46,13 +84,32 @@
       ]
     },
     {
-      "name": "Authentication phone codes",
+      "name": "Sessions",
       "examples": [
         {
-          "description": "Send auth code to registered user phone number ",
-          "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
+          "description": "Sign in with phone number",
+          "link": "sessions/sign_in_with_phone_number.json",
           "groups": "all",
-          "route": "v1/auth_phone_codes",
+          "route": "/v1/users/sign_in",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Activities",
+      "examples": [
+        {
+          "description": "Get activities list",
+          "link": "activities/get_activities_list.json",
+          "groups": "all",
+          "route": "/v1/activities",
+          "method": "get"
+        },
+        {
+          "description": "Save user activitites",
+          "link": "activities/save_user_activitites.json",
+          "groups": "all",
+          "route": "/v1/activities",
           "method": "post"
         }
       ]
@@ -65,70 +122,6 @@
           "link": "errors/request_to_unexisting_page.json",
           "groups": "all",
           "route": "/not-found",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "name": "Zendesk User",
-      "examples": [
-        {
-          "description": "Zendesk app update user",
-          "link": "zendesk_user/zendesk_app_update_user.json",
-          "groups": "all",
-          "route": "/v1/zendesk/users/:zendesk_id",
-          "method": "put"
-        },
-        {
-          "description": "Create or update users from zendesk",
-          "link": "zendesk_user/create_or_update_users_from_zendesk.json",
-          "groups": "all",
-          "route": "/v1/zendesk/users/fetch",
-          "method": "post"
-        },
-        {
-          "description": "Get user info",
-          "link": "zendesk_user/get_user_info.json",
-          "groups": "all",
-          "route": "/v1/zendesk/users/:zendesk_id",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "name": "Users notifications",
-      "examples": [
-        {
-          "description": "Enable notification",
-          "link": "users_notifications/enable_notification.json",
-          "groups": "all",
-          "route": "/v1/notifications",
-          "method": "post"
-        },
-        {
-          "description": "Disable notification",
-          "link": "users_notifications/disable_notification.json",
-          "groups": "all",
-          "route": "/v1/notifications/:kind",
-          "method": "delete"
-        }
-      ]
-    },
-    {
-      "name": "Activities",
-      "examples": [
-        {
-          "description": "Save user activitites",
-          "link": "activities/save_user_activitites.json",
-          "groups": "all",
-          "route": "/v1/activities",
-          "method": "post"
-        },
-        {
-          "description": "Get activities list",
-          "link": "activities/get_activities_list.json",
-          "groups": "all",
-          "route": "/v1/activities",
           "method": "get"
         }
       ]
@@ -165,14 +158,21 @@
       ]
     },
     {
-      "name": "Sessions",
+      "name": "Users notifications",
       "examples": [
         {
-          "description": "Sign in with phone number",
-          "link": "sessions/sign_in_with_phone_number.json",
+          "description": "Enable notification",
+          "link": "users_notifications/enable_notification.json",
           "groups": "all",
-          "route": "/v1/users/sign_in",
+          "route": "/v1/notifications",
           "method": "post"
+        },
+        {
+          "description": "Disable notification",
+          "link": "users_notifications/disable_notification.json",
+          "groups": "all",
+          "route": "/v1/notifications/:kind",
+          "method": "delete"
         }
       ]
     },
@@ -189,13 +189,13 @@
       ]
     },
     {
-      "name": "Users registration status",
+      "name": "Authentication phone codes",
       "examples": [
         {
-          "description": "Get users registration status",
-          "link": "users_registration_status/get_users_registration_status.json",
+          "description": "Send auth code to registered user phone number ",
+          "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
           "groups": "all",
-          "route": "/v1/registration_status",
+          "route": "v1/auth_phone_codes",
           "method": "post"
         }
       ]
