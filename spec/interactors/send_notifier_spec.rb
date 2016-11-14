@@ -38,7 +38,7 @@ describe SendNotifier do
     context "failure" do
       let(:message) { "The 'To' number #{phone_number} is not a valid phone number." }
       let(:phone_number) { "7906333222" }
-      let(:errors) { { message: [message] } }
+      let(:errors) { { phone_number: ["is invalid"] } }
 
       before do
         allow(Twilio::REST::Client).to receive_message_chain(:new, :messages, :create)

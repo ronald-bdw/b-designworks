@@ -40,6 +40,7 @@ resource "Authentication phone codes" do
     context "with invalid phone number", document: false do
       let(:phone_number)  { "71112223330" }
       let(:device_type) { "ios" }
+      let(:error_message) { { "phone_number" => ["is invalid"] } }
 
       before do
         allow(Twilio::REST::Client).to receive_message_chain(:new, :messages, :create)
@@ -48,7 +49,7 @@ resource "Authentication phone codes" do
 
       example_request "Send auth code to invalid phone number" do
         expect(response_status).to eq 422
-        expect(json_response_body).to be_an_error_representation(:unprocessable_entity)
+        expect(json_response_body).to be_an_validation_error_representation(:unprocessable_entity, error_message)
       end
     end
   end
