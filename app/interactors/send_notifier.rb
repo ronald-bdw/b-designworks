@@ -11,7 +11,9 @@ class SendNotifier
       body: message
     )
   rescue Twilio::REST::RequestError => e
-    errors = { message: [e.message] }
+    Rollbar.info(e.message)
+
+    errors = { phone_number: [I18n.t("twilio.errors.phone_number")] }
     context.fail!(errors: errors)
   end
 end

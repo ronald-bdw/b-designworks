@@ -25,6 +25,9 @@ en:
     errors:
       duplicate_value: "has already been taken"
       not_authorized_token: "Please use authorized zendesk app token"
+  twilio:
+    errors:
+      phone_number: "is invalid"
   auth_phone_code:
     phone_code:
       ios:
