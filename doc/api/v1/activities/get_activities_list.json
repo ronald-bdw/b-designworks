@@ -37,7 +37,7 @@
       "request_body": null,
       "request_headers": {
         "Accept": "application/json",
-        "X-Auth-Token": "82cc8505364b42057525bcba5525eecc"
+        "X-Auth-Token": "746a9e515c628cd29632f77c37791163"
       },
       "request_query_parameters": {
         "zendesk_id": "1",
@@ -46,12 +46,12 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "[\n  {\n    \"date\": \"2016-11-11\",\n    \"steps_count\": 5000\n  }\n]",
+      "response_body": "[\n  {\n    \"date\": \"2016-11-16\",\n    \"steps_count\": 5000\n  }\n]",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/activities?zendesk_id=1&source=healthkit\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"X-User-Token: yhthj31adSxZf4u8vXRa\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-8763\""
+      "curl": "curl \"http://localhost:5000/v1/activities?zendesk_id=1&source=healthkit\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\" \\\n\t-H \"X-User-Token: ysDHj4yyBkXR-_s5keZk\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-8093\""
     }
   ]
 }

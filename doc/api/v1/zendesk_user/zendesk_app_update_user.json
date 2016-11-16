@@ -30,7 +30,7 @@
       "request_path": "/v1/zendesk/users/1",
       "request_body": "user[email]=homer.simpson%40example.com&user[name]=Homer+Simpson",
       "request_headers": {
-        "X-Auth-Token": "82cc8505364b42057525bcba5525eecc",
+        "X-Auth-Token": "746a9e515c628cd29632f77c37791163",
         "Accept": "application/json"
       },
       "request_query_parameters": {
@@ -38,12 +38,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"user\": {\n    \"id\": 3,\n    \"first_name\": \"Homer\",\n    \"last_name\": \"Simpson\",\n    \"phone_number\": \"+1-727-819-1574\",\n    \"authentication_token\": \"yAJ6DnZANHYen2LbhxEn\",\n    \"email\": \"homer.simpson@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": [\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Googlefit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Fitbit\",\n        \"status\": false\n      }\n    ],\n    \"provider\": {\n      \"id\": 3,\n      \"name\": \"quia\"\n    }\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 7,\n    \"first_name\": \"Homer\",\n    \"last_name\": \"Simpson\",\n    \"phone_number\": \"+1-727-819-2483\",\n    \"authentication_token\": \"2T1Vrt79xzyd2kEsf6No\",\n    \"email\": \"homer.simpson@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": [\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Googlefit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Fitbit\",\n        \"status\": false\n      }\n    ],\n    \"provider\": {\n      \"id\": 8,\n      \"name\": \"iure\"\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/zendesk/users/1\" -d 'user[email]=homer.simpson%40example.com&user[name]=Homer+Simpson' -X PUT \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/zendesk/users/1\" -d 'user[email]=homer.simpson%40example.com&user[name]=Homer+Simpson' -X PUT \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\" \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

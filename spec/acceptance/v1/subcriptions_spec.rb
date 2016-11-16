@@ -15,9 +15,9 @@ resource "Subcriptions" do
     subject(:response) { json_response_body }
 
     with_options required: true do |required|
-      required.parameter :plan_name, "(string) Plane name of subscription"
+      required.parameter :plan_name, "(string)[monthly|trial] Plane name of subscription"
       required.parameter :expires_at, "(string) The expires_at of subscription"
-      required.parameter :active, "(string) The status of subscription"
+      required.parameter :active, "(boolean) The status of subscription"
     end
 
     context "with valid params" do
@@ -41,7 +41,7 @@ resource "Subcriptions" do
 
       example_request "Can't save user subscription" do
         expect(response_status).to eq 422
-        error = { "plan_name" => ["can't be blank"] }.deep_stringify_keys
+        error = { "plan_name" => ["can't be blank", "is not included in the list"] }.deep_stringify_keys
         expect(response["error"]["validations"]).to eq(error)
       end
     end
