@@ -16,9 +16,10 @@ module V1
     end
 
     def destroy
-      fitness_token.destroy
+      self.fitness_token = current_user.fitness_tokens.find_by(id: params[:id])
+      fitness_token.destroy if fitness_token.present?
 
-      respond_with fitness_token
+      head :ok
     end
 
     private
