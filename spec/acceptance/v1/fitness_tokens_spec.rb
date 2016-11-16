@@ -89,7 +89,7 @@ resource "FitnessTokens" do
       let(:id) { "99999" }
 
       example_request "Deleting not existed fitness token" do
-        expect(status).to eq(404)
+        expect(status).to eq(200)
       end
     end
   end
