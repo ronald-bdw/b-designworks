@@ -32,12 +32,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 6,\n  \"user_id\": 27,\n  \"token\": \"access_token_from_fitbit\",\n  \"source\": \"fitbit\",\n  \"refresh_token\": \"refresh_token_from_fitbit\",\n  \"created_at\": \"2016-11-11T10:38:30.407Z\",\n  \"updated_at\": \"2016-11-11T10:38:30.407Z\"\n}",
+      "response_body": "{\n  \"id\": 4,\n  \"user_id\": 21,\n  \"token\": \"access_token_from_fitbit\",\n  \"source\": \"fitbit\",\n  \"refresh_token\": \"refresh_token_from_fitbit\",\n  \"created_at\": \"2016-11-16T10:50:29.319Z\",\n  \"updated_at\": \"2016-11-16T10:50:29.319Z\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/fitness_tokens\" -d 'authorization_code=my+token&source=fitbit' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: tBF-sfHhQXas5R7sGw9C\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-3112\""
+      "curl": "curl \"http://localhost:5000/v1/fitness_tokens\" -d 'authorization_code=my+token&source=fitbit' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: SW419T2PaATs3sdxgux_\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-7408\""
     }
   ]
 }

@@ -8,7 +8,7 @@
     {
       "required": true,
       "name": "plan_name",
-      "description": "(string) Plane name of subscription"
+      "description": "(string)[monthly|trial] Plane name of subscription"
     },
     {
       "required": true,
@@ -18,7 +18,7 @@
     {
       "required": true,
       "name": "active",
-      "description": "(string) The status of subscription"
+      "description": "(boolean) The status of subscription"
     }
   ],
   "response_fields": [
@@ -28,7 +28,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/subscriptions",
-      "request_body": "plan_name=monthly&expires_at=2016-11-11+10%3A48%3A30+UTC&active=false",
+      "request_body": "plan_name=monthly&expires_at=2016-11-16+11%3A00%3A29+UTC&active=false",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -37,12 +37,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 1,\n  \"user_id\": 20,\n  \"plan_name\": \"monthly\",\n  \"expires_at\": \"2016-11-11T10:48:30.000Z\",\n  \"active\": false,\n  \"created_at\": \"2016-11-11T10:38:30.215Z\",\n  \"updated_at\": \"2016-11-11T10:38:30.215Z\"\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"user_id\": 23,\n  \"plan_name\": \"monthly\",\n  \"expires_at\": \"2016-11-16T11:00:29.000Z\",\n  \"active\": false,\n  \"created_at\": \"2016-11-16T10:50:29.402Z\",\n  \"updated_at\": \"2016-11-16T10:50:29.402Z\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/subscriptions\" -d 'plan_name=monthly&expires_at=2016-11-11+10%3A48%3A30+UTC&active=false' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: uw3uj5TMCEJHdeg422Te\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-6128\""
+      "curl": "curl \"http://localhost:5000/v1/subscriptions\" -d 'plan_name=monthly&expires_at=2016-11-16+11%3A00%3A29+UTC&active=false' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: GFusU-mynqNpY7dSnMaf\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-4140\""
     }
   ]
 }
