@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101091808) do
+ActiveRecord::Schema.define(version: 20161117145113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,14 +56,22 @@ ActiveRecord::Schema.define(version: 20161101091808) do
 
   create_table "fitness_tokens", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "token"
-    t.integer  "source"
+    t.string   "token",         null: false
+    t.integer  "source",        null: false
     t.string   "refresh_token"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   add_index "fitness_tokens", ["user_id"], name: "index_fitness_tokens_on_user_id", using: :btree
+
+  create_table "notification_subscribers", force: :cascade do |t|
+    t.string "email",                           null: false
+    t.string "notification_types", default: [],              array: true
+  end
+
+  add_index "notification_subscribers", ["email"], name: "index_notification_subscribers_on_email", unique: true, using: :btree
+  add_index "notification_subscribers", ["notification_types"], name: "index_notification_subscribers_on_notification_types", using: :gin
 
   create_table "notifications", force: :cascade do |t|
     t.integer "user_id"

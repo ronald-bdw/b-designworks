@@ -45,4 +45,6 @@ en:
     deleted_with_invalid_refresh_token: "Intergration with %{source} was destoyed for user #%{user_id}, because of invalid refresh token."
     errors:
       invalid_data: "Errors while fetch fitbit token: %{message}"
-
+  notification_subscriber:
+    errors:
+      notification_types: "has invalid notification types"
