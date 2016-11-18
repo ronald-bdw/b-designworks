@@ -13,7 +13,7 @@ describe SendNotifier do
       let(:phone_number) { attributes_for(:user)[:phone_number] }
       let(:client) { double :client, messages: double }
       let(:phone_code) { Faker::Number.number(4) }
-      let(:message) { I18n.t("auth_phone_code.phone_code.verification", phone_code: "1234") }
+      let(:message) { I18n.t("auth_phone_code.phone_code.ios.verification", phone_code: "1234") }
 
       let(:sms_params) do
         {
