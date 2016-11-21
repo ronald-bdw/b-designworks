@@ -31,4 +31,6 @@ Rails.application.routes.draw do
     resource :registration_status, only: %i(create)
     resources :subscriptions, only: %i(create)
   end
+
+  get "login", to: "android_verification#create", as: "android_verification"
 end
