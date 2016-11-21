@@ -10,9 +10,10 @@ class GenerateAuthPhoneCode
     auth_phone_code.save
 
     context.auth_phone_code = auth_phone_code
+
     context.message = I18n.t(
-      "auth_phone_code.phone_code.#{device_type}.verification",
-      phone_code: auth_phone_code.phone_code
+      "auth_phone_code.phone_code.verification",
+      url: url
     )
   end
 
@@ -28,5 +29,19 @@ class GenerateAuthPhoneCode
 
   def generator
     @generator ||= AuthCodeGenerator.new
+  end
+
+  def url
+    {
+      ios: "pearup://pearup.com?authcode=#{auth_phone_code.phone_code}",
+      android: android_link
+    }[device_type.to_sym]
+  end
+
+  def android_link
+    Rails.application.routes.url_helpers.android_verification_url(
+      host: ENV["HOST"],
+      authcode: auth_phone_code.phone_code
+    )
   end
 end
