@@ -18,7 +18,7 @@ resource "Sessions" do
     parameter :sms_code, "Sms Code", required: true
 
     context "with valid params" do
-      let(:email) { open_last_email }
+      let(:email) { open_last_email_for(notification_subscriber.email) }
       let(:params) do
         {
           phone_number: user.phone_number,
