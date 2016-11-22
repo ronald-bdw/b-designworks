@@ -8,6 +8,8 @@ class NotificationSubscriber < ActiveRecord::Base
 
   validate :notification_types_should_be_valid
 
+  scope :with_type, ->(type) { where("? = ANY(notification_types)", type) }
+
   private
 
   def notification_types_should_be_valid

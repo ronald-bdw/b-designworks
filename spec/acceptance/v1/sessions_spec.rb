@@ -11,12 +11,14 @@ resource "Sessions" do
     let!(:fitness_token) { create :fitness_token, user: user }
     let!(:notification) { create :notification, user: user, kind: "message_push" }
     let(:auth_phone_code) { create :auth_phone_code, user: user, expire_at: 2.days.from_now }
+    let!(:notification_subscriber) { create :notification_subscriber }
 
     parameter :phone_number, "Phone Number", required: true
     parameter :auth_phone_code, "Auth phone code", required: true
     parameter :sms_code, "Sms Code", required: true
 
     context "with valid params" do
+      let(:email) { open_last_email }
       let(:params) do
         {
           phone_number: user.phone_number,
@@ -27,10 +29,12 @@ resource "Sessions" do
 
       example_request "Sign in with phone number" do
         user.reload
+
         expect(response_status).to eq 201
         expect(response["user"]).to be_a_user_representation(user)
         expect(user.fitness_tokens.count).to eq 0
         expect(user.notifications.count).to eq 0
+        expect(email).to have_subject("New user logged in")
       end
     end
 
