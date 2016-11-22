@@ -15,7 +15,8 @@ resource "Subcriptions" do
     subject(:response) { json_response_body }
 
     with_options required: true do |required|
-      required.parameter :plan_name, "(string)[monthly|trial] Plane name of subscription"
+      required.parameter :plan_name,
+        "(string)[trial|habit_starter|habit_stabliser|habit_master] Plan name of subscription"
       required.parameter :expires_at, "(string) The expires_at of subscription"
       required.parameter :active, "(boolean) The status of subscription"
     end
@@ -23,7 +24,7 @@ resource "Subcriptions" do
     context "with valid params" do
       let(:params) do
         {
-          plan_name: "monthly",
+          plan_name: "habit_starter",
           expires_at: expires_at,
           active: false
         }
@@ -32,7 +33,7 @@ resource "Subcriptions" do
       example_request "Save user subscription" do
         user.reload
         expect(response_status).to eq 201
-        expect(user.subscription.plan_name).to eq "monthly"
+        expect(user.subscription.plan_name).to eq "habit_starter"
       end
     end
 
@@ -50,7 +51,7 @@ resource "Subcriptions" do
       let!(:subscription) { create :subscription, user: user }
       let(:params) do
         {
-          plan_name: "monthly",
+          plan_name: "habit_starter",
           expires_at: expires_at
         }
       end
@@ -58,7 +59,7 @@ resource "Subcriptions" do
       example_request "update user subscription" do
         user.reload
         expect(response_status).to eq 201
-        expect(user.subscription.plan_name).to eq "monthly"
+        expect(user.subscription.plan_name).to eq "habit_starter"
       end
     end
   end
