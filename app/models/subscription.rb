@@ -1,5 +1,5 @@
 class Subscription < ActiveRecord::Base
-  PLANS = %w(monthly trial).freeze
+  PLANS = %w(habit_starter habit_stabiliser habit_master trial).freeze
 
   belongs_to :user
 
