@@ -33,6 +33,7 @@ gem "twilio-ruby", "~> 4.11.1"
 gem "zendesk_api"
 
 group :development do
+  gem "mail_safe"
   gem "bullet"
   gem "foreman"
   gem "letter_opener"
@@ -45,7 +46,6 @@ group :development, :test do
   gem "brakeman"
   gem "bundler-audit"
   gem "byebug"
-  gem "mail_safe"
   gem "rspec-rails"
   gem "rubocop"
 end
