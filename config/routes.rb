@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       end
 
       resources :tickets, only: :create
-      resources :notification_subscribers, only: %i(create)
+      resources :notification_subscribers, only: %i(create index)
     end
 
     resources :auth_phone_codes, only: %i(create)
