@@ -17,4 +17,15 @@ resource "Notification subscribers" do
       expect(status).to eq(201)
     end
   end
+
+  get "/v1/zendesk/notification_subscribers" do
+    let!(:notification_subscriber) { create :notification_subscriber }
+
+    example_request "Get all notification subscribers" do
+      expect(status).to eq(200)
+      expect(
+        json_response_body.first
+      ).to be_a_notification_subscriber_representation(notification_subscriber)
+    end
+  end
 end

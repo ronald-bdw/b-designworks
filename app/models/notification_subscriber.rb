@@ -6,6 +6,7 @@ class NotificationSubscriber < ActiveRecord::Base
     uniqueness: true,
     format: Devise.email_regexp
 
+  validates :notification_types, presence: true
   validate :notification_types_should_be_valid
 
   scope :with_type, ->(type) { where("? = ANY(notification_types)", type) }
