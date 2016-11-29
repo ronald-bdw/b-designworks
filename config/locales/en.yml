@@ -32,7 +32,7 @@ en:
     phone_code:
       ios:
         verification: "Thank you for verifying your Pair Up account. To complete this process, \
-                       simply tap the link: pearup://pearup.com?authcode=%{phone_code}"
+                       simply tap the link: pearup://pairup.im?authcode=%{phone_code}"
       android:
         verification: "To complete verification process, use PairUp security code: %{phone_code}"
   activity:
