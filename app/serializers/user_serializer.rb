@@ -1,5 +1,6 @@
 class UserSerializer < ApplicationSerializer
   attributes :id,
+    :zendesk_id,
     :first_name,
     :last_name,
     :phone_number,
