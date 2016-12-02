@@ -20,12 +20,24 @@ resource "Notification subscribers" do
 
   get "/v1/zendesk/notification_subscribers" do
     let!(:notification_subscriber) { create :notification_subscriber }
+    let(:response) { json_response_body["notification_subscribers"].first }
 
     example_request "Get all notification subscribers" do
       expect(status).to eq(200)
       expect(
-        json_response_body.first
+        response
       ).to be_a_notification_subscriber_representation(notification_subscriber)
+    end
+  end
+
+  delete "/v1/zendesk/notification_subscribers/:id" do
+    let!(:notification_subscriber) { create :notification_subscriber }
+
+    let(:id) { notification_subscriber.id }
+
+    example_request "Delete notification subscriber" do
+      expect(status).to eq(200)
+      expect(NotificationSubscriber.count).to eq 0
     end
   end
 end
