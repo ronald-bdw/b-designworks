@@ -7,13 +7,22 @@ module V1
       expose(:notification_subscriber, attributes: :notification_subscriber_params)
 
       def create
-        notification_subscriber.save
-
-        respond_with notification_subscriber
+        if notification_subscriber.save
+          head :created
+        else
+          render json: { errors: notification_subscriber.errors.full_messages.join("\n") },
+                 status: :unprocessable_entity
+        end
       end
 
       def index
-        respond_with notification_subscribers
+        render json: { notification_subscribers: notification_subscribers }
+      end
+
+      def destroy
+        notification_subscriber.destroy
+
+        respond_with notification_subscriber
       end
 
       private
