@@ -9,6 +9,7 @@ describe Users::SaveAndCreateZendeskAccount do
 
     before do
       allow(ZendeskAPI::User).to receive(:new).and_return(zendesk_user)
+      allow(user).to receive(:update_tracked_fields)
       allow(user).to receive(:save)
     end
 

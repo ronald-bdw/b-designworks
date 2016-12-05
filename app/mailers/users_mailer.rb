@@ -6,4 +6,10 @@ class UsersMailer < ActionMailer::Base
 
     mail(to: notify_email, subject: "New user logged in")
   end
+
+  def registration_complete(notify_email, user)
+    @user = user
+
+    mail(to: notify_email, subject: "New user registered")
+  end
 end
