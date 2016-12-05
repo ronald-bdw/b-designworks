@@ -2,13 +2,14 @@ module Users
   class SaveAndCreateZendeskAccount
     include Interactor
 
-    delegate :user, to: :context
+    delegate :user, :request, to: :context
 
     def call
-      return if user.invalid?
+      context.fail! if user.invalid?
 
       if zendesk_user.save
         user.zendesk_id = zendesk_user.id
+        user.update_tracked_fields(request)
         user.save
       else
         user.errors.messages.merge!(zendesk_errors)
