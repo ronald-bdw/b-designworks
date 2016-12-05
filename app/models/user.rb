@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
 
   delegate :thumb, to: :avatar, prefix: true, allow_nil: true
   delegate :name, to: :provider, prefix: true, allow_nil: true
+
+  def zendesk_url
+    "https://pearupcoach.zendesk.com/agent/users/" + zendesk_id
+  end
 end

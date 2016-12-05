@@ -1,5 +1,5 @@
 class NotificationSubscriber < ActiveRecord::Base
-  NOTIFICATION_TYPES = %w(first_user_login).freeze
+  NOTIFICATION_TYPES = %w(first_user_login registration_complete).freeze
 
   validates :email,
     presence: true,

@@ -13,6 +13,7 @@ module V1
     def create
       self.user = Users::Create.call(
         user_params: user_params,
+        request: request,
         auth_phone_code: auth_phone_code,
         sms_auth_code: params[:sms_code]
       ).user

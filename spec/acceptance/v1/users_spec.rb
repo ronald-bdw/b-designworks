@@ -47,6 +47,8 @@ resource "Users" do
     parameter :sms_code, "Sms code", required: true
 
     context "with valid params" do
+      let!(:notification_subscriber) { create :notification_subscriber }
+      let(:email) { open_last_email_for(notification_subscriber.email) }
       let(:params) do
         {
           user: user_params,
@@ -59,7 +61,9 @@ resource "Users" do
         user = User.last
 
         expect(user.auth_phone_code).to eq(auth_phone_code)
+        expect(user.sign_in_count).to eq(1)
         expect(response["user"]).to be_a_user_representation(User.last)
+        expect(email).to have_subject("New user registered")
       end
     end
 
