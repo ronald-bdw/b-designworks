@@ -29,16 +29,6 @@ resource "Activities" do
         expect(response_status).to eq 201
       end
     end
-
-    context "with invalid params", document: false do
-      let(:started_at) { nil }
-
-      example "Can't save user activities" do
-        do_request(activities: activities)
-
-        expect(response_status).to eq 422
-      end
-    end
   end
 
   get "/v1/activities" do

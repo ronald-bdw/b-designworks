@@ -10,13 +10,9 @@ module V1
     expose(:activity, attributes: :activity_params)
 
     def create
-      result = SaveActivityBulk.call(params: activity_params[:activities], user: current_user)
+      ProccessHealthkitActivitiesJob.perform_later(activity_params[:activities], current_user)
 
-      if result.success?
-        render nothing: true, status: :created
-      else
-        render json: result.error, status: result.error.status
-      end
+      render nothing: true, status: :created
     end
 
     def index
