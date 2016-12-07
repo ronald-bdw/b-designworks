@@ -17,7 +17,9 @@ Rails.application.routes.draw do
       resources :notification_subscribers, only: %i(create index destroy)
     end
 
-    resources :auth_phone_codes, only: %i(create)
+    resources :auth_phone_codes, only: %i(create) do
+      post "check", on: :member
+    end
     resources :activities, only: %i(create index)
     resources :providers, only: %i(index)
     resources :users_collection, only: %i(create)
