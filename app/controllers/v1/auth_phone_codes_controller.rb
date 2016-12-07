@@ -2,6 +2,8 @@ module V1
   class AuthPhoneCodesController < ApplicationController
     wrap_parameters :auth_phone_code, include: %i(phone_number device_type)
 
+    expose(:auth_phone_code)
+
     def create
       result = SendPhoneCode.call(
         phone_number: auth_phone_code_params[:phone_number],
@@ -12,6 +14,14 @@ module V1
         respond_with(result.auth_phone_code)
       else
         respond_with(result)
+      end
+    end
+
+    def check
+      if auth_phone_code.phone_code == params[:sms_code]
+        head :ok
+      else
+        head :unprocessable_entity
       end
     end
 
