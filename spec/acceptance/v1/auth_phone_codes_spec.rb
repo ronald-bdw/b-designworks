@@ -53,4 +53,25 @@ resource "Authentication phone codes" do
       end
     end
   end
+
+  post "v1/auth_phone_codes/:id/check" do
+    parameter :id, "Auth phone code's id", required: true
+    parameter :sms_code, "A code that user received from sms", required: true
+
+    let!(:auth_phone_code) { create :auth_phone_code }
+    let(:id) { auth_phone_code.id }
+    let(:sms_code) { auth_phone_code.phone_code }
+
+    example_request "Check user's sms code" do
+      expect(status).to eq(200)
+    end
+
+    context "with invalid params", document: false do
+      let(:sms_code) { "some code" }
+
+      example_request "Check invalid sms code" do
+        expect(status).to eq(422)
+      end
+    end
+  end
 end
