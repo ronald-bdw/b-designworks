@@ -72,3 +72,7 @@ end
 group :staging, :production do
   gem "rails_12factor"
 end
+
+group :production do
+  gem "mailgun_rails"
+end
