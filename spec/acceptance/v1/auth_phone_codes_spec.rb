@@ -70,7 +70,7 @@ resource "Authentication phone codes" do
       let(:sms_code) { "some code" }
 
       example_request "Check invalid sms code" do
-        expect(status).to eq(422)
+        expect(status).to eq(401)
       end
     end
   end
