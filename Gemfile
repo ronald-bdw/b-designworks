@@ -34,6 +34,12 @@ gem "twilio-ruby", "~> 4.11.1"
 gem "zendesk_api"
 
 group :development do
+  gem "capistrano"
+  gem "capistrano3-puma", require: false
+  gem "capistrano3-delayed-job", require: false
+  gem "capistrano-rails", require: false
+  gem "capistrano-bundler", require: false
+  gem "capistrano-rbenv", require: false
   gem "mail_safe"
   gem "bullet"
   gem "foreman"
