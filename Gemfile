@@ -7,6 +7,7 @@ gem "rails", "4.2.7.1"
 gem "pg"
 gem "rails-api"
 gem "rails_api_format", path: "lib/rails_api_format"
+gem "puma"
 
 # all other gems
 gem "active_model_serializers", git: "https://github.com/rails-api/active_model_serializers.git"
@@ -76,4 +77,8 @@ end
 
 group :staging, :production do
   gem "rails_12factor"
+end
+
+group :production do
+  gem "mailgun_rails"
 end

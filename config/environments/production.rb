@@ -71,5 +71,12 @@ Rails.application.configure do
       user_name:            ENV.fetch("SMTP_USERNAME") { ENV.fetch("SENDGRID_USERNAME") },
       password:             ENV.fetch("SMTP_PASSWORD") { ENV.fetch("SENDGRID_PASSWORD") }
     }
+  elsif ENV["MAILGUN_API_KEY"]
+    config.action_mailer.delivery_method = :mailgun
+
+    config.action_mailer.mailgun_settings = {
+      api_key: ENV["MAILGUN_API_KEY"],
+      domain: ENV["MAILGUN_SUBDOMAIN"]
+    }
   end
 end

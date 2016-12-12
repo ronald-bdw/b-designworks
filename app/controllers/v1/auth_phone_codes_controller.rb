@@ -21,10 +21,7 @@ module V1
       if auth_phone_code.phone_code == params[:sms_code]
         head :ok
       else
-        render json: RailsApiFormat::Error.new(
-          status: :unauthorized,
-          error: "Sms code is invalid"
-        ), status: :unauthorized
+        render json: { error: { status: 401, error: "Sms code is invalid" } }, status: :unauthorized
       end
     end
 
