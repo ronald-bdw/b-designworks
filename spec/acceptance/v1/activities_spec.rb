@@ -5,7 +5,8 @@ resource "Activities" do
   header "Accept", "application/json"
 
   let(:user)       { create(:user) }
-  let(:activities) { [attributes_for(:activity, started_at: started_at)] }
+  let(:activity_params) { attributes_for(:activity, started_at: started_at) }
+  let(:activities) { [activity_params] }
 
   subject(:response) { json_response_body }
 
@@ -26,6 +27,18 @@ resource "Activities" do
       example "Save user activitites" do
         do_request(activities: activities)
 
+        expect(response_status).to eq 201
+      end
+    end
+
+    context "when user imports two same activities", document: false do
+      let(:started_at) { "2016-01-01 10:00:00 GMT+3" }
+      let(:activities) { [activity_params, activity_params] }
+
+      example "Save only one activitity" do
+        do_request(activities: activities)
+
+        expect(Activity.count).to eq 1
         expect(response_status).to eq 201
       end
     end

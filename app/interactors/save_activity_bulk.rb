@@ -16,10 +16,29 @@ class SaveActivityBulk
 
   def create_activities
     params.each do |data|
-      activity_params = data.except(:steps_count).merge(source: Activity.sources[data[:source]])
-      activity = user.activities.find_or_initialize_by(activity_params)
+      next unless check_attributes(data)
+
+      activity = user.activities.find_or_initialize_by(finder_attributes(data))
       activity.steps_count = data[:steps_count].to_i
       invalid_data << data unless activity.save
+    end
+  end
+
+  def finder_attributes(attrs)
+    {
+      started_at: Time.zone.parse(attrs[:started_at].to_s).utc,
+      finished_at: Time.zone.parse(attrs[:finished_at].to_s).utc,
+      source: Activity.sources[attrs[:source]]
+    }
+  end
+
+  def check_attributes(attrs)
+    if attrs[:started_at].nil? || attrs[:finished_at].nil?
+      invalid_data << attrs
+
+      false
+    else
+      true
     end
   end
 
