@@ -23,7 +23,7 @@
       "request_content_type": null,
       "response_status": 404,
       "response_status_text": "Not Found",
-      "response_body": "{\n  \"error\": {\n    \"id\": \"ee05b7e8-49e8-4bfc-8239-773f7a27ef45\",\n    \"status\": 404,\n    \"error\": \"Not Found\",\n    \"validations\": null\n  }\n}",
+      "response_body": "{\n  \"error\": {\n    \"id\": \"be28b669-a669-41d6-82ed-d6a74be5edcb\",\n    \"status\": 404,\n    \"error\": \"Not Found\",\n    \"validations\": null\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },

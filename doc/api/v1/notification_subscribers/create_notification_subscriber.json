@@ -21,7 +21,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/zendesk/notification_subscribers",
-      "request_body": "email=betty_hills%40ohara.name&notification_types[]=first_user_login&notification_types[]=registration_complete",
+      "request_body": "email=kacey%40bernier.org&notification_types[]=first_user_login&notification_types[]=registration_complete",
       "request_headers": {
         "X-Auth-Token": "746a9e515c628cd29632f77c37791163",
         "Accept": "application/json"
@@ -36,7 +36,7 @@
         "Content-Type": "application/json"
       },
       "response_content_type": "application/json",
-      "curl": "curl \"http://localhost:5000/v1/zendesk/notification_subscribers\" -d 'email=betty_hills%40ohara.name&notification_types[]=first_user_login&notification_types[]=registration_complete' -X POST \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\" \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/zendesk/notification_subscribers\" -d 'email=kacey%40bernier.org&notification_types[]=first_user_login&notification_types[]=registration_complete' -X POST \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\" \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

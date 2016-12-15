@@ -26,12 +26,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 4,\n  \"user_id\": 4,\n  \"kind\": \"message_push\"\n}",
+      "response_body": "{\n  \"id\": 1,\n  \"user_id\": 20,\n  \"kind\": \"message_push\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/notifications/message_push\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: UVx5qbMyzG9nV8NqqVfP\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-1617\""
+      "curl": "curl \"http://localhost:5000/v1/notifications/message_push\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: J-NrZEb63ozxNGwNMv6w\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-6676\""
     }
   ]
 }
