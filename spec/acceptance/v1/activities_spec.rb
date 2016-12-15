@@ -52,9 +52,11 @@ resource "Activities" do
     parameter :date, "Activities' date"
     parameter :zendesk_id, "User zendesk id", required: true
     parameter :source, "Activities' source"
+    parameter :timezone, "Zendesk user's timezone"
 
     let(:zendesk_id) { user.zendesk_id }
     let(:source) { "healthkit" }
+    let(:timezone) { "Moscow" }
 
     context "with authorization header" do
       include_context "zendesk app"
