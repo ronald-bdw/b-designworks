@@ -34,7 +34,7 @@ en:
         verification: "Thank you for verifying your Pair Up account. To complete this process, \
                        simply tap the link: pairup://pairup.im?authcode=%{phone_code}"
       android:
-        verification: "To complete verification process, use PairUp security code: %{phone_code}"
+        verification: "Thank you for verifying your Pair Up account. To complete this process, use Pair up security code: %{phone_code}"
   activity:
     errors:
       user:
