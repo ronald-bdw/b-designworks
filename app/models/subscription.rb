@@ -5,4 +5,8 @@ class Subscription < ActiveRecord::Base
 
   validates :plan_name, :expires_at, presence: true
   validates :plan_name, inclusion: PLANS
+
+  def expire!
+    update(active: false)
+  end
 end

@@ -12,6 +12,16 @@ module V1
       respond_with subscription
     end
 
+    def expire
+      result = Users::Subscriptions::Expire.call(user: current_user)
+
+      if result.success?
+        head :ok
+      else
+        render json: result.error, status: result.error.status
+      end
+    end
+
     private
 
     def subscription_params
