@@ -47,3 +47,6 @@ en:
   notification_subscriber:
     errors:
       notification_types: "has invalid notification types"
+  subscriptions:
+    errors:
+      not_found: "Subscription doesn't exist for this user"

@@ -63,4 +63,21 @@ resource "Subcriptions" do
       end
     end
   end
+
+  patch "/v1/subscriptions/expire" do
+    context "when user has subscription" do
+      let!(:subscription) { create :subscription, user: user, active: true }
+
+      example_request "Expire subscription" do
+        expect(status).to eq 200
+        expect(subscription.reload).to_not be_active
+      end
+    end
+
+    context "when user doesn't have subscription", document: false do
+      example_request "Expire subscription" do
+        expect(status).to eq 404
+      end
+    end
+  end
 end
