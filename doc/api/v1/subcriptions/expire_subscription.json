@@ -1,23 +1,19 @@
 {
-  "resource": "FitnessTokens",
-  "http_method": "DELETE",
-  "route": "/v1/fitness_tokens/:id",
-  "description": "Delete fitness token",
+  "resource": "Subcriptions",
+  "http_method": "PATCH",
+  "route": "/v1/subscriptions/expire",
+  "description": "Expire subscription",
   "explanation": null,
   "parameters": [
-    {
-      "required": true,
-      "name": "id",
-      "description": "Fitness token id"
-    }
+
   ],
   "response_fields": [
 
   ],
   "requests": [
     {
-      "request_method": "DELETE",
-      "request_path": "/v1/fitness_tokens/4",
+      "request_method": "PATCH",
+      "request_path": "/v1/subscriptions/expire",
       "request_body": null,
       "request_headers": {
         "Accept": "application/json"
@@ -32,7 +28,7 @@
         "Content-Type": "application/json"
       },
       "response_content_type": "application/json",
-      "curl": "curl \"http://localhost:5000/v1/fitness_tokens/4\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: GArMWHmNeUJyVMausjPD\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-9582\""
+      "curl": "curl \"http://localhost:5000/v1/subscriptions/expire\" -d '' -X PATCH \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: 8fQ8cyLnXKZkwdij2UE4\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-3457\""
     }
   ]
 }

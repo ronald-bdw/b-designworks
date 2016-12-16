@@ -13,7 +13,7 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/v1/zendesk/notification_subscribers/4",
+      "request_path": "/v1/zendesk/notification_subscribers/5",
       "request_body": null,
       "request_headers": {
         "X-Auth-Token": "746a9e515c628cd29632f77c37791163",
@@ -24,12 +24,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 4,\n  \"email\": \"bret.bins@schimmel.name\",\n  \"notification_types\": [\n    \"first_user_login\",\n    \"registration_complete\"\n  ]\n}",
+      "response_body": "{\n  \"id\": 5,\n  \"email\": \"bettie_berge@beahan.biz\",\n  \"notification_types\": [\n    \"first_user_login\",\n    \"registration_complete\"\n  ]\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/zendesk/notification_subscribers/4\" -d '' -X DELETE \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\" \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/zendesk/notification_subscribers/5\" -d '' -X DELETE \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\" \\\n\t-H \"Accept: application/json\""
     }
   ]
 }
