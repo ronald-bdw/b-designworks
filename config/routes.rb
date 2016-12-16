@@ -31,7 +31,9 @@ Rails.application.routes.draw do
 
     resources :notifications, only: %i(create destroy)
     resource :registration_status, only: %i(create)
-    resources :subscriptions, only: %i(create)
+    resources :subscriptions, only: %i(create) do
+      patch "expire", on: :collection
+    end
   end
 
   get "login", to: "android_verification#create", as: "android_verification"
