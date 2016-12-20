@@ -32,6 +32,7 @@ gem "simple_token_authentication"
 gem "thin"
 gem "twilio-ruby", "~> 4.11.1"
 gem "zendesk_api"
+gem "whenever", require: false
 
 group :development do
   gem "capistrano"
@@ -80,6 +81,5 @@ group :staging, :production do
 end
 
 group :production do
-  gem "whenever", require: false
   gem "mailgun_rails"
 end
