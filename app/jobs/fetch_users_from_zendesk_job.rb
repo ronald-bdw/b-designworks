@@ -22,7 +22,7 @@ class FetchUsersFromZendeskJob < ActiveJob::Base
     user = User.find_or_initialize_by(phone_number: zendesk_user.phone)
     splitted_name = Users::SplittedName.new(zendesk_user.name)
 
-    user.provider = Provider.default if zendesk_user.organization_id.present?
+    user.provider = fetch_provider(zendesk_user.organization_id) if zendesk_user.organization_id.present?
     user.first_name = splitted_name.first_name
     user.last_name = splitted_name.last_name || "LastName"
     user.email = zendesk_user.email
@@ -40,5 +40,9 @@ class FetchUsersFromZendeskJob < ActiveJob::Base
 
   def delete_unnecessary_users(phone_numbers)
     User.where.not(phone_number: phone_numbers).map(&:destroy) if phone_numbers.present?
+  end
+
+  def fetch_provider(organization_id)
+    Provider.find_by(zendesk_id: organization_id) || Provider.default
   end
 end

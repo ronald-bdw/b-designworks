@@ -16,6 +16,7 @@ module V1
       end
 
       def fetch
+        FetchOrganizationsFromZendeskJob.perform_later
         job = FetchUsersFromZendeskJob.perform_later(params[:notify_email])
 
         respond_with job
