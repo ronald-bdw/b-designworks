@@ -1,16 +1,12 @@
 class FetchOrganizationsFromZendeskJob < ActiveJob::Base
   queue_as :high_priority
 
-  WHITE_LIST = %w(HBF BDW).freeze
-
   def perform
     organizations_ids = []
 
     ZENDESK_CLIENT.organizations.all do |organization|
-      if zendesk_org_valid?(organization)
-        organizations_ids << organization.id
-        create_or_update_org(organization)
-      end
+      organizations_ids << organization.id
+      create_or_update_org(organization)
     end
 
     delete_unnecessary_orgs(organizations_ids.compact)
@@ -24,11 +20,15 @@ class FetchOrganizationsFromZendeskJob < ActiveJob::Base
     organization.save
   end
 
-  def zendesk_org_valid?(zendesk_org)
-    WHITE_LIST.include?(zendesk_org.name)
+  def delete_unnecessary_orgs(zendesk_ids)
+    return if zendesk_ids.blank?
+    unused_orgs = Provider.where.not(zendesk_id: zendesk_ids)
+    remove_users_org(unused_orgs.pluck(:id)) if unused_orgs.present?
+    unused_orgs.map(&:destroy)
   end
 
-  def delete_unnecessary_orgs(zendesk_ids)
-    Provider.where.not(zendesk_id: zendesk_ids).map(&:destroy) if zendesk_ids.present?
+  def remove_users_org(orgs_ids)
+    users = User.by_provider(orgs_ids)
+    users&.update_all(provider_id: nil)
   end
 end
