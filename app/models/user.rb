@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   delegate :thumb, to: :avatar, prefix: true, allow_nil: true
   delegate :name, to: :provider, prefix: true, allow_nil: true
 
+  scope :by_provider, ->(orgs_ids) { where(provider_id: orgs_ids) }
+
   def zendesk_url
     "https://pearupcoach.zendesk.com/agent/users/" + zendesk_id
   end
