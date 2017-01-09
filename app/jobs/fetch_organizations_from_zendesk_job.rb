@@ -1,7 +1,7 @@
 class FetchOrganizationsFromZendeskJob < ActiveJob::Base
   queue_as :default
 
-  def perform
+  def perform(notify_email = nil)
     organizations_ids = []
 
     ZENDESK_CLIENT.organizations.all do |organization|
@@ -10,6 +10,8 @@ class FetchOrganizationsFromZendeskJob < ActiveJob::Base
     end
 
     delete_unnecessary_orgs(organizations_ids.compact)
+
+    send_notify_email(notify_email) if notify_email
   end
 
   private
@@ -18,6 +20,10 @@ class FetchOrganizationsFromZendeskJob < ActiveJob::Base
     organization = Provider.find_or_initialize_by(zendesk_id: zendesk_org.id)
     organization.name = zendesk_org.name
     organization.save
+  end
+
+  def send_notify_email(email)
+    ZendeskMailer.organizations_synchronized(email).deliver_now
   end
 
   def delete_unnecessary_orgs(zendesk_ids)
