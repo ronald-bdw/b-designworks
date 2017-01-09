@@ -1,5 +1,5 @@
 class FetchOrganizationsFromZendeskJob < ActiveJob::Base
-  queue_as :high_priority
+  queue_as :default
 
   def perform
     organizations_ids = []
