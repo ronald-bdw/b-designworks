@@ -38,10 +38,7 @@ resource "Zendesk User" do
   end
 
   post "/v1/zendesk/users/fetch" do
-    before do
-      stub_zendesk_all_user
-      stub_zendesk_all_organizations
-    end
+    before { stub_zendesk_all_user }
 
     let(:notify_email) { "homer.simpson@example.com" }
     let(:email) { open_last_email_for(notify_email) }

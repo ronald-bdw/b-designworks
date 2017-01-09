@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
       resources :tickets, only: :create
       resources :notification_subscribers, only: %i(create index destroy)
+
+      resources :organizations, only: %i(update) do
+        post :fetch, on: :collection
+      end
     end
 
     resources :auth_phone_codes, only: %i(create) do
