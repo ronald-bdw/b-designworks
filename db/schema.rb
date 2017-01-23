@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105100317) do
+ActiveRecord::Schema.define(version: 20170123093108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20170105100317) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "zendesk_id"
+    t.integer  "priority"
   end
 
   create_table "subscriptions", force: :cascade do |t|

@@ -9,14 +9,17 @@ resource "Zendesk Organization" do
     let(:provider) { create :provider }
     let(:zendesk_id) { provider.zendesk_id }
     let(:name) { "HBF" }
+    let(:priority) { 1 }
 
     parameter :zendesk_id, "Organization's zendesk id", required: true
     parameter :name, "Organization's name", scope: :organization
+    parameter :priority, "Organization's priority", scope: :organization
 
     example_request "Zendesk app update organization" do
       provider.reload
 
       expect(provider.name).to eq "HBF"
+      expect(provider.priority).to eq 1
     end
   end
 
