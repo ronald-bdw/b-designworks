@@ -20,7 +20,7 @@ module V1
       private
 
       def provider_params
-        params.require(:organization).permit(:name)
+        params.require(:organization).permit(:name, :priority)
       end
     end
   end

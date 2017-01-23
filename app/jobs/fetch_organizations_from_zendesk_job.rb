@@ -19,6 +19,7 @@ class FetchOrganizationsFromZendeskJob < ActiveJob::Base
   def create_or_update_org(zendesk_org)
     organization = Provider.find_or_initialize_by(zendesk_id: zendesk_org.id)
     organization.name = zendesk_org.name
+    organization.provider = zendesk_org.organization_fields.provider
     organization.save
   end
 

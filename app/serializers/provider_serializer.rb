@@ -1,3 +1,3 @@
 class ProviderSerializer < ApplicationSerializer
-  attributes :id, :name
+  attributes :id, :name, :priority
 end
