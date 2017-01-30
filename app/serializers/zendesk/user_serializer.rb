@@ -28,7 +28,7 @@ module Zendesk
       if object.provider.present?
         "Provider"
       else
-        object.subscription&.plan_name.humanize
+        object.subscription&.plan_name&.humanize
       end
     end
 

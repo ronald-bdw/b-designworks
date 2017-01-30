@@ -24,7 +24,7 @@ module Activities
 
     def activities
       if params[:date].present?
-        date = DateTime.parse(params[:date])
+        date = ActiveSupport::TimeZone[params[:timezone]].parse(params[:date])
         user.activities.where(finished_at: date.at_beginning_of_day..date.at_end_of_day)
       else
         user.activities
