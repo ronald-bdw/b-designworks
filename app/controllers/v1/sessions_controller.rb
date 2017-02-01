@@ -4,7 +4,7 @@ module V1
 
     def create
       user = AuthenticateUser.call(warden: warden).user
-      Users::Login.call(user: user)
+      ::Users::Login.call(user: user)
 
       respond_with(user)
     end

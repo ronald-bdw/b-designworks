@@ -11,7 +11,7 @@ module V1
     end
 
     def create
-      self.user = Users::Create.call(
+      self.user = ::Users::Create.call(
         user_params: user_params,
         request: request,
         auth_phone_code: auth_phone_code,
@@ -22,13 +22,13 @@ module V1
     end
 
     def update
-      self.user = Users::UpdateZendeskAccount.call(user: user, photo: user_params[:avatar]).user
+      self.user = ::Users::UpdateZendeskAccount.call(user: user, photo: user_params[:avatar]).user
 
       respond_with user
     end
 
     def destroy
-      result = Users::Delete.call(user: user, current_user: current_user)
+      result = ::Users::Delete.call(user: user, current_user: current_user)
       status = result.success? ? :ok : :unprocessable_entity
 
       render nothing: true, status: status
