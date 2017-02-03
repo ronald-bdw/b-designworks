@@ -6,4 +6,9 @@ namespace :activites do
   task import: :environment do
     FetchActivitiesJob.perform_now
   end
+
+  desc "Fetch users activites for last 3 days"
+  task import_last_3_days: :environment do
+    FetchActivitiesJob.perform_now(period: 3.day)
+  end
 end

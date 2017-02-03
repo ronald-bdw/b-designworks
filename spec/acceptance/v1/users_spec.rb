@@ -184,4 +184,31 @@ resource "Users" do
       end
     end
   end
+
+  put "/v1/users/:id/time_zone" do
+    parameter :time_zone, "Time zone"
+
+    let!(:user) { create :user }
+    let(:id) { user.id }
+    let(:time_zone) { "Europe/Moscow" }
+
+    it_behaves_like(
+      "a method that requires an authentication",
+      "user",
+      "updating"
+    )
+
+    context "with authentication token" do
+      before { setup_authentication_header(user) }
+
+      let(:params) { { time_zone: time_zone } }
+
+      example_request "Update user with timezone" do
+        user.reload
+
+        expect(user.time_zone).to eq "Moscow"
+        expect(response_status).to eq 200
+      end
+    end
+  end
 end
