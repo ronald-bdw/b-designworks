@@ -21,9 +21,9 @@
     {
       "request_method": "POST",
       "request_path": "/v1/zendesk/notification_subscribers",
-      "request_body": "email=oma_stroman%40koepp.net&notification_types[]=first_user_login&notification_types[]=registration_complete",
+      "request_body": "email=dennis%40shanahan.name&notification_types[]=first_user_login&notification_types[]=registration_complete",
       "request_headers": {
-        "X-Auth-Token": "746a9e515c628cd29632f77c37791163",
+        "X-Auth-Token": "82cc8505364b42057525bcba5525eecc",
         "Accept": "application/json"
       },
       "request_query_parameters": {
@@ -36,7 +36,7 @@
         "Content-Type": "application/json"
       },
       "response_content_type": "application/json",
-      "curl": "curl \"http://localhost:5000/v1/zendesk/notification_subscribers\" -d 'email=oma_stroman%40koepp.net&notification_types[]=first_user_login&notification_types[]=registration_complete' -X POST \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\" \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/zendesk/notification_subscribers\" -d 'email=dennis%40shanahan.name&notification_types[]=first_user_login&notification_types[]=registration_complete' -X POST \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

@@ -1,0 +1,49 @@
+{
+  "resource": "Zendesk Organization",
+  "http_method": "PUT",
+  "route": "/v1/zendesk/organizations/:zendesk_id",
+  "description": "Zendesk app update organization",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "zendesk_id",
+      "description": "Organization's zendesk id"
+    },
+    {
+      "scope": "organization",
+      "name": "name",
+      "description": "Organization's name"
+    },
+    {
+      "scope": "organization",
+      "name": "priority",
+      "description": "Organization's priority"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/v1/zendesk/organizations/1",
+      "request_body": "organization[name]=HBF&organization[priority]=1",
+      "request_headers": {
+        "X-Auth-Token": "82cc8505364b42057525bcba5525eecc",
+        "Accept": "application/json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"provider\": {\n    \"id\": 10,\n    \"name\": \"HBF\",\n    \"priority\": 1\n  }\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:5000/v1/zendesk/organizations/1\" -d 'organization[name]=HBF&organization[priority]=1' -X PUT \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"Accept: application/json\""
+    }
+  ]
+}
