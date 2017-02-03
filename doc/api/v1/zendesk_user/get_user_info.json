@@ -20,7 +20,7 @@
       "request_path": "/v1/zendesk/users/1",
       "request_body": null,
       "request_headers": {
-        "X-Auth-Token": "746a9e515c628cd29632f77c37791163",
+        "X-Auth-Token": "82cc8505364b42057525bcba5525eecc",
         "Accept": "application/json"
       },
       "request_query_parameters": {
@@ -28,12 +28,12 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"user\": {\n    \"integrations\": [\n      {\n        \"name\": \"HealthKit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Googlefit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Fitbit\",\n        \"status\": false\n      }\n    ],\n    \"notifications\": [\n      {\n        \"name\": \"Message push\",\n        \"status\": false\n      }\n    ],\n    \"subscription_status\": null\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"integrations\": [\n      {\n        \"name\": \"HealthKit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Googlefit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Fitbit\",\n        \"status\": false\n      }\n    ],\n    \"notifications\": [\n      {\n        \"name\": \"Message push\",\n        \"status\": false\n      }\n    ],\n    \"subscription\": {\n      \"plan_name\": \"Provider\",\n      \"status\": true\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/zendesk/users/1\" -X GET \\\n\t-H \"X-Auth-Token: 746a9e515c628cd29632f77c37791163\" \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/zendesk/users/1\" -X GET \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

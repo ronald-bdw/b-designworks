@@ -23,7 +23,7 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"providers\": [\n    {\n      \"id\": 8,\n      \"name\": \"quo\"\n    },\n    {\n      \"id\": 9,\n      \"name\": \"facere\"\n    },\n    {\n      \"id\": 10,\n      \"name\": \"sunt\"\n    }\n  ]\n}",
+      "response_body": "{\n  \"providers\": [\n    {\n      \"id\": 25,\n      \"name\": \"velit\",\n      \"priority\": 9\n    },\n    {\n      \"id\": 26,\n      \"name\": \"modi\",\n      \"priority\": 4\n    },\n    {\n      \"id\": 27,\n      \"name\": \"consequatur\",\n      \"priority\": 7\n    }\n  ]\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },

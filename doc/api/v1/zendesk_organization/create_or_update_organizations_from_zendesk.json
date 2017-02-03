@@ -1,8 +1,8 @@
 {
-  "resource": "Zendesk User",
+  "resource": "Zendesk Organization",
   "http_method": "POST",
-  "route": "/v1/zendesk/users/fetch",
-  "description": "Create or update users from zendesk",
+  "route": "/v1/zendesk/organizations/fetch",
+  "description": "Create or update organizations from zendesk",
   "explanation": null,
   "parameters": [
     {
@@ -16,7 +16,7 @@
   "requests": [
     {
       "request_method": "POST",
-      "request_path": "/v1/zendesk/users/fetch",
+      "request_path": "/v1/zendesk/organizations/fetch",
       "request_body": "notify_email=homer.simpson%40example.com",
       "request_headers": {
         "X-Auth-Token": "82cc8505364b42057525bcba5525eecc",
@@ -27,12 +27,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"arguments\": [\n    \"homer.simpson@example.com\"\n  ],\n  \"job_id\": \"77556e53-3c2e-43b0-9ee7-b94d09013b25\",\n  \"queue_name\": \"default\"\n}",
+      "response_body": "{\n  \"arguments\": [\n    \"homer.simpson@example.com\"\n  ],\n  \"job_id\": \"5bc6d311-b2f5-4d8c-8716-ea3b0ae80546\",\n  \"queue_name\": \"default\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/zendesk/users/fetch\" -d 'notify_email=homer.simpson%40example.com' -X POST \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/zendesk/organizations/fetch\" -d 'notify_email=homer.simpson%40example.com' -X POST \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

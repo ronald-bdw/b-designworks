@@ -17,7 +17,7 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "v1/users/25",
+      "request_path": "v1/users/7",
       "request_body": null,
       "request_headers": {
         "Accept": "application/json"
@@ -32,7 +32,7 @@
         "Content-Type": "text/plain; charset=utf-8"
       },
       "response_content_type": "text/plain; charset=utf-8",
-      "curl": "curl \"http://localhost:5000v1/users/25\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: ZbQYPbGY-Xu7vuWznWy2\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-7449\""
+      "curl": "curl \"http://localhost:5000v1/users/7\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: J2houpAKHGGj35yAFFcg\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-7245\""
     }
   ]
 }

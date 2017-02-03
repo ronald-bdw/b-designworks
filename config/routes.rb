@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
     resources :users, only: %i(create update destroy) do
       get "account", on: :collection
+      resource :time_zone, only: :update, module: :users
     end
 
     resources :notifications, only: %i(create destroy)

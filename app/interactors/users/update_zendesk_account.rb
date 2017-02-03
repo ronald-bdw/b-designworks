@@ -26,7 +26,8 @@ module Users
         id: user.zendesk_id,
         email: user.email,
         name: "#{user.first_name} #{user.last_name}",
-        photo: photo&.open
+        photo: photo&.open,
+        time_zone: user.time_zone
       }
     end
   end

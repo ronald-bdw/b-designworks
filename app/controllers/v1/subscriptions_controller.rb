@@ -13,7 +13,7 @@ module V1
     end
 
     def expire
-      result = Users::Subscriptions::Expire.call(user: current_user)
+      result = ::Users::Subscriptions::Expire.call(user: current_user)
 
       if result.success?
         head :ok

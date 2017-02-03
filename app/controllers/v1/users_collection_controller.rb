@@ -3,7 +3,7 @@ module V1
     before_action :authorize_zendesk_app!
 
     def create
-      result = Users::CreateFromFile.call(file: params[:file].tempfile)
+      result = ::Users::CreateFromFile.call(file: params[:file].tempfile)
 
       if result.success?
         render nothing: true, status: :created
