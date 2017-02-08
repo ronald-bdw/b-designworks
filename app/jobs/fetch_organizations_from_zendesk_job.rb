@@ -20,6 +20,7 @@ class FetchOrganizationsFromZendeskJob < ActiveJob::Base
     organization = Provider.find_or_initialize_by(zendesk_id: zendesk_org.id)
     organization.name = zendesk_org.name
     organization.priority = zendesk_org.organization_fields.priority
+    organization.subscriber = zendesk_org.organization_fields.subscriber
     organization.save
   end
 
