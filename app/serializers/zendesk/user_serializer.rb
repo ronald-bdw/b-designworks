@@ -25,15 +25,21 @@ module Zendesk
     private
 
     def subscription_plan_name
-      if object.provider.present?
-        "Provider"
-      else
-        object.subscription&.plan_name&.humanize
-      end
+      object_subscription&.plan_name&.humanize || "Provider"
     end
 
+    # rubocop:disable Style/SafeNavigation
     def subscription_status
-      object.provider.present? || object.subscription&.active
+      if object_subscription
+        object_subscription.active
+      else
+        object.provider.present?
+      end
+    end
+    # rubocop:enable Style/SafeNavigation
+
+    def object_subscription
+      object.subscription
     end
   end
 end
