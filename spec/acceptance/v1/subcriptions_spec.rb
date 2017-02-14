@@ -16,7 +16,7 @@ resource "Subcriptions" do
 
     with_options required: true do |required|
       required.parameter :plan_name,
-        "(string)[trial|habit_starter|habit_stabliser|habit_master] Plan name of subscription"
+        "(string)[trial|habit_starter|habit_stabilizer|habit_master] Plan name of subscription"
       required.parameter :expires_at, "(string) The expires_at of subscription"
       required.parameter :active, "(boolean) The status of subscription"
     end
