@@ -1,6 +1,6 @@
 module Zendesk
   class UserSerializer < ApplicationSerializer
-    attributes :integrations, :notifications, :subscription
+    attributes :integrations, :notifications, :subscription, :device
 
     def integrations
       Users::Integrations.new(object).to_a
