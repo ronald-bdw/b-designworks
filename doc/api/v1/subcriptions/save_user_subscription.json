@@ -8,7 +8,7 @@
     {
       "required": true,
       "name": "plan_name",
-      "description": "(string)[trial|habit_starter|habit_stabliser|habit_master] Plan name of subscription"
+      "description": "(string)[trial|habit_starter|habit_stabilizer|habit_master] Plan name of subscription"
     },
     {
       "required": true,
