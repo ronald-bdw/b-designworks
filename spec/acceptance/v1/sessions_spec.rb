@@ -3,6 +3,7 @@ require "rspec_api_documentation/dsl"
 
 resource "Sessions" do
   header "Accept", "application/json"
+  header "User-Agent", "ios"
 
   subject(:response) { json_response_body }
 
@@ -30,10 +31,11 @@ resource "Sessions" do
       example_request "Sign in with phone number" do
         user.reload
 
-        expect(response_status).to eq 201
+        expect(response_status).to eq(201)
         expect(response["user"]).to be_a_user_representation(user)
-        expect(user.fitness_tokens.count).to eq 0
-        expect(user.notifications.count).to eq 0
+        expect(user.fitness_tokens.count).to eq(0)
+        expect(user.notifications.count).to eq(0)
+        expect(user.device).to eq("ios")
         expect(email).to have_subject("New user logged in")
       end
     end
