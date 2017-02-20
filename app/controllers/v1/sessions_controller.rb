@@ -12,7 +12,7 @@ module V1
     private
 
     def device
-      request.headers["User-Agent"]
+      request.user_agent
     end
   end
 end
