@@ -131,7 +131,7 @@ GEM
       launchy (~> 2.1)
       mail (~> 2.2)
     erubis (2.7.0)
-    eventmachine (1.0.7)
+    eventmachine (1.2.2)
     excon (0.51.0)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
@@ -439,4 +439,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.2
+   1.13.6
