@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201065139) do
+ActiveRecord::Schema.define(version: 20170208095151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,11 +81,13 @@ ActiveRecord::Schema.define(version: 20170201065139) do
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "providers", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name",                                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "zendesk_id"
     t.integer  "priority"
+    t.boolean  "subscriber",          default: false, null: false
+    t.integer  "expiration_interval", default: 60,    null: false
   end
 
   create_table "subscriptions", force: :cascade do |t|
