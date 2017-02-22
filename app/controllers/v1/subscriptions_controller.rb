@@ -1,6 +1,6 @@
 module V1
   class SubscriptionsController < ApplicationController
-    wrap_parameters :subscription, include: %i(plan_name expires_at active)
+    wrap_parameters :subscription, include: %i(plan_name expires_at purchased_at active)
 
     acts_as_token_authentication_handler_for User
 
@@ -28,6 +28,7 @@ module V1
       params.require(:subscription).permit(
         :plan_name,
         :expires_at,
+        :purchased_at,
         :active
       )
     end
