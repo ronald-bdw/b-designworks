@@ -62,6 +62,25 @@ resource "Subcriptions" do
         expect(user.subscription.plan_name).to eq "habit_starter"
       end
     end
+
+    context "with purchased at parameter", document: false do
+      let(:purchased_at) { Time.current }
+      let(:params) do
+        {
+          plan_name: "habit_starter",
+          expires_at: expires_at,
+          purchased_at: purchased_at,
+          active: true
+        }
+      end
+
+      example_request "update user subscription" do
+        user.reload
+        expect(response_status).to eq 201
+        expect(user.subscription.plan_name).to eq "habit_starter"
+        expect(user.subscription.purchased_at).to eq purchased_at.change(usec: 0)
+      end
+    end
   end
 
   patch "/v1/subscriptions/expire" do

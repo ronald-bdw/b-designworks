@@ -1,6 +1,6 @@
 module Zendesk
   class UserSerializer < ApplicationSerializer
-    attributes :integrations, :notifications, :subscription
+    attributes :integrations, :notifications, :subscription, :device
 
     def integrations
       Users::Integrations.new(object).to_a
@@ -25,7 +25,15 @@ module Zendesk
     private
 
     def subscription_plan_name
-      object_subscription&.plan_name&.humanize || "Provider"
+      return "Provider" unless object_subscription&.plan_name&.humanize
+
+      "#{object_subscription.plan_name.humanize}#{purchased_date}"
+    end
+
+    def purchased_date
+      return "" unless object_subscription.purchased_at
+
+      " (#{object_subscription.purchased_at})"
     end
 
     # rubocop:disable Style/SafeNavigation
