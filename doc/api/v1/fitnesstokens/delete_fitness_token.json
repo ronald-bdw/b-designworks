@@ -32,7 +32,7 @@
         "Content-Type": "application/json"
       },
       "response_content_type": "application/json",
-      "curl": "curl \"http://localhost:5000/v1/fitness_tokens/3\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: 8tnJ3sTcxUpymNfMvFrt\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-6714\""
+      "curl": "curl \"http://localhost:5000/v1/fitness_tokens/3\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: Ly_Jg7zNrdo5sZuFX_s2\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-8845\""
     }
   ]
 }

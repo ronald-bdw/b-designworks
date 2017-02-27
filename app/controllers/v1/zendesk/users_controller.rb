@@ -24,13 +24,7 @@ module V1
       private
 
       def user_params
-        attrs = params.require(:user).permit(:email, :name)
-
-        if attrs[:name].present?
-          attrs.merge!(::Users::SplittedName.new(attrs.delete(:name)).to_hash)
-        end
-
-        attrs
+        ::Zendesk::UserParamsSanitizer.new(params).sanitized_params
       end
     end
   end

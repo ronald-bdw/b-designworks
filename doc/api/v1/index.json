@@ -1,6 +1,161 @@
 {
   "resources": [
     {
+      "name": "Errors",
+      "examples": [
+        {
+          "description": "Request to unexisting page",
+          "link": "errors/request_to_unexisting_page.json",
+          "groups": "all",
+          "route": "/not-found",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Activities",
+      "examples": [
+        {
+          "description": "Save user activitites",
+          "link": "activities/save_user_activitites.json",
+          "groups": "all",
+          "route": "/v1/activities",
+          "method": "post"
+        },
+        {
+          "description": "Get activities list",
+          "link": "activities/get_activities_list.json",
+          "groups": "all",
+          "route": "/v1/activities",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Authentication phone codes",
+      "examples": [
+        {
+          "description": "Send auth code to registered user phone number ",
+          "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
+          "groups": "all",
+          "route": "v1/auth_phone_codes",
+          "method": "post"
+        },
+        {
+          "description": "Check user's sms code",
+          "link": "authentication_phone_codes/check_user's_sms_code.json",
+          "groups": "all",
+          "route": "v1/auth_phone_codes/:id/check",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "FitnessTokens",
+      "examples": [
+        {
+          "description": "Save user fitness token",
+          "link": "fitnesstokens/save_user_fitness_token.json",
+          "groups": "all",
+          "route": "/v1/fitness_tokens",
+          "method": "post"
+        },
+        {
+          "description": "Delete fitness token",
+          "link": "fitnesstokens/delete_fitness_token.json",
+          "groups": "all",
+          "route": "/v1/fitness_tokens/:id",
+          "method": "delete"
+        }
+      ]
+    },
+    {
+      "name": "Users notifications",
+      "examples": [
+        {
+          "description": "Enable notification",
+          "link": "users_notifications/enable_notification.json",
+          "groups": "all",
+          "route": "/v1/notifications",
+          "method": "post"
+        },
+        {
+          "description": "Disable notification",
+          "link": "users_notifications/disable_notification.json",
+          "groups": "all",
+          "route": "/v1/notifications/:kind",
+          "method": "delete"
+        }
+      ]
+    },
+    {
+      "name": "Providers",
+      "examples": [
+        {
+          "description": "Get providers list",
+          "link": "providers/get_providers_list.json",
+          "groups": "all",
+          "route": "/v1/providers",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Users registration status",
+      "examples": [
+        {
+          "description": "Get users registration status",
+          "link": "users_registration_status/get_users_registration_status.json",
+          "groups": "all",
+          "route": "/v1/registration_status",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Sessions",
+      "examples": [
+        {
+          "description": "Sign in with phone number",
+          "link": "sessions/sign_in_with_phone_number.json",
+          "groups": "all",
+          "route": "/v1/users/sign_in",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Subcriptions",
+      "examples": [
+        {
+          "description": "Save user subscription",
+          "link": "subcriptions/save_user_subscription.json",
+          "groups": "all",
+          "route": "/v1/subscriptions",
+          "method": "post"
+        },
+        {
+          "description": "Expire subscription",
+          "link": "subcriptions/expire_subscription.json",
+          "groups": "all",
+          "route": "/v1/subscriptions/expire",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "name": "Users collection",
+      "examples": [
+        {
+          "description": "Create users from xlsx",
+          "link": "users_collection/create_users_from_xlsx.json",
+          "groups": "all",
+          "route": "/v1/users_collection",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "name": "Users",
       "examples": [
         {
@@ -25,106 +180,18 @@
           "method": "put"
         },
         {
-          "description": "Update user with timezone",
-          "link": "users/update_user_with_timezone.json",
-          "groups": "all",
-          "route": "/v1/users/:id/time_zone",
-          "method": "put"
-        },
-        {
           "description": "Delete user",
           "link": "users/delete_user.json",
           "groups": "all",
           "route": "v1/users/:id",
           "method": "delete"
-        }
-      ]
-    },
-    {
-      "name": "Errors",
-      "examples": [
-        {
-          "description": "Request to unexisting page",
-          "link": "errors/request_to_unexisting_page.json",
-          "groups": "all",
-          "route": "/not-found",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "name": "Zendesk Organization",
-      "examples": [
-        {
-          "description": "Create or update organizations from zendesk",
-          "link": "zendesk_organization/create_or_update_organizations_from_zendesk.json",
-          "groups": "all",
-          "route": "/v1/zendesk/organizations/fetch",
-          "method": "post"
         },
         {
-          "description": "Zendesk app update organization",
-          "link": "zendesk_organization/zendesk_app_update_organization.json",
+          "description": "Update user with timezone",
+          "link": "users/update_user_with_timezone.json",
           "groups": "all",
-          "route": "/v1/zendesk/organizations/:zendesk_id",
+          "route": "/v1/users/:id/time_zone",
           "method": "put"
-        }
-      ]
-    },
-    {
-      "name": "Users notifications",
-      "examples": [
-        {
-          "description": "Enable notification",
-          "link": "users_notifications/enable_notification.json",
-          "groups": "all",
-          "route": "/v1/notifications",
-          "method": "post"
-        },
-        {
-          "description": "Disable notification",
-          "link": "users_notifications/disable_notification.json",
-          "groups": "all",
-          "route": "/v1/notifications/:kind",
-          "method": "delete"
-        }
-      ]
-    },
-    {
-      "name": "Activities",
-      "examples": [
-        {
-          "description": "Save user activitites",
-          "link": "activities/save_user_activitites.json",
-          "groups": "all",
-          "route": "/v1/activities",
-          "method": "post"
-        },
-        {
-          "description": "Get activities list",
-          "link": "activities/get_activities_list.json",
-          "groups": "all",
-          "route": "/v1/activities",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "name": "Subcriptions",
-      "examples": [
-        {
-          "description": "Save user subscription",
-          "link": "subcriptions/save_user_subscription.json",
-          "groups": "all",
-          "route": "/v1/subscriptions",
-          "method": "post"
-        },
-        {
-          "description": "Expire subscription",
-          "link": "subcriptions/expire_subscription.json",
-          "groups": "all",
-          "route": "/v1/subscriptions/expire",
-          "method": "patch"
         }
       ]
     },
@@ -155,57 +222,21 @@
       ]
     },
     {
-      "name": "Providers",
+      "name": "Zendesk Organization",
       "examples": [
         {
-          "description": "Get providers list",
-          "link": "providers/get_providers_list.json",
+          "description": "Zendesk app update organization",
+          "link": "zendesk_organization/zendesk_app_update_organization.json",
           "groups": "all",
-          "route": "/v1/providers",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "name": "Users collection",
-      "examples": [
-        {
-          "description": "Create users from xlsx",
-          "link": "users_collection/create_users_from_xlsx.json",
-          "groups": "all",
-          "route": "/v1/users_collection",
-          "method": "post"
-        }
-      ]
-    },
-    {
-      "name": "Users registration status",
-      "examples": [
-        {
-          "description": "Get users registration status",
-          "link": "users_registration_status/get_users_registration_status.json",
-          "groups": "all",
-          "route": "/v1/registration_status",
-          "method": "post"
-        }
-      ]
-    },
-    {
-      "name": "FitnessTokens",
-      "examples": [
-        {
-          "description": "Save user fitness token",
-          "link": "fitnesstokens/save_user_fitness_token.json",
-          "groups": "all",
-          "route": "/v1/fitness_tokens",
-          "method": "post"
+          "route": "/v1/zendesk/organizations/:zendesk_id",
+          "method": "put"
         },
         {
-          "description": "Delete fitness token",
-          "link": "fitnesstokens/delete_fitness_token.json",
+          "description": "Create or update organizations from zendesk",
+          "link": "zendesk_organization/create_or_update_organizations_from_zendesk.json",
           "groups": "all",
-          "route": "/v1/fitness_tokens/:id",
-          "method": "delete"
+          "route": "/v1/zendesk/organizations/fetch",
+          "method": "post"
         }
       ]
     },
@@ -213,11 +244,11 @@
       "name": "Zendesk User",
       "examples": [
         {
-          "description": "Create or update users from zendesk",
-          "link": "zendesk_user/create_or_update_users_from_zendesk.json",
+          "description": "Get user info",
+          "link": "zendesk_user/get_user_info.json",
           "groups": "all",
-          "route": "/v1/zendesk/users/fetch",
-          "method": "post"
+          "route": "/v1/zendesk/users/:zendesk_id",
+          "method": "get"
         },
         {
           "description": "Zendesk app update user",
@@ -227,41 +258,10 @@
           "method": "put"
         },
         {
-          "description": "Get user info",
-          "link": "zendesk_user/get_user_info.json",
+          "description": "Create or update users from zendesk",
+          "link": "zendesk_user/create_or_update_users_from_zendesk.json",
           "groups": "all",
-          "route": "/v1/zendesk/users/:zendesk_id",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "name": "Authentication phone codes",
-      "examples": [
-        {
-          "description": "Send auth code to registered user phone number ",
-          "link": "authentication_phone_codes/send_auth_code_to_registered_user_phone_number_.json",
-          "groups": "all",
-          "route": "v1/auth_phone_codes",
-          "method": "post"
-        },
-        {
-          "description": "Check user's sms code",
-          "link": "authentication_phone_codes/check_user's_sms_code.json",
-          "groups": "all",
-          "route": "v1/auth_phone_codes/:id/check",
-          "method": "post"
-        }
-      ]
-    },
-    {
-      "name": "Sessions",
-      "examples": [
-        {
-          "description": "Sign in with phone number",
-          "link": "sessions/sign_in_with_phone_number.json",
-          "groups": "all",
-          "route": "/v1/users/sign_in",
+          "route": "/v1/zendesk/users/fetch",
           "method": "post"
         }
       ]
