@@ -22,8 +22,8 @@
   "requests": [
     {
       "request_method": "POST",
-      "request_path": "v1/auth_phone_codes/40/check",
-      "request_body": "sms_code=0339",
+      "request_path": "v1/auth_phone_codes/8/check",
+      "request_body": "sms_code=3787",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -37,7 +37,7 @@
         "Content-Type": "application/json"
       },
       "response_content_type": "application/json",
-      "curl": "curl \"http://localhost:5000v1/auth_phone_codes/40/check\" -d 'sms_code=0339' -X POST \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000v1/auth_phone_codes/8/check\" -d 'sms_code=3787' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }
