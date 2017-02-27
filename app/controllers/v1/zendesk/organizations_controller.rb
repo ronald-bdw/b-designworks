@@ -20,7 +20,9 @@ module V1
       private
 
       def provider_params
-        params.require(:organization).permit(:name, :priority)
+        params
+          .require(:organization)
+          .permit(:name, :priority, :first_popup_message, :second_popup_message)
       end
     end
   end
