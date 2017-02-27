@@ -7,5 +7,7 @@ FactoryGirl.define do
     phone_number
     zendesk_id 1
     provider
+    first_popup_active true
+    second_popup_active false
   end
 end

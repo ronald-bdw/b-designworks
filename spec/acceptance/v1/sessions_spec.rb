@@ -9,6 +9,7 @@ resource "Sessions" do
 
   post "/v1/users/sign_in" do
     let(:user) { create :user }
+    let(:provider) { user.provider }
     let!(:fitness_token) { create :fitness_token, user: user }
     let!(:notification) { create :notification, user: user, kind: "message_push" }
     let(:auth_phone_code) { create :auth_phone_code, user: user, expire_at: 2.days.from_now }
@@ -33,6 +34,7 @@ resource "Sessions" do
 
         expect(response_status).to eq(201)
         expect(response["user"]).to be_a_user_representation(user)
+        expect(response["user"]["provider"]).to be_a_provider_representation(provider)
         expect(user.fitness_tokens.count).to eq(0)
         expect(user.notifications.count).to eq(0)
         expect(user.device).to eq("ios")

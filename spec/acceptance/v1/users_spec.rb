@@ -25,6 +25,7 @@ resource "Users" do
 
   get "/v1/users/account" do
     let(:user) { create :user }
+    let(:provider) { user.provider }
 
     it_behaves_like("a method that requires an authentication", "user", "account")
 
@@ -34,6 +35,7 @@ resource "Users" do
       example_request "Get user account" do
         expect(response_status).to eq 200
         expect(response["user"]).to be_a_user_representation(user)
+        expect(response["user"]["provider"]).to be_a_provider_representation(provider)
       end
     end
   end
