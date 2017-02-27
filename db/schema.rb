@@ -81,13 +81,13 @@ ActiveRecord::Schema.define(version: 20170227105457) do
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "providers", force: :cascade do |t|
-    t.string   "name",                 null: false
+    t.string   "name",                              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "zendesk_id"
     t.integer  "priority"
-    t.text     "first_popup_message"
-    t.text     "second_popup_message"
+    t.text     "first_popup_message",  default: "", null: false
+    t.text     "second_popup_message", default: "", null: false
   end
 
   create_table "subscriptions", force: :cascade do |t|
