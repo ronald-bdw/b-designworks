@@ -33,6 +33,7 @@ gem "thin"
 gem "twilio-ruby", "~> 4.11.1"
 gem "zendesk_api"
 gem "whenever", require: false
+gem "spreadsheet"
 
 group :development do
   gem "capistrano"
