@@ -23,7 +23,7 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"providers\": [\n    {\n      \"id\": 25,\n      \"name\": \"velit\",\n      \"priority\": 9\n    },\n    {\n      \"id\": 26,\n      \"name\": \"modi\",\n      \"priority\": 4\n    },\n    {\n      \"id\": 27,\n      \"name\": \"consequatur\",\n      \"priority\": 7\n    }\n  ]\n}",
+      "response_body": "{\n  \"providers\": [\n    {\n      \"id\": 17,\n      \"name\": \"quia\",\n      \"priority\": 15,\n      \"first_popup_message\": \"Sit corrupti temporibus dolor alias molestiae laudantium aut quos.\",\n      \"second_popup_message\": \"Ut exercitationem molestiae quos.\"\n    },\n    {\n      \"id\": 18,\n      \"name\": \"temporibus\",\n      \"priority\": 18,\n      \"first_popup_message\": \"Laborum velit sunt et eum debitis.\",\n      \"second_popup_message\": \"Est dolore ut in.\"\n    },\n    {\n      \"id\": 19,\n      \"name\": \"cumque\",\n      \"priority\": 4,\n      \"first_popup_message\": \"Et qui mollitia ullam esse eaque expedita.\",\n      \"second_popup_message\": \"Voluptas et recusandae dolor dignissimos temporibus provident explicabo.\"\n    }\n  ]\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },

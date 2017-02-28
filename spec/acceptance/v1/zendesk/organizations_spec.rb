@@ -10,16 +10,22 @@ resource "Zendesk Organization" do
     let(:zendesk_id) { provider.zendesk_id }
     let(:name) { "HBF" }
     let(:priority) { 1 }
+    let(:first_popup_message) { "Popup message" }
+    let(:second_popup_message) { "Urgent popup message" }
 
     parameter :zendesk_id, "Organization's zendesk id", required: true
     parameter :name, "Organization's name", scope: :organization
     parameter :priority, "Organization's priority", scope: :organization
+    parameter :first_popup_message, "First popup message text", scope: :organization
+    parameter :second_popup_message, "Second popup message text", scope: :organization
 
     example_request "Zendesk app update organization" do
       provider.reload
 
-      expect(provider.name).to eq "HBF"
-      expect(provider.priority).to eq 1
+      expect(provider.name).to eq("HBF")
+      expect(provider.priority).to eq(1)
+      expect(provider.first_popup_message).to eq("Popup message")
+      expect(provider.second_popup_message).to eq("Urgent popup message")
     end
   end
 

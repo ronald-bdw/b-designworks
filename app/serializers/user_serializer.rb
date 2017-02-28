@@ -8,7 +8,9 @@ class UserSerializer < ApplicationSerializer
     :email,
     :avatar,
     :last_healthkit_activity,
-    :integrations
+    :integrations,
+    :first_popup_active,
+    :second_popup_active
 
   belongs_to :provider
 

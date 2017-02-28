@@ -23,10 +23,14 @@ resource "Zendesk User" do
     let(:zendesk_id) { user.zendesk_id }
     let(:email) { "homer.simpson@example.com" }
     let(:name) { "Homer Simpson" }
+    let(:first_popup_active) { "true" }
+    let(:second_popup_active) { "false" }
 
     parameter :zendesk_id, "User's zendesk id", required: true
     parameter :email, "User's email address", scope: :user
     parameter :name, "User's name", scope: :user
+    parameter :first_popup_active, "Popup active checkbox", scope: :user
+    parameter :second_popup_active, "Urgent popup active checkbox", scope: :user
 
     example_request "Zendesk app update user" do
       user.reload
@@ -34,6 +38,8 @@ resource "Zendesk User" do
       expect(user.email).to eq("homer.simpson@example.com")
       expect(user.first_name).to eq("Homer")
       expect(user.last_name).to eq("Simpson")
+      expect(user.first_popup_active).to be_truthy
+      expect(user.second_popup_active).to be_falsey
     end
   end
 

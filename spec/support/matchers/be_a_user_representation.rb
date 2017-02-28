@@ -7,6 +7,8 @@ RSpec::Matchers.define :be_a_user_representation do |user|
       authentication_token
       email
       phone_number
+      first_popup_active
+      second_popup_active
     )
 
     custom_keys = %w(last_healthkit_activity integrations)

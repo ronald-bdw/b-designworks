@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221150500) do
+ActiveRecord::Schema.define(version: 20170227105457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,11 +81,13 @@ ActiveRecord::Schema.define(version: 20170221150500) do
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "providers", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name",                              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "zendesk_id"
     t.integer  "priority"
+    t.text     "first_popup_message",  default: "", null: false
+    t.text     "second_popup_message", default: "", null: false
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -101,7 +103,7 @@ ActiveRecord::Schema.define(version: 20170221150500) do
   add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                default: "", null: false
+    t.string   "email",                default: "",    null: false
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",        default: 0
     t.datetime "current_sign_in_at"
@@ -111,7 +113,7 @@ ActiveRecord::Schema.define(version: 20170221150500) do
     t.string   "authentication_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "phone_number",                      null: false
+    t.string   "phone_number",                         null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "avatar"
@@ -125,8 +127,10 @@ ActiveRecord::Schema.define(version: 20170221150500) do
     t.string   "suburb"
     t.string   "state"
     t.string   "postcode"
-    t.string   "time_zone",            default: "", null: false
+    t.string   "time_zone",            default: "",    null: false
     t.string   "device",               default: ""
+    t.boolean  "first_popup_active",   default: false, null: false
+    t.boolean  "second_popup_active",  default: false, null: false
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

@@ -27,7 +27,7 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"arguments\": [\n    \"homer.simpson@example.com\"\n  ],\n  \"job_id\": \"5bc6d311-b2f5-4d8c-8716-ea3b0ae80546\",\n  \"queue_name\": \"default\"\n}",
+      "response_body": "{\n  \"arguments\": [\n    \"homer.simpson@example.com\"\n  ],\n  \"job_id\": \"6afab339-35da-429f-b0a1-ae7a640dab17\",\n  \"queue_name\": \"default\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
