@@ -4,7 +4,7 @@ require "rspec_api_documentation/dsl"
 resource "Subcriptions" do
   header "Accept", "application/json"
 
-  let!(:user) { create(:user) }
+  let!(:user) { create(:user, second_popup_active: false) }
   let(:expires_at) { Time.current + 10.minutes }
 
   before do
@@ -34,6 +34,7 @@ resource "Subcriptions" do
         user.reload
         expect(response_status).to eq 201
         expect(user.subscription.plan_name).to eq "habit_starter"
+        expect(user.second_popup_active).to be_truthy
       end
     end
 
