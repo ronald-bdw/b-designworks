@@ -8,6 +8,7 @@ module V1
 
     def create
       subscription.update(subscription_params)
+      current_user.update(second_popup_active: true)
 
       respond_with subscription
     end
