@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227105457) do
+ActiveRecord::Schema.define(version: 20170301122001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,19 @@ ActiveRecord::Schema.define(version: 20170227105457) do
   end
 
   add_index "auth_phone_codes", ["user_id"], name: "index_auth_phone_codes_on_user_id", using: :btree
+
+  create_table "daily_steps", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "provider_id"
+    t.datetime "started_at",  null: false
+    t.datetime "finished_at", null: false
+    t.integer  "steps_count", null: false
+    t.integer  "source",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "daily_steps", ["user_id"], name: "index_daily_steps_on_user_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false

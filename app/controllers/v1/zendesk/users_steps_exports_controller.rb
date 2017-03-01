@@ -1,15 +1,14 @@
 module V1
   module Zendesk
     class UsersStepsExportsController < ApplicationController
-      #before_action :authorize_zendesk_app!
+      before_action :authorize_zendesk_app!
 
       expose :provider, finder: :find_by_zendesk_id, finder_parameter: :organization_id
 
       def create
-        result = ::Users::StepsExport.call(provider: provider)
-        binding.pry
+        result = ::Users::StepsExport.call(provider: provider, year: params[:year])
 
-        send_file("#{Rails.root}/export.xls", filename: 'export1.xls', type:  "application/vnd.ms-excel")
+        render json: { file: result.file }
       end
     end
   end

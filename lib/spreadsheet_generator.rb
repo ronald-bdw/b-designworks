@@ -1,51 +1,40 @@
 require "spreadsheet"
 
 class SpreadsheetGenerator
-  attr_reader :provider
-  private :provider
+  attr_reader :provider, :year
+  private :provider, :year
 
-  def initialize(provider)
-    Spreadsheet.client_encoding = 'UTF-8'
+  def initialize(provider, year)
+    Spreadsheet.client_encoding = "UTF-8"
+
     @provider = provider
+    @year = year
   end
 
   def generate
-    month_intervals.each_with_index do |(month_name, interval), index|
-      sheet = book.create_worksheet name: month_name
-      sheet.row(0).concat headers(month_name)
-      row_count = 0
-      User.where(id: [10797, 10286, 8659, 8370, 365, 356, 339, 369, 328], provider: provider).each_with_index do |user, i|
-        user_fields = %i(project_id first_name last_name email provider_name)
-        attrs = user_fields.map { |field| user.send(field) || 0 }
-        %i(fitbit googlefit healthkit).each do |source|
-          user_steps = activities(user, source, interval)
-          if user_steps.present?
-            row_count += 1
-            options = {
-              user: user,
-              source: source,
-              user_steps: user_steps,
-              interval: interval
-            }
-            sheet.row(row_count).concat(build_steps_count(options))
-          end
-        end
-      end
+    month_intervals.each do |month_name, interval|
+      sheet = Sheet.new(
+        name: month_name,
+        interval: interval,
+        headers: headers(month_name)
+      )
+      book.add_worksheet(sheet)
+      sheet.fill_sheet(provider.id, interval)
     end
-    file_contents = "#{Rails.root}/export.xls" #StringIO.new
-    file = book.write(file_contents)
-    file
-  end
 
-  def headers(month_name)
-    main_headers = %w{ProjectId FirstName LastName Email Organization Fitbit GoogleFit Health}
-    month_intervals[month_name].each do |interval|
-      main_headers << interval.strftime("%-d-%b")
-    end
-    main_headers
+    file_path = "#{Rails.root}/tmp/export_#{Time.current}.xls"
+    book.write(file_path)
+
+    file_path
   end
 
   private
+
+  def headers(month_name)
+    month_intervals[month_name].map do |interval|
+      interval.strftime("%-d-%b")
+    end
+  end
 
   def book
     @book ||= Spreadsheet::Excel::Workbook.new
@@ -53,43 +42,9 @@ class SpreadsheetGenerator
 
   def month_intervals
     Date::MONTHNAMES.compact.reduce({}) do |intervals, month|
-      intervals.merge!(month => (Date.parse(month)..Date.parse(month).end_of_month))
+      month_year = [month, year].join(", ")
+      intervals[month] = (Date.parse(month_year).beginning_of_month..Date.parse(month_year).end_of_month)
       intervals
     end
-  end
-
-  def activities(user, source, month_interval)
-    user.activities
-      .send(source).where(started_at: month_interval)
-      .group_by_period(:day, :started_at, last: nil)
-      .sum(:steps_count)
-  end
-
-  def user_attributes(user)
-    %i(project_id first_name last_name email provider_name).map do |field|
-      user.send(field) || 0
-    end
-  end
-
-  def empty_steps(interval)
-    interval.reduce({}) {|m, date| m.merge!(date => 0) }
-  end
-
-  def steps_by_day(options)
-    empty_steps(options[:interval]).merge(options[:user_steps]).values
-  end
-
-  def sources_list(source)
-    %i(fitbit googlefit healthkit).map do |type|
-      type == source ? 1 : 0
-    end
-  end
-
-  def build_steps_count(options)
-    [
-      user_attributes(options[:user]),
-      sources_list(options[:source]),
-      steps_by_day(options)
-    ].flatten
   end
 end
