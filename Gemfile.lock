@@ -318,7 +318,7 @@ GEM
     rubyXL (3.3.21)
       nokogiri (>= 1.4.4)
       rubyzip (>= 1.1.6)
-    rubyzip (1.2.0)
+    rubyzip (1.2.1)
     safe_yaml (1.0.2)
     scrub_rb (1.0.1)
     seedbank (0.3.0)
