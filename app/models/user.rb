@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :notifications, dependent: :destroy
   has_many :activities, dependent: :destroy
   has_many :fitness_tokens, dependent: :destroy
+  has_many :daily_steps, dependent: :destroy
 
   belongs_to :provider
 

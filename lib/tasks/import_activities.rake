@@ -11,4 +11,11 @@ namespace :activites do
   task import_last_3_days: :environment do
     FetchActivitiesJob.perform_now(period: 3.day)
   end
+
+  desc "Fetch users activites for last 3 days"
+  task update_daily_steps: :environment do
+    Activity.find_each do |activity|
+      Users::UpdateDailySteps.call(activity: activity)
+    end
+  end
 end

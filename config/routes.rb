@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :organizations, only: %i(update) do
         post :fetch, on: :collection
       end
+      resources :users_steps_exports, only: %i(create)
     end
 
     resources :auth_phone_codes, only: %i(create) do
