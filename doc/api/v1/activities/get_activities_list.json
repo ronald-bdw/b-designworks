@@ -51,12 +51,12 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "[\n  {\n    \"date\": \"2017-02-26\",\n    \"steps_count\": 5000\n  }\n]",
+      "response_body": "[\n  {\n    \"date\": \"2017-03-01\",\n    \"steps_count\": 5000\n  }\n]",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/activities?zendesk_id=1&source=healthkit&timezone=Moscow\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"X-User-Token: 9aWFRPXM3fveJqn4Lv9z\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-9529\""
+      "curl": "curl \"http://localhost:5000/v1/activities?zendesk_id=1&source=healthkit&timezone=Moscow\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"X-User-Token: qVActJYpF6_ZY4s9J41w\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-2910\""
     }
   ]
 }

@@ -17,7 +17,7 @@
   "requests": [
     {
       "request_method": "DELETE",
-      "request_path": "/v1/fitness_tokens/3",
+      "request_path": "/v1/fitness_tokens/4",
       "request_body": null,
       "request_headers": {
         "Accept": "application/json"
@@ -32,7 +32,7 @@
         "Content-Type": "application/json"
       },
       "response_content_type": "application/json",
-      "curl": "curl \"http://localhost:5000/v1/fitness_tokens/3\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: Ly_Jg7zNrdo5sZuFX_s2\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-8845\""
+      "curl": "curl \"http://localhost:5000/v1/fitness_tokens/4\" -d '' -X DELETE \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: xZA9NQ_fsf74t4nYCgAy\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-3088\""
     }
   ]
 }

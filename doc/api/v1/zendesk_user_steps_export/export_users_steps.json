@@ -1,0 +1,38 @@
+{
+  "resource": "Zendesk User steps export",
+  "http_method": "POST",
+  "route": "/v1/zendesk/users_steps_exports",
+  "description": "Export users steps",
+  "explanation": null,
+  "parameters": [
+    {
+      "name": "provider_name",
+      "description": "Provider name"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/v1/zendesk/users_steps_exports",
+      "request_body": "organization_id=1",
+      "request_headers": {
+        "X-Auth-Token": "82cc8505364b42057525bcba5525eecc",
+        "Accept": "application/json"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"file\": \"aws_file_url\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:5000/v1/zendesk/users_steps_exports\" -d 'organization_id=1' -X POST \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"Accept: application/json\""
+    }
+  ]
+}

@@ -21,7 +21,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/zendesk/notification_subscribers",
-      "request_body": "email=antonetta%40rogahn.com&notification_types[]=first_user_login&notification_types[]=registration_complete",
+      "request_body": "email=layne%40daughertywhite.com&notification_types[]=first_user_login&notification_types[]=registration_complete",
       "request_headers": {
         "X-Auth-Token": "82cc8505364b42057525bcba5525eecc",
         "Accept": "application/json"
@@ -36,7 +36,7 @@
         "Content-Type": "application/json"
       },
       "response_content_type": "application/json",
-      "curl": "curl \"http://localhost:5000/v1/zendesk/notification_subscribers\" -d 'email=antonetta%40rogahn.com&notification_types[]=first_user_login&notification_types[]=registration_complete' -X POST \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"Accept: application/json\""
+      "curl": "curl \"http://localhost:5000/v1/zendesk/notification_subscribers\" -d 'email=layne%40daughertywhite.com&notification_types[]=first_user_login&notification_types[]=registration_complete' -X POST \\\n\t-H \"X-Auth-Token: 82cc8505364b42057525bcba5525eecc\" \\\n\t-H \"Accept: application/json\""
     }
   ]
 }

@@ -16,7 +16,7 @@
   "requests": [
     {
       "request_method": "PUT",
-      "request_path": "/v1/users/37/time_zone",
+      "request_path": "/v1/users/26/time_zone",
       "request_body": "time_zone=Europe%2FMoscow",
       "request_headers": {
         "Accept": "application/json"
@@ -31,7 +31,7 @@
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users/37/time_zone\" -d 'time_zone=Europe%2FMoscow' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: 76ZSco6RGRBNSsaviowM\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-7005\""
+      "curl": "curl \"http://localhost:5000/v1/users/26/time_zone\" -d 'time_zone=Europe%2FMoscow' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: i1WUbokKqHzz9FRcvD5r\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-1204\""
     }
   ]
 }
