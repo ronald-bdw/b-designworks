@@ -20,7 +20,12 @@ class SaveActivityBulk
 
       activity = user.activities.find_or_initialize_by(finder_attributes(data))
       activity.steps_count = data[:steps_count].to_i
-      invalid_data << data unless activity.save
+
+      if activity.save
+        Users::UpdateDailySteps.call(activity: activity)
+      else
+        invalid_data << data
+      end
     end
   end
 
