@@ -1,3 +1,3 @@
 class ProviderSerializer < ApplicationSerializer
-  attributes :id, :name, :priority, :first_popup_message, :second_popup_message
+  attributes :id, :name, :priority, :first_popup_message, :second_popup_message, :subscriber
 end

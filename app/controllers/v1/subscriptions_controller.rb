@@ -7,6 +7,7 @@ module V1
     expose(:subscription) { current_user.subscription || current_user.build_subscription }
 
     def create
+      current_user.update(trial_used: true) if subscription.new_record?
       subscription.update(subscription_params)
       current_user.update(second_popup_active: true)
 
