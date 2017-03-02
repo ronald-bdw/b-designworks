@@ -3,6 +3,8 @@ class Provider < ActiveRecord::Base
 
   has_many :users
 
+  scope :not_subscriber, -> { where(subscriber: false) }
+
   validates :name, presence: true
 
   def self.default

@@ -6,6 +6,8 @@ resource "Providers" do
 
   subject(:response) { json_response_body }
 
+  let!(:subscriber_providers) { create_list(:provider, 2, subscriber: true) }
+
   before do
     create_list(:provider, 3)
   end
@@ -14,7 +16,7 @@ resource "Providers" do
     example_request "Get providers list" do
       expect(response_status).to eq 200
       expect(response["providers"].size).to eq(3)
-      expect(response["providers"].first).to be_a_provider_representation
+      expect(response["providers"]).to_not include ProviderSerializer.new(subscriber_providers.first).as_json
     end
   end
 end
