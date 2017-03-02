@@ -28,7 +28,7 @@
         "Content-Type": "application/json"
       },
       "response_content_type": "application/json",
-      "curl": "curl \"http://localhost:5000/v1/subscriptions/expire\" -d '' -X PATCH \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: 89QN1RBqXhgFT-bv8yfU\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-6920\""
+      "curl": "curl \"http://localhost:5000/v1/subscriptions/expire\" -d '' -X PATCH \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: qkmPj-6mrpwoo5vJF5nB\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-6142\""
     }
   ]
 }

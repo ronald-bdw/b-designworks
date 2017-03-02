@@ -28,7 +28,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users/sign_in",
-      "request_body": "phone_number=%2B1-727-819-5957&auth_phone_code_id=23&sms_code=4756",
+      "request_body": "phone_number=%2B1-727-819-1822&auth_phone_code_id=19&sms_code=3181",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -37,12 +37,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"user\": {\n    \"id\": 18,\n    \"zendesk_id\": \"1\",\n    \"first_name\": \"Regan\",\n    \"last_name\": \"Hauck\",\n    \"phone_number\": \"+1-727-819-5957\",\n    \"authentication_token\": \"xV3FL9rG2yvDKa8wyUNo\",\n    \"email\": \"user19@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": [\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Googlefit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Fitbit\",\n        \"status\": false\n      }\n    ],\n    \"first_popup_active\": true,\n    \"second_popup_active\": false,\n    \"provider\": {\n      \"id\": 21,\n      \"name\": \"facere\",\n      \"priority\": 9,\n      \"first_popup_message\": \"Nulla qui optio omnis rerum et molestiae quo perferendis.\",\n      \"second_popup_message\": \"Ea maxime qui corrupti aut voluptates nisi sequi.\"\n    }\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 14,\n    \"zendesk_id\": \"1\",\n    \"first_name\": \"Zander\",\n    \"last_name\": \"Thiel\",\n    \"phone_number\": \"+1-727-819-1822\",\n    \"authentication_token\": \"VP5M4n7h2HXWy2q3C_ti\",\n    \"email\": \"user15@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": [\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Googlefit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Fitbit\",\n        \"status\": false\n      }\n    ],\n    \"first_popup_active\": true,\n    \"second_popup_active\": false,\n    \"provider\": {\n      \"id\": 20,\n      \"name\": \"quo\",\n      \"priority\": 18,\n      \"first_popup_message\": \"Sunt molestias aut rerum quis.\",\n      \"second_popup_message\": \"Quibusdam corporis alias ipsam eius aut minima repellat aperiam.\",\n      \"subscriber\": false\n    }\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'phone_number=%2B1-727-819-5957&auth_phone_code_id=23&sms_code=4756' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"User-Agent: ios\""
+      "curl": "curl \"http://localhost:5000/v1/users/sign_in\" -d 'phone_number=%2B1-727-819-1822&auth_phone_code_id=19&sms_code=3181' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"User-Agent: ios\""
     }
   ]
 }

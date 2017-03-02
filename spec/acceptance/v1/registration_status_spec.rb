@@ -25,6 +25,7 @@ resource "Users registration status" do
       expect(status).to eq(201)
       expect(json_response_body).to include("phone_registered" => true)
       expect(json_response_body).to include("provider" => user.provider_name)
+      expect(json_response_body).to include("subscriber" => user.provider.subscriber)
     end
   end
 end

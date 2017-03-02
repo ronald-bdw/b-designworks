@@ -9,7 +9,8 @@ class RegistrationStatus
   def as_json(_options = nil)
     {
       phone_registered: phone_registered,
-      provider: provider
+      provider: provider&.name,
+      subscriber: provider&.subscriber
     }
   end
 
@@ -20,6 +21,6 @@ class RegistrationStatus
   end
 
   def provider
-    user&.provider_name
+    user&.provider
   end
 end

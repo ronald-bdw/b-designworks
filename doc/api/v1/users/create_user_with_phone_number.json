@@ -43,7 +43,7 @@
     {
       "request_method": "POST",
       "request_path": "/v1/users",
-      "request_body": "user[first_name]=Jovan&user[last_name]=Barrows&user[email]=user29%40example.com&user[phone_number]=%2B1-727-819-1889&auth_phone_code_id=35&sms_code=9419",
+      "request_body": "user[first_name]=Maude&user[last_name]=Gerhold&user[email]=user29%40example.com&user[phone_number]=%2B1-727-819-5466&auth_phone_code_id=35&sms_code=0675",
       "request_headers": {
         "Accept": "application/json"
       },
@@ -52,12 +52,12 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"user\": {\n    \"id\": 29,\n    \"zendesk_id\": \"1\",\n    \"first_name\": \"Jovan\",\n    \"last_name\": \"Barrows\",\n    \"phone_number\": \"+1-727-819-1889\",\n    \"authentication_token\": \"ChP-oUETeyfS7oNtVN-c\",\n    \"email\": \"user29@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": [\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Googlefit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Fitbit\",\n        \"status\": false\n      }\n    ],\n    \"first_popup_active\": false,\n    \"second_popup_active\": false,\n    \"provider\": null\n  }\n}",
+      "response_body": "{\n  \"user\": {\n    \"id\": 25,\n    \"zendesk_id\": \"1\",\n    \"first_name\": \"Maude\",\n    \"last_name\": \"Gerhold\",\n    \"phone_number\": \"+1-727-819-5466\",\n    \"authentication_token\": \"VxoVfCA4ef2EygwzsSLW\",\n    \"email\": \"user29@example.com\",\n    \"avatar\": {\n      \"original\": null,\n      \"thumb\": null\n    },\n    \"last_healthkit_activity\": null,\n    \"integrations\": [\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Googlefit\",\n        \"status\": false\n      },\n      {\n        \"fitness_token_id\": null,\n        \"name\": \"Fitbit\",\n        \"status\": false\n      }\n    ],\n    \"first_popup_active\": false,\n    \"second_popup_active\": false,\n    \"provider\": null\n  }\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Jovan&user[last_name]=Barrows&user[email]=user29%40example.com&user[phone_number]=%2B1-727-819-1889&auth_phone_code_id=35&sms_code=9419' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"X-User-Token: _cb2vcYj-5U-yPvovxza\" \\\n\t-H \"X-User-Phone-Number: +1-727-819-4525\""
+      "curl": "curl \"http://localhost:5000/v1/users\" -d 'user[first_name]=Maude&user[last_name]=Gerhold&user[email]=user29%40example.com&user[phone_number]=%2B1-727-819-5466&auth_phone_code_id=35&sms_code=0675' -X POST \\\n\t-H \"Accept: application/json\""
     }
   ]
 }
