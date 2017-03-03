@@ -10,7 +10,7 @@ class RegistrationStatus
     {
       phone_registered: phone_registered,
       provider: provider&.name,
-      subscriber: provider&.subscriber
+      subscriber: provider&.subscriber || false
     }
   end
 

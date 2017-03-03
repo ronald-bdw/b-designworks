@@ -10,7 +10,8 @@ class UserSerializer < ApplicationSerializer
     :last_healthkit_activity,
     :integrations,
     :first_popup_active,
-    :second_popup_active
+    :second_popup_active,
+    :trial_used
 
   belongs_to :provider
 
