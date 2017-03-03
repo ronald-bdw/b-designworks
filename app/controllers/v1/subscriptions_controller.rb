@@ -5,11 +5,15 @@ module V1
     acts_as_token_authentication_handler_for User
 
     expose(:subscription) { current_user.subscription || current_user.build_subscription }
+    expose(:provider) { Provider.find_by(subscriber: true) }
 
     def create
       current_user.update(trial_used: true) if subscription.new_record?
       subscription.update(subscription_params)
-      current_user.update(second_popup_active: true)
+      current_user.update(
+        second_popup_active: true,
+        provider: provider
+      )
 
       respond_with subscription
     end

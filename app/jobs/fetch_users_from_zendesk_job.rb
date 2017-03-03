@@ -27,6 +27,8 @@ class FetchUsersFromZendeskJob < ActiveJob::Base
     user.last_name = splitted_name.last_name || "LastName"
     user.email = zendesk_user.email
     user.zendesk_id = zendesk_user.id
+    user.first_popup_active = zendesk_user.user_fields.first_popup_active
+    user.second_popup_active = zendesk_user.user_fields.second_popup_active
     user.save
   end
 
