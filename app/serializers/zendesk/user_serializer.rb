@@ -1,6 +1,6 @@
 module Zendesk
   class UserSerializer < ApplicationSerializer
-    attributes :integrations, :notifications, :subscription, :device
+    attributes :integrations, :notifications, :subscription, :device, :provider_name, :previous_provider_name
 
     def integrations
       Users::Integrations.new(object).to_a
@@ -20,6 +20,18 @@ module Zendesk
         plan_name: subscription_plan_name,
         status: subscription_status
       }
+    end
+
+    def provider_name
+      return nil unless object.provider_id
+
+      Provider.find(object.provider_id).name
+    end
+
+    def previous_provider_name
+      return nil unless object.previous_provider_id
+
+      Provider.find(object.previous_provider_id).name
     end
 
     private
