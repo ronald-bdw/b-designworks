@@ -21,8 +21,8 @@ class FetchOrganizationsFromZendeskJob < ActiveJob::Base
     organization.name = zendesk_org.name
     organization.priority = zendesk_org.organization_fields.priority
     organization.subscriber = zendesk_org.organization_fields.subscriber
-    organization.first_popup_message = zendesk_org.organization_fields.first_popup_message
-    organization.second_popup_message = zendesk_org.organization_fields.second_popup_message
+    organization.first_popup_message = zendesk_org.organization_fields.first_popup_message || ""
+    organization.second_popup_message = zendesk_org.organization_fields.second_popup_message || ""
     organization.save
   end
 
