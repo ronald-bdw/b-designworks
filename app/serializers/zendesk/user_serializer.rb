@@ -1,6 +1,8 @@
 module Zendesk
   class UserSerializer < ApplicationSerializer
-    attributes :integrations, :notifications, :subscription, :device
+    PROVIDERS = %w(provider previous_provider).freeze
+
+    attributes :integrations, :notifications, :subscription, :device, :provider_name, :previous_provider_name
 
     def integrations
       Users::Integrations.new(object).to_a
@@ -20,6 +22,14 @@ module Zendesk
         plan_name: subscription_plan_name,
         status: subscription_status
       }
+    end
+
+    PROVIDERS.each do |provider|
+      define_method "#{provider}_name" do
+        return nil unless object.send("#{provider}_id")
+
+        Provider.find(object.send("#{provider}_id")).name
+      end
     end
 
     private

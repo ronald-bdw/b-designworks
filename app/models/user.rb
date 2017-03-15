@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :daily_steps, dependent: :destroy
 
   belongs_to :provider
+  belongs_to :previous_provider, class_name: "Provider"
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :first_name, :last_name, presence: true
