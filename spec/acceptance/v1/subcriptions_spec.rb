@@ -6,6 +6,8 @@ resource "Subcriptions" do
 
   let!(:user) { create(:user, second_popup_active: false) }
   let(:expires_at) { Time.current + 10.minutes }
+  let!(:provider) { user.provider }
+  let!(:second_provider) { create(:provider, subscriber: true) }
 
   before do
     setup_authentication_header(user)
@@ -35,6 +37,7 @@ resource "Subcriptions" do
         expect(response_status).to eq 201
         expect(user.subscription.plan_name).to eq "habit_starter"
         expect(user.second_popup_active).to be_truthy
+        expect(user.previous_provider).to eq(provider)
       end
     end
 
