@@ -12,7 +12,8 @@ module V1
       subscription.update(subscription_params)
       current_user.update(
         second_popup_active: true,
-        provider: provider
+        provider: provider,
+        previous_provider: set_previous_provider
       )
 
       respond_with subscription
@@ -37,6 +38,12 @@ module V1
         :purchased_at,
         :active
       )
+    end
+
+    def set_previous_provider
+      return current_user.previous_provider if current_user.provider == provider
+
+      current_user.provider
     end
   end
 end
