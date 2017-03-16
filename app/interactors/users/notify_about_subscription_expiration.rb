@@ -13,7 +13,7 @@ module Users
     private
 
     def users
-      User.includes(:subscription).where.not(subscriptions: { id: nil }).where(device: "android")
+      User.includes(:subscription).where.not(subscriptions: { id: nil, active: false }).where(device: "android")
     end
 
     def expires_after_10_days
