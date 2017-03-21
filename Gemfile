@@ -3,14 +3,15 @@ source "https://rubygems.org"
 ruby "2.3.1"
 
 # the most important stuff
-gem "rails", "4.2.7.1"
 gem "pg"
+gem "puma"
+gem "rails", "4.2.7.1"
 gem "rails-api"
 gem "rails_api_format", path: "lib/rails_api_format"
-gem "puma"
 
 # all other gems
 gem "active_model_serializers", git: "https://github.com/rails-api/active_model_serializers.git"
+gem "aws-sdk", "~> 2"
 gem "carrierwave"
 gem "decent_exposure"
 gem "delayed_job_active_record"
@@ -26,36 +27,36 @@ gem "phonelib"
 gem "rack-cors", require: "rack/cors"
 gem "responders"
 gem "rollbar"
+gem "ruby-progressbar"
 gem "rubyXL"
 gem "seedbank"
 gem "simple_token_authentication"
+gem "spreadsheet"
 gem "thin"
 gem "twilio-ruby", "~> 4.11.1"
-gem "zendesk_api"
 gem "whenever", require: false
-gem "spreadsheet"
-gem "aws-sdk", "~> 2"
+gem "zendesk_api"
 
 group :development do
-  gem "capistrano"
-  gem "capistrano3-puma", require: false
-  gem "capistrano3-delayed-job", require: false
-  gem "capistrano-rails", require: false
-  gem "capistrano-bundler", require: false
-  gem "capistrano-rbenv", require: false
-  gem "mail_safe"
   gem "bullet"
+  gem "capistrano"
+  gem "capistrano-bundler", require: false
+  gem "capistrano-rails", require: false
+  gem "capistrano-rbenv", require: false
+  gem "capistrano3-delayed-job", require: false
+  gem "capistrano3-puma", require: false
   gem "foreman"
   gem "letter_opener"
+  gem "mail_safe"
   gem "spring"
   gem "spring-commands-rspec"
 end
 
 group :development, :test do
-  gem "pry-rails"
   gem "brakeman"
   gem "bundler-audit"
   gem "byebug"
+  gem "pry-rails"
   gem "rspec-rails"
   gem "rubocop"
 end
@@ -72,10 +73,10 @@ group :test do
 end
 
 group :development, :test, :staging do
-  gem "faker"
-  gem "factory_girl_rails"
-  gem "rspec_api_documentation"
   gem "apitome"
+  gem "factory_girl_rails"
+  gem "faker"
+  gem "rspec_api_documentation"
 end
 
 group :staging, :production do
