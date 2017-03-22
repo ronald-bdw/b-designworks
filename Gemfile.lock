@@ -434,6 +434,7 @@ DEPENDENCIES
   rspec-rails
   rspec_api_documentation
   rubocop
+  ruby-progressbar
   rubyXL
   seedbank
   shoulda-matchers
@@ -453,4 +454,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.6
+   1.14.5
