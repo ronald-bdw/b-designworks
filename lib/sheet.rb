@@ -10,6 +10,7 @@ class Sheet < Spreadsheet::Worksheet
     LastName
     Email
     Organization
+    PreviousOrganization
     Fitbit
     GoogleFit
     Health

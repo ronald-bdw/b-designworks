@@ -16,13 +16,15 @@ class UserDailySteps
   def query
     <<~SQL
       SELECT user_id, users.project_id, users.first_name, users.last_name, users.email, providers.name as provider_name,
-        daily_steps.source, json_object_agg(daily_steps.started_at, daily_steps.steps_count) as steps
+        previous_providers.name as previous_provider_name, daily_steps.source,
+        json_object_agg(daily_steps.started_at, daily_steps.steps_count) as steps
         FROM daily_steps
         INNER JOIN users ON users.id = daily_steps.user_id
         INNER JOIN providers ON providers.id = daily_steps.provider_id
+        LEFT JOIN providers previous_providers ON previous_providers.id = users.previous_provider_id
         WHERE daily_steps.provider_id = #{provider_id} AND steps_count > 0 AND
         (daily_steps.started_at BETWEEN '#{interval.first.beginning_of_month.to_datetime}' AND '#{interval.last.end_of_month.to_datetime}')
-        GROUP BY user_id, users.project_id, users.first_name, users.last_name, users.email, providers.name, daily_steps.source
+        GROUP BY user_id, users.project_id, users.first_name, users.last_name, users.email, providers.name, previous_providers.name, daily_steps.source
         ORDER BY users.first_name
     SQL
   end
