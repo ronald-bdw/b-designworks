@@ -1,10 +1,10 @@
 module Users
-  class NotifyAboutSubscriptionExpiration
+  class UrgentNotifyAboutSubscriptionExpiration
     include Interactor
 
     def call
       users.each do |user|
-        AndroidSubscriptionsMailer.expiration_in_10_days(user).deliver_now!
+        AndroidSubscriptionsMailer.expiration_in_24_hours(user).deliver_now!
       end
     end
 
@@ -18,7 +18,7 @@ module Users
     end
 
     def expires_after
-      (Time.now + 10.days).beginning_of_day..(Time.now + 10.days).end_of_day
+      (Time.now + 1.days)..(Time.now + 1.days + 1.hour)
     end
   end
 end

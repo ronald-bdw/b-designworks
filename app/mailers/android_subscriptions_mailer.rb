@@ -1,13 +1,15 @@
 class AndroidSubscriptionsMailer < ActionMailer::Base
-  DATE_INTERVALS = %w(10_days 24_hours).freeze
-
   default from: "from@b-designworks.com"
 
-  DATE_INTERVALS.each do |interval|
-    define_method("expiration_in_#{interval}") do |user|
-      @user = user
+  def expiration_in_10_days(user)
+    @user = user
 
-      mail(to: user.email, subject: "B-Designworks subscription expiration")
-    end
+    mail(to: user.email, subject: "B-Designworks subscription expiration in 10 days")
+  end
+
+  def expiration_in_24_hours(user)
+    @user = user
+
+    mail(to: user.email, subject: "B-Designworks subscription expiration in 24 hours")
   end
 end
