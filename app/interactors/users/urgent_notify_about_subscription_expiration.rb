@@ -4,7 +4,7 @@ module Users
 
     def call
       users.each do |user|
-        AndroidSubscriptionsMailer.expiration_in_24_hours(user).deliver_now!
+        AndroidSubscriptionsMailer.urgent_subscription_expiration(user).deliver_later
       end
     end
 

@@ -1,11 +1,11 @@
-namespace :notify_about_subscription_expiration do
+namespace :notify_about do
   desc "Notify users about subscription expiration in 10 days"
-  task after_10_days: :environment do
+  task subscription_expiration: :environment do
     Users::NotifyAboutSubscriptionExpiration.call
   end
 
   desc "Notify users about subscription expiration in 24 hours"
-  task after_24_hours: :environment do
+  task urgent_subscription_expiration: :environment do
     Users::UrgentNotifyAboutSubscriptionExpiration.call
   end
 end
