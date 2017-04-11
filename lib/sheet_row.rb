@@ -1,6 +1,7 @@
 class SheetRow
   attr_reader :activity, :source, :interval, :new_user
   private :activity, :source, :interval, :new_user
+  USER_ATTRIBUTES = %w(project_id first_name last_name email provider_name previous_provider_name).freeze
 
   def initialize(options)
     @activity = options[:activity]
@@ -16,12 +17,12 @@ class SheetRow
   private
 
   def user_attributes
-    %w(project_id first_name last_name email provider_name).map do |field|
-      if new_user
-        activity[field] || 0
-      else
-        ""
-      end
+    return Array.new(USER_ATTRIBUTES.length, "") unless new_user
+
+    USER_ATTRIBUTES.map do |field|
+      default_value = (field == "previous_provider_name" ? "" : 0)
+
+      activity[field] || default_value
     end
   end
 
