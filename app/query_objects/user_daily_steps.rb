@@ -8,6 +8,7 @@ class UserDailySteps
   end
 
   def all
+    return [] if interval.begin >= Date.today
     ActiveRecord::Base.connection.execute(query)
   end
 
@@ -29,11 +30,12 @@ class UserDailySteps
           SELECT users.id, users.project_id, users.first_name first_name, users.last_name last_name, users.email, providers.name as provider_name,
           previous_providers.name as previous_provider_name, 0, json_build_object('{#{interval.first.beginning_of_month.to_datetime}}', 0)
           FROM users
+          LEFT JOIN daily_steps ON users.id = daily_steps.user_id
           INNER JOIN providers ON providers.id = users.provider_id
           LEFT JOIN providers previous_providers ON previous_providers.id = users.previous_provider_id
           WHERE users.provider_id = #{provider_id}
-          AND device NOT IN ('') AND users.id NOT IN (
-            SELECT user_id FROM daily_steps)
+          AND users.device != ''
+          AND daily_steps.id IS NULL
         ORDER BY first_name, last_name;
     SQL
   end
