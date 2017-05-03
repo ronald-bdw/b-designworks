@@ -9,12 +9,9 @@ module V1
 
     def create
       current_user.update(trial_used: true) if subscription.new_record?
-      subscription.update(subscription_params)
-      current_user.update(
-        second_popup_active: true,
-        provider: provider,
-        previous_provider: set_previous_provider
-      )
+      if subscription.update(subscription_params)
+        ::Users::Subscriptions::Create.call(user: current_user, provider: provider)
+      end
 
       respond_with subscription
     end
@@ -38,12 +35,6 @@ module V1
         :purchased_at,
         :active
       )
-    end
-
-    def set_previous_provider
-      return current_user.previous_provider if current_user.provider == provider
-
-      current_user.provider
     end
   end
 end
