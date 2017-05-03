@@ -11,6 +11,7 @@ resource "Subcriptions" do
 
   before do
     setup_authentication_header(user)
+    stub_zendesk_user_update
   end
 
   post "/v1/subscriptions" do
