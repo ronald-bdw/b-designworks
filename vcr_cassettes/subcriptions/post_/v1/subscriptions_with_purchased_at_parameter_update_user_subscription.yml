@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://yourdomain.zendesk.com/api/v2/users/1
+    body:
+      encoding: UTF-8
+      string: '{"user":{"organization_id":"1"}}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - ZendeskAPI Ruby 1.14.0
+      Authorization:
+      - Basic dXNlcm5hbWUvdG9rZW46dG9rZW4=
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 404
+      message: 
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 03 May 2017 10:08:39 GMT
+      content-type:
+      - application/json; charset=UTF-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      strict-transport-security:
+      - max-age=0;
+      x-ua-compatible:
+      - IE=Edge,chrome=1
+      cache-control:
+      - no-cache
+      x-zendesk-origin-server:
+      - app4.pod5.iad1.zdsys.com
+      x-request-id:
+      - 5e614a9f-3f7a-43c6-c3b3-b8ca3a6b1aa8
+      x-runtime:
+      - '0.018082'
+      x-rack-cache:
+      - invalidate, pass
+      x-zendesk-request-id:
+      - 21a16ff453f178cbc35e
+      content-encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA02OQQ6DMAwE77zCyrmCO4/oiQ+4iQtWEwcloahF/L0OqBLH
+        8XpHuzUAhlKKyfSwKSgWLp4UzT3CRH4GR/kFWOATl+RiQJb2S1KvrY3B3M5a
+        oJxxPIrDRImAM8jVYKM8eVwSuSork+boXNJaC0OlQChZgyOlf1g9+Eb2+PB6
+        FHd+6BiwKGA9cgAu1TmVMvddt67rdWCXeZRlNjpzb/bmB5FPxYDzAAAA
+    http_version: 
+  recorded_at: Wed, 03 May 2017 10:08:39 GMT
+recorded_with: VCR 3.0.3
