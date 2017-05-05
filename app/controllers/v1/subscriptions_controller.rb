@@ -10,7 +10,7 @@ module V1
     def create
       current_user.update(trial_used: true) if subscription.new_record?
       if subscription.update(subscription_params)
-        ::Users::Subscriptions::Create.call(user: current_user, provider: provider)
+        ::Users::Subscriptions::CreationManager.call(user: current_user, provider: provider)
       end
 
       respond_with subscription

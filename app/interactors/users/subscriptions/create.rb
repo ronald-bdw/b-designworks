@@ -7,7 +7,7 @@ module Users
 
       def call
         if user.update(update_params)
-          ZENDESK_CLIENT.users.update!(id: user.zendesk_id, "organization_id" => provider.zendesk_id)
+          context.user = user
         else
           context.fail!
         end
